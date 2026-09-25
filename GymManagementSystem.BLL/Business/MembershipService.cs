@@ -7,29 +7,68 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace GymManagementSystem.BLL.Services
 {
-    public enum MembershipOperationResultCode
+    public enum CreateMembershipOperationResult
     {
         Success,
         InvalidData,
         NotExistPlan,
         NotExistMember,
         NotActiveMember,        
-        NotActivePlan,
-        ActiveMembershipAlreadyExists,
+        NotActivePlan,       
         OverlappedMembership,
         OutstandingDebt,
         Failed
 
     }
-
-    public static class MembershipService
+    public enum UpdateMembershipOperationResult
     {
-        public static DataTable GetAll()
+        Success,
+        InvalidData,
+        NotExistPlan,
+        NotExistMembership,
+        ExpiredMembership,
+        HasLinkedData,
+        NotActiveMember,
+        NotActivePlan,
+        OverlappedMembership,
+        Failed
+
+    }
+
+    public abstract class MembershipService
+    {
+        private bool IsValidStartDate(DateTime startDate) => startDate.Date >= DateTime.Today;
+
+        private bool IsMembershipOverlapping(int memberID,DateTime startDate,DateTime endDate)
+        {
+            return MembershipsData.IsMembershipOverlapping(memberID,startDate,endDate);
+        }
+
+        private bool HasOutstandingDebt(int memberID) => MembershipsData.HasOutstandingDebt(memberID);        
+
+        private bool IsExpiredMembership(DateTime endDate) => endDate < DateTime.Today;
+
+        private bool IsMembershipOverlappingExcluding(int membershipID, int memberID,  DateTime startDate, DateTime endDate)
+        {
+            return MembershipsData.IsMembershipOverlappingForUpdate(membershipID, memberID, startDate, endDate);
+        }
+
+        private OperationResult<CreateMembershipOperationResult, int> FailerResult(CreateMembershipOperationResult result)
+        {
+            return new OperationResult<CreateMembershipOperationResult, int>(result);
+        }
+        private OperationResult<UpdateMembershipOperationResult, bool> FailerResult(UpdateMembershipOperationResult result)
+        {
+            return new OperationResult<UpdateMembershipOperationResult, bool>(result);
+        }
+       
+
+        public DataTable GetAll()
         {
             return MembershipsData.GetAll();
         }
 
-        public static Membership GetByID(int membershipID)
+        public Membership GetByID(int membershipID)
         {
             DataRow row = MembershipsData.GetByID(membershipID);
 
@@ -43,88 +82,83 @@ namespace GymManagementSystem.BLL.Services
                 (DateTime)row["EndDate"],
                 (float)row["TotalAmount"]
             );
-        }
+        }      
 
-        public static Membership GetActiveMembershipByMemberID(int memberID)
+        public OperationResult<CreateMembershipOperationResult,int> CreateMembership(int memberID, int planID, DateTime startDate)
         {
-            DataRow row = MembershipsData.GetActiveMembershipByMemberID(memberID);
-
-            if (row == null) return null;
-
-            return new Membership(
-                (int)row["MembershipID"],
-                (int)row["MemberID"],
-                (int)row["PlanID"],
-                (DateTime)row["StartDate"],
-                (DateTime)row["EndDate"],
-                (float)row["TotalAmount"]
-            );
-        }
-
-        public static OperationResult<MembershipOperationResultCode,int> CreateMembership(
-            int memberID, int planID, DateTime startDate)
-        {
+            // Validate Member
             DataRow drMember = MembersData.GetByID(memberID);
 
-            if(drMember == null) return new OperationResult<MembershipOperationResultCode,int>(
-                MembershipOperationResultCode.NotExistMember);
+            if (drMember == null) FailerResult(CreateMembershipOperationResult.NotExistMember);
 
-            if (!(bool)drMember["IsActive"])
-                return new OperationResult<MembershipOperationResultCode, int>(
-                MembershipOperationResultCode.NotActiveMember);
+            if (!(bool)drMember["IsActive"]) FailerResult(CreateMembershipOperationResult.NotActiveMember);
 
-
+            // Validate Plan
             DataRow drPlan = PlansData.GetByID(planID);
 
-            if (drPlan == null) return new OperationResult<MembershipOperationResultCode, int>(
-                MembershipOperationResultCode.NotExistPlan);
+            if (drPlan == null) FailerResult(CreateMembershipOperationResult.NotExistPlan);
 
-            if (!(bool)drPlan["IsActive"])
-                return new OperationResult<MembershipOperationResultCode, int>(
-               MembershipOperationResultCode.NotActivePlan);
+            if (!(bool)drPlan["IsActive"]) FailerResult(CreateMembershipOperationResult.NotActivePlan);
 
-            if(startDate < DateTime.Today) return new OperationResult<MembershipOperationResultCode, int>(
-               MembershipOperationResultCode.InvalidData);
+            // Validate StartDate
+            if (!IsValidStartDate(startDate)) FailerResult(CreateMembershipOperationResult.InvalidData);
 
-            DataRow drActiveMembership = MembershipsData.GetActiveMembershipByMemberID(memberID);
+            DateTime endDate = startDate.AddDays((int)drPlan["DurationInDays"]);
 
-            if (drActiveMembership != null && IsDateBetweenTwoDates((DateTime)drActiveMembership["StartDate"]), (DateTime))
-            
-                return new OperationResult<MembershipOperationResultCode, int>(
-                    MembershipOperationResultCode.ActiveMembershipAlreadyExists);                           
+            // Validate Overlapping Membership
+            if (IsMembershipOverlapping(memberID, startDate, endDate)) FailerResult(CreateMembershipOperationResult.OverlappedMembership);
 
-            if()
-
-                return new OperationResult<MembershipOperationResultCode, int>(
-                    MembershipOperationResultCode.OutstandingDebt);
+            // Validate Outstanding Debt
+            if (HasOutstandingDebt(memberID)) FailerResult(CreateMembershipOperationResult.OutstandingDebt);                                  
 
 
-            int? membershipID = MembershipsData.Create(memberID, planID, startDate, PlansData.GetPlanPrice(planID));
+            int? membershipID = MembershipsData.Create(memberID, planID, startDate, endDate, (float)drPlan["Price"]);
 
-            if (!membershipID.HasValue)
-            {
-                return new OperationResult<MembershipOperationResultCode, int>(
-                    MembershipOperationResultCode.Failed);
-            }
+            if (!membershipID.HasValue) FailerResult(CreateMembershipOperationResult.Failed);
 
-            return new OperationResult<MembershipOperationResultCode, int>(
-                MembershipOperationResultCode.Success,
-                membershipID.Value);
+            return new OperationResult<CreateMembershipOperationResult, int>(CreateMembershipOperationResult.Success,membershipID.Value);
         }
 
-        public static OperationResult<MembershipOperationResultCode, bool> UpdateMembership(
-            int membershipID, int memberID, int planID, DateTime startDate)
+        public OperationResult<UpdateMembershipOperationResult, bool> UpdateMembership(int membershipID, int planID, DateTime startDate)
         {          
-            bool updated = MembershipsData.Update(membershipID, memberID, planID, startDate, PlansData.GetPlanPrice(planID));
 
-            if (!updated)
-            {
-                return new OperationResult<MembershipOperationResultCode, bool>(
-                    MembershipOperationResultCode.Failed, false);
-            }
+            DataRow drMembership = MembershipsData.GetByID(membershipID);
 
-            return new OperationResult<MembershipOperationResultCode, bool>(
-                MembershipOperationResultCode.Success, true);
+            if (drMembership == null) FailerResult(UpdateMembershipOperationResult.NotExistMembership);
+
+            if (IsExpiredMembership((DateTime)drMembership["EndDate"])) FailerResult(UpdateMembershipOperationResult.ExpiredMembership);
+
+            if (MembershipsData.HasPayments(membershipID)) FailerResult(UpdateMembershipOperationResult.HasLinkedData);
+
+            if (MembershipsData.HasAttendance(membershipID)) FailerResult(UpdateMembershipOperationResult.HasLinkedData);
+
+            // Validate StartDate
+            if (!IsValidStartDate(startDate)) FailerResult(UpdateMembershipOperationResult.InvalidData);
+
+            // Validate Member
+            int memberID = (int)drMembership["MemberID"];
+
+            DataRow drMember = MembersData.GetByID(memberID);
+
+            if (!(bool)drMember["IsActive"]) FailerResult(UpdateMembershipOperationResult.NotActiveMember);
+
+            // Validate Plan
+            DataRow drPlan = PlansData.GetByID(planID);
+
+            if (drPlan == null) FailerResult(UpdateMembershipOperationResult.NotExistPlan);
+
+            if (!(bool)drPlan["IsActive"]) FailerResult(UpdateMembershipOperationResult.NotActivePlan);
+
+            DateTime endDate = startDate.AddDays((int)drPlan["DurationInDays"]);
+
+            if (IsMembershipOverlappingExcluding(membershipID, memberID, startDate, endDate)) FailerResult(UpdateMembershipOperationResult.OverlappedMembership); ;
+
+
+            bool updated = MembershipsData.Update(membershipID, planID, startDate, PlansData.GetPlanPrice(planID));
+
+            if (!updated) FailerResult(UpdateMembershipOperationResult.Failed);
+
+            return new OperationResult<UpdateMembershipOperationResult, bool>(UpdateMembershipOperationResult.Success, true);
         }
     }
 }

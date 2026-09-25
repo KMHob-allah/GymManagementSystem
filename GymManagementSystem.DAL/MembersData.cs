@@ -179,6 +179,19 @@ namespace GymManagementSystem.DAL
             }
         }
 
+        public static bool DoesMemberExist(int memberID)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            using (SqlCommand command = new SqlCommand("sp_Members_Exists", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
 
+                command.Parameters.AddWithValue("@MemberID", memberID);
+
+                connection.Open();
+
+                return Convert.ToBoolean(command.ExecuteScalar());
+            }
+        }
     }
 }
