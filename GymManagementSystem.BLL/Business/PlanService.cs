@@ -6,27 +6,62 @@ using System.Data;
 
 namespace GymManagementSystem.BLL.Business
 {
-    public enum PlanOperationResultCode
-        {
-            Success,
-            InvalidData,
-            Failed
-        }
+    public enum PlanResult
+    {
+        Success,
+        InvalidData,
+        DuplicateName,
+        Failed
+    }
 
-    public static class PlanService
+    public abstract class PlanService
     {
         // TODO: Authorization
         // TODO: Audit Logging
         // TODO: Exceptions
 
-        // Functions to validate will be here
+        private bool IsValidPlanName(string name)
+        {
+            return !string.IsNullOrEmpty(name);
+        }
+
+        private bool IsValidPrice(float price)
+        {
+            return price >= 0;
+        }
+
+        private bool IsValidDuration(int duration)
+        {
+            return duration > 0;
+        }
+
+        private bool IsPlanNameExists(string name)
+        {
+            return PlansData.IsPlanNameExists(name);
+        }
+
+        private bool IsPlanNameExistsForOtherPlan(string name, int planID)
+        {
+            return PlansData.IsPlanNameExistsForOtherPlan(name, planID);
+        }
         
-        public static DataTable GetAll()
+        private OperationResult<PlanResult, int> CreateFailerResult(PlanResult Result)
+        {
+            return new OperationResult<PlanResult, int> (Result);
+        }
+
+        private OperationResult<PlanResult, bool> UpdateFailerResult(PlanResult Result)
+        {
+            return new OperationResult<PlanResult, bool>(Result);
+        }
+
+
+        public DataTable GetAll()
         {
             return PlansData.GetAll();
         }
 
-        public static Plan GetByID(int planID)
+        public Plan GetByID(int planID)
         {
             DataRow row = PlansData.GetByID(planID);
 
@@ -41,52 +76,56 @@ namespace GymManagementSystem.BLL.Business
             );
         }
 
-        public static OperationResult<PlanOperationResultCode, int> CreatePlan(string planName,
-            int durationInDays, float price, bool isActive)
+        public OperationResult<PlanResult, int> CreatePlan(string planName, int durationInDays, float price, bool isActive)
         {
-            // Calling functions to validate will be here
+
+            if (!IsValidPlanName(planName)) CreateFailerResult(PlanResult.InvalidData);
+
+            if (!IsValidDuration(durationInDays)) CreateFailerResult(PlanResult.InvalidData);
+
+            if (!IsValidPrice(price)) CreateFailerResult(PlanResult.InvalidData);
+
+            if (IsPlanNameExists(planName)) CreateFailerResult(PlanResult.DuplicateName);
+
 
             int? planID = PlansData.Create(planName, durationInDays, price, isActive);
 
-            if (!planID.HasValue)
-            {
-                return new OperationResult<PlanOperationResultCode, int>(
-                    PlanOperationResultCode.Failed);
-            }
+            if (!planID.HasValue) CreateFailerResult(PlanResult.Failed);            
 
-            return new OperationResult<PlanOperationResultCode, int>(
-                PlanOperationResultCode.Success,
-                planID.Value);
+            return new OperationResult<PlanResult, int>(PlanResult.Success, planID.Value);
         }
 
-        public static OperationResult<PlanOperationResultCode, bool> UpdatePlan(int planID,string planName,
-            int durationInDays, float price)
-        {            
-            // Validations will be here 
+        public  OperationResult<PlanResult, bool> UpdatePlan(int planID,string planName, int durationInDays, float price)
+        {
+
+            if (!IsValidPlanName(planName)) UpdateFailerResult(PlanResult.InvalidData);
+
+            if (!IsValidDuration(durationInDays)) UpdateFailerResult(PlanResult.InvalidData);
+
+            if (!IsValidPrice(price)) UpdateFailerResult(PlanResult.InvalidData);
+
+            if (IsPlanNameExistsForOtherPlan(planName, planID)) UpdateFailerResult(PlanResult.DuplicateName);
+
 
             bool updated = PlansData.Update(planID, planName, durationInDays, price);
 
-            if (!updated)
-            {
-                return new OperationResult<PlanOperationResultCode, bool>
-                    (PlanOperationResultCode.Failed, false);
-            }
+            if (!updated) UpdateFailerResult(PlanResult.Failed);
 
-            return new OperationResult<PlanOperationResultCode, bool>(
-                PlanOperationResultCode.Success, true);
+            return new OperationResult<PlanResult, bool>(PlanResult.Success, true);
         }
 
-        public static bool ActivatePlan(int planID)
+        public bool ActivatePlan(int planID)
         {
             return PlansData.Activate(planID);
         }
 
-        public static bool DeactivatePlan(int planID)
+        public bool DeactivatePlan(int planID)
         {
             return PlansData.Deactivate(planID);
         }
 
-        public static float? GetPlanPrice(int planID)
+
+        public float? GetPlanPrice(int planID)
         {
             return PlansData.GetPlanPrice(planID);
         }
