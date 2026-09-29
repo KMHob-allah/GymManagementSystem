@@ -3,14 +3,11 @@ using System.Linq;
 
 namespace GymManagementSystem.BLL.Entities
 {
-    public enum Gender
-    {
-        Male = 0,
-        Female = 1
-    }
+    public enum Gender {Male , Female}
 
     public abstract class Person
     {
+        protected enum eMode { Add, Update };
         public int PersonID { get; protected set; }
 
         public string FirstName { get; protected set; }

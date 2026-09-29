@@ -54,34 +54,44 @@ namespace GymManagementSystem.DAL
             }
         }
 
-        public static int? Create(string firstName,string secondName,string thirdName,string lastName,
-            string phoneNumber,DateTime birthDate,bool gender,string area, string emergencyPhone)
+        public static (int PersonID, int MemberID)? Create(
+            string firstName,
+            string secondName,
+            string thirdName,
+            string lastName,
+            string phoneNumber,
+            DateTime birthDate,
+            bool gender,
+            string area,
+            string emergencyPhone)
         {
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            using (SqlCommand command = new SqlCommand("sp_Members_Create", connection))
             {
-                using (SqlCommand command = new SqlCommand("sp_Members_Create", connection))
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("@FirstName", SqlDbType.NVarChar, 50).Value = firstName;
+                command.Parameters.Add("@SecondName", SqlDbType.NVarChar, 50).Value = secondName;
+                command.Parameters.Add("@ThirdName", SqlDbType.NVarChar, 50).Value =
+                    string.IsNullOrWhiteSpace(thirdName) ? (object)DBNull.Value : thirdName;
+                command.Parameters.Add("@LastName", SqlDbType.NVarChar, 50).Value = lastName;
+                command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 11).Value = phoneNumber;
+                command.Parameters.Add("@BirthDate", SqlDbType.Date).Value = birthDate;
+                command.Parameters.Add("@Gender", SqlDbType.Bit).Value = gender;
+                command.Parameters.Add("@Area", SqlDbType.NVarChar, 100).Value = area;
+                command.Parameters.Add("@EmergencyPhone", SqlDbType.VarChar, 11).Value = emergencyPhone;
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    command.CommandType = CommandType.StoredProcedure;
-
-                    command.Parameters.Add("@FirstName", SqlDbType.NVarChar, 50).Value = firstName;
-                    command.Parameters.Add("@SecondName", SqlDbType.NVarChar, 50).Value = secondName;
-                    command.Parameters.Add("@ThirdName", SqlDbType.NVarChar, 50).Value =
-                        string.IsNullOrWhiteSpace(thirdName) ? (object)DBNull.Value : thirdName;
-                    command.Parameters.Add("@LastName", SqlDbType.NVarChar, 50).Value = lastName;
-                    command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 11).Value = phoneNumber;
-                    command.Parameters.Add("@BirthDate", SqlDbType.Date).Value = birthDate;
-                    command.Parameters.Add("@Gender", SqlDbType.Bit).Value = gender;
-                    command.Parameters.Add("@Area", SqlDbType.NVarChar, 100).Value = area;
-                    command.Parameters.Add("@EmergencyPhone", SqlDbType.VarChar, 11).Value = emergencyPhone;
-
-                    connection.Open();
-
-                    object result = command.ExecuteScalar();
-
-                    if (result == null || result == DBNull.Value)
+                    if (!reader.Read())
                         return null;
 
-                    return Convert.ToInt32(result);
+                    return (
+                        Convert.ToInt32(reader["PersonID"]),
+                        Convert.ToInt32(reader["MemberID"])
+                    );
                 }
             }
         }
