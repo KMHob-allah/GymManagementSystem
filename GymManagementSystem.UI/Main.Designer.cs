@@ -29,32 +29,32 @@
         private void InitializeComponent()
         {
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.pnlContent = new System.Windows.Forms.Panel();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.iconButton12 = new FontAwesome.Sharp.IconButton();
+            this.iconButton11 = new FontAwesome.Sharp.IconButton();
+            this.iconButton10 = new FontAwesome.Sharp.IconButton();
+            this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.flpnlSidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.pnlSidebar = new System.Windows.Forms.Panel();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.flpnlSidebar = new System.Windows.Forms.FlowLayoutPanel();
-            this.iconButton10 = new FontAwesome.Sharp.IconButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton11 = new FontAwesome.Sharp.IconButton();
-            this.iconButton12 = new FontAwesome.Sharp.IconButton();
+            this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlMain.SuspendLayout();
-            this.pnlSidebar.SuspendLayout();
             this.pnlHeader.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.flpnlSidebar.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.pnlSidebar.SuspendLayout();
+            this.flpnlSidebar.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -67,6 +67,112 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1148, 685);
             this.pnlMain.TabIndex = 0;
+            // 
+            // pnlContent
+            // 
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent.Location = new System.Drawing.Point(207, 34);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(941, 651);
+            this.pnlContent.TabIndex = 6;
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
+            this.pnlHeader.Controls.Add(this.panel2);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(207, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(941, 34);
+            this.pnlHeader.TabIndex = 5;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.iconButton12);
+            this.panel2.Controls.Add(this.iconButton11);
+            this.panel2.Controls.Add(this.iconButton10);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(794, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(147, 34);
+            this.panel2.TabIndex = 7;
+            // 
+            // iconButton12
+            // 
+            this.iconButton12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconButton12.FlatAppearance.BorderSize = 0;
+            this.iconButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton12.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.iconButton12.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
+            this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton12.IconSize = 25;
+            this.iconButton12.Location = new System.Drawing.Point(0, 0);
+            this.iconButton12.Name = "iconButton12";
+            this.iconButton12.Size = new System.Drawing.Size(47, 34);
+            this.iconButton12.TabIndex = 8;
+            this.iconButton12.UseVisualStyleBackColor = true;
+            this.iconButton12.Click += new System.EventHandler(this.iconButton12_Click);
+            // 
+            // iconButton11
+            // 
+            this.iconButton11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton11.FlatAppearance.BorderSize = 0;
+            this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.Square;
+            this.iconButton11.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
+            this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton11.IconSize = 20;
+            this.iconButton11.Location = new System.Drawing.Point(47, 0);
+            this.iconButton11.Name = "iconButton11";
+            this.iconButton11.Size = new System.Drawing.Size(50, 34);
+            this.iconButton11.TabIndex = 7;
+            this.iconButton11.UseVisualStyleBackColor = true;
+            this.iconButton11.Click += new System.EventHandler(this.iconButton11_Click);
+            // 
+            // iconButton10
+            // 
+            this.iconButton10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton10.FlatAppearance.BorderSize = 0;
+            this.iconButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
+            this.iconButton10.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
+            this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton10.IconSize = 30;
+            this.iconButton10.Location = new System.Drawing.Point(97, 0);
+            this.iconButton10.Name = "iconButton10";
+            this.iconButton10.Size = new System.Drawing.Size(50, 34);
+            this.iconButton10.TabIndex = 6;
+            this.iconButton10.UseVisualStyleBackColor = true;
+            this.iconButton10.Click += new System.EventHandler(this.iconButton10_Click);
+            // 
+            // pnlSidebar
+            // 
+            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.pnlSidebar.Controls.Add(this.flpnlSidebar);
+            this.pnlSidebar.Controls.Add(this.panel1);
+            this.pnlSidebar.Controls.Add(this.panel3);
+            this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
+            this.pnlSidebar.Name = "pnlSidebar";
+            this.pnlSidebar.Size = new System.Drawing.Size(207, 685);
+            this.pnlSidebar.TabIndex = 4;
+            // 
+            // flpnlSidebar
+            // 
+            this.flpnlSidebar.Controls.Add(this.btnDashboard);
+            this.flpnlSidebar.Controls.Add(this.iconButton4);
+            this.flpnlSidebar.Controls.Add(this.iconButton1);
+            this.flpnlSidebar.Controls.Add(this.iconButton3);
+            this.flpnlSidebar.Controls.Add(this.iconButton2);
+            this.flpnlSidebar.Controls.Add(this.iconButton7);
+            this.flpnlSidebar.Controls.Add(this.iconButton5);
+            this.flpnlSidebar.Controls.Add(this.iconButton8);
+            this.flpnlSidebar.Controls.Add(this.iconButton6);
+            this.flpnlSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpnlSidebar.Location = new System.Drawing.Point(0, 34);
+            this.flpnlSidebar.Name = "flpnlSidebar";
+            this.flpnlSidebar.Size = new System.Drawing.Size(207, 599);
+            this.flpnlSidebar.TabIndex = 5;
             // 
             // btnDashboard
             // 
@@ -112,48 +218,7 @@
             this.iconButton4.Text = "          Members   ";
             this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton4.UseVisualStyleBackColor = false;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(147)))), ((int)(((byte)(157)))));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.UsersGear;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 30;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(5, 234);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(5);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(198, 46);
-            this.iconButton2.TabIndex = 21;
-            this.iconButton2.Text = "          Trainers";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(147)))), ((int)(((byte)(157)))));
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Calendar;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 30;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(5, 178);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(5);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(198, 46);
-            this.iconButton3.TabIndex = 22;
-            this.iconButton3.Text = "          Plans";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.UseVisualStyleBackColor = false;
+            this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click);
             // 
             // iconButton1
             // 
@@ -176,26 +241,47 @@
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
-            // iconButton5
+            // iconButton3
             // 
-            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(147)))), ((int)(((byte)(157)))));
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.HandHoldingUsd;
-            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 30;
-            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(5, 346);
-            this.iconButton5.Margin = new System.Windows.Forms.Padding(5);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(198, 46);
-            this.iconButton5.TabIndex = 24;
-            this.iconButton5.Text = "          Payments";
-            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.UseVisualStyleBackColor = false;
+            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.iconButton3.FlatAppearance.BorderSize = 0;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(147)))), ((int)(((byte)(157)))));
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Calendar;
+            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.IconSize = 30;
+            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton3.Location = new System.Drawing.Point(5, 178);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(5);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(198, 46);
+            this.iconButton3.TabIndex = 22;
+            this.iconButton3.Text = "          Plans";
+            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton3.UseVisualStyleBackColor = false;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(147)))), ((int)(((byte)(157)))));
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.UsersGear;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 30;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.Location = new System.Drawing.Point(5, 234);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(5);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(198, 46);
+            this.iconButton2.TabIndex = 21;
+            this.iconButton2.Text = "          Trainers";
+            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.UseVisualStyleBackColor = false;
             // 
             // iconButton7
             // 
@@ -217,6 +303,27 @@
             this.iconButton7.Text = "          Attendances";
             this.iconButton7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton7.UseVisualStyleBackColor = false;
+            // 
+            // iconButton5
+            // 
+            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.iconButton5.FlatAppearance.BorderSize = 0;
+            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(147)))), ((int)(((byte)(157)))));
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.HandHoldingUsd;
+            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.IconSize = 30;
+            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton5.Location = new System.Drawing.Point(5, 346);
+            this.iconButton5.Margin = new System.Windows.Forms.Padding(5);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Size = new System.Drawing.Size(198, 46);
+            this.iconButton5.TabIndex = 24;
+            this.iconButton5.Text = "          Payments";
+            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton5.UseVisualStyleBackColor = false;
             // 
             // iconButton8
             // 
@@ -260,32 +367,18 @@
             this.iconButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton6.UseVisualStyleBackColor = false;
             // 
-            // pnlSidebar
+            // panel1
             // 
-            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.pnlSidebar.Controls.Add(this.flpnlSidebar);
-            this.pnlSidebar.Controls.Add(this.panel1);
-            this.pnlSidebar.Controls.Add(this.panel3);
-            this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
-            this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(207, 685);
-            this.pnlSidebar.TabIndex = 4;
-            this.pnlSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSidebar_Paint);
-            // 
-            // pnlHeader
-            // 
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
-            this.pnlHeader.Controls.Add(this.panel2);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(207, 0);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(941, 34);
-            this.pnlHeader.TabIndex = 5;
+            this.panel1.Controls.Add(this.iconButton9);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 633);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(207, 52);
+            this.panel1.TabIndex = 4;
             // 
             // iconButton9
             // 
-            this.iconButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
+            this.iconButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.iconButton9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.iconButton9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.iconButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -306,87 +399,6 @@
             this.iconButton9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton9.UseVisualStyleBackColor = false;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.iconButton9);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 633);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(207, 52);
-            this.panel1.TabIndex = 4;
-            // 
-            // flpnlSidebar
-            // 
-            this.flpnlSidebar.Controls.Add(this.btnDashboard);
-            this.flpnlSidebar.Controls.Add(this.iconButton4);
-            this.flpnlSidebar.Controls.Add(this.iconButton1);
-            this.flpnlSidebar.Controls.Add(this.iconButton3);
-            this.flpnlSidebar.Controls.Add(this.iconButton2);
-            this.flpnlSidebar.Controls.Add(this.iconButton7);
-            this.flpnlSidebar.Controls.Add(this.iconButton5);
-            this.flpnlSidebar.Controls.Add(this.iconButton8);
-            this.flpnlSidebar.Controls.Add(this.iconButton6);
-            this.flpnlSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpnlSidebar.Location = new System.Drawing.Point(0, 34);
-            this.flpnlSidebar.Name = "flpnlSidebar";
-            this.flpnlSidebar.Size = new System.Drawing.Size(207, 599);
-            this.flpnlSidebar.TabIndex = 5;
-            // 
-            // iconButton10
-            // 
-            this.iconButton10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
-            this.iconButton10.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton10.IconSize = 30;
-            this.iconButton10.Location = new System.Drawing.Point(97, 0);
-            this.iconButton10.Name = "iconButton10";
-            this.iconButton10.Size = new System.Drawing.Size(50, 34);
-            this.iconButton10.TabIndex = 6;
-            this.iconButton10.UseVisualStyleBackColor = true;
-            this.iconButton10.Click += new System.EventHandler(this.iconButton10_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.iconButton12);
-            this.panel2.Controls.Add(this.iconButton11);
-            this.panel2.Controls.Add(this.iconButton10);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(794, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(147, 34);
-            this.panel2.TabIndex = 7;
-            // 
-            // iconButton11
-            // 
-            this.iconButton11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.Square;
-            this.iconButton11.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton11.IconSize = 20;
-            this.iconButton11.Location = new System.Drawing.Point(47, 0);
-            this.iconButton11.Name = "iconButton11";
-            this.iconButton11.Size = new System.Drawing.Size(50, 34);
-            this.iconButton11.TabIndex = 7;
-            this.iconButton11.UseVisualStyleBackColor = true;
-            this.iconButton11.Click += new System.EventHandler(this.iconButton11_Click);
-            // 
-            // iconButton12
-            // 
-            this.iconButton12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton12.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            this.iconButton12.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton12.IconSize = 25;
-            this.iconButton12.Location = new System.Drawing.Point(0, 0);
-            this.iconButton12.Name = "iconButton12";
-            this.iconButton12.Size = new System.Drawing.Size(47, 34);
-            this.iconButton12.TabIndex = 8;
-            this.iconButton12.UseVisualStyleBackColor = true;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
@@ -395,14 +407,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(207, 34);
             this.panel3.TabIndex = 5;
-            // 
-            // pnlContent
-            // 
-            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(207, 34);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(941, 651);
-            this.pnlContent.TabIndex = 6;
             // 
             // Main
             // 
@@ -421,11 +425,11 @@
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlMain.ResumeLayout(false);
-            this.pnlSidebar.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.flpnlSidebar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.pnlSidebar.ResumeLayout(false);
+            this.flpnlSidebar.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

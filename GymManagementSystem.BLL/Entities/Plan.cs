@@ -31,7 +31,7 @@ namespace GymManagementSystem.BLL.Entities
             this.Price = 0;
             this.IsActive = false;
 
-            _Mode = eMode.Add
+            _Mode = eMode.Add;
         }
         protected Plan(int planID, string planName, int durationInDays, float price, bool isActive) 
         {

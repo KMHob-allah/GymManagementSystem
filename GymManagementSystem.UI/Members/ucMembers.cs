@@ -1,6 +1,6 @@
-﻿using FontAwesome.Sharp;
-using GymManagementSystem.BLL.Entities;
+﻿using GymManagementSystem.BLL.Entities;
 using System;
+using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 
@@ -8,180 +8,383 @@ namespace GymManagementSystem.UI.Members
 {
     public partial class ucMembers : UserControl
     {
+        private enum eFilterBy
+        {
+            None,
+            MemberID,
+            Name,
+            Status,
+            Gender,
+            Area
+        }
+
         private DataView _dvMembers;
+        private bool _isUpdatingFilterUI;
+
         public ucMembers()
         {
             InitializeComponent();
         }
 
-        private void _RefreshRecordsCount()
+
+        private void _SetHeaderText()
         {
-            lblRecords.Text = $"Records : {dgvMembers.Rows.Count}";
+            if (dgvMembers.Columns.Contains("MemberID"))
+                dgvMembers.Columns["MemberID"].HeaderText = "Member ID";
+
+            if (dgvMembers.Columns.Contains("FullName"))
+                dgvMembers.Columns["FullName"].HeaderText = "Name";
+
+            if (dgvMembers.Columns.Contains("PhoneNumber"))
+                dgvMembers.Columns["PhoneNumber"].HeaderText = "Phone Number";
+
+            if (dgvMembers.Columns.Contains("Gender"))
+                dgvMembers.Columns["Gender"].HeaderText = "Gender";
+
+            if (dgvMembers.Columns.Contains("Area"))
+                dgvMembers.Columns["Area"].HeaderText = "Area";
+
+            if (dgvMembers.Columns.Contains("Status"))
+                dgvMembers.Columns["Status"].HeaderText = "Status";
         }
-        private void _LoadMembers()
+        private void _InitializeFilters()
         {
-            DataTable dtMembers = Member.GetAll();
-            _dvMembers = dtMembers.DefaultView;
-            dgvMembers.DataSource = _dvMembers;
+            cbFilterBy.Items.AddRange(new object[]
+            {
+                "None",
+                "Member ID",
+                "Name",
+                "Status",
+                "Gender",
+                "Area"
+            });
 
-            _RefreshRecordsCount();
+            cbFilterBy.SelectedIndex = (int)eFilterBy.None;
 
-            lblNoRecords.Visible = (dgvMembers.Rows.Count == 0);
-        }
-        private void ucMembers_Load(object sender, EventArgs e)
-        {
-            _ConfigureDataGridViewColumns();
-            _LoadMembers();
-
-            cbFilterBy.Items.AddRange(new string[] { "None", "Member ID", "Name", "Status", "Gender", "Area" });
-            cbFilterBy.SelectedIndex = 0;
             cbFilterValue.Visible = false;
             tbFilterValue.Visible = false;
+        }
+        private void _RefreshRecordsCount()
+        {
+            int count = _dvMembers?.Count ?? 0;
+
+            lblRecords.Text = $"Records : {count}";
+        }
+        private void _UpdateCards()
+        {
+            if (_dvMembers?.Table == null)
+                return;
+
+            DataTable table = _dvMembers.Table;
+
+            ucAllMembersCard.Number =
+                table.Rows.Count.ToString();
+
+            if (!table.Columns.Contains("Status"))
+            {
+                ucActiveMembersCard.Number = "0";
+                ucInactiveMembersCard.Number = "0";
+                return;
+            }
+
+            int activeCount =
+                table.Select("Status = 'Active'").Length;
+
+            int inactiveCount =
+                table.Select("Status = 'Inactive'").Length;
+
+            ucActiveMembersCard.Number =
+                activeCount.ToString();
+
+            ucInactiveMembersCard.Number =
+                inactiveCount.ToString();
+        }
+        private void _UpdateEmptyState()
+        {
+            if (_dvMembers?.Table == null)
+            {
+                lblNoRecords.Text = "No members found.";
+                lblNoRecords.Visible = true;
+                return;
+            }
+
+            bool noData = _dvMembers.Table.Rows.Count == 0;
+
+            bool noFilterResults = _dvMembers.Table.Rows.Count > 0 && _dvMembers.Count == 0;
+
+            if (noData)
+            {
+                lblNoRecords.Text = "No members found.";
+                lblNoRecords.Visible = true;
+            }
+
+            else if (noFilterResults)
+            {
+                lblNoRecords.Text =
+                    "No members match the selected filters.";
+
+                lblNoRecords.Visible = true;
+            }
+
+            else lblNoRecords.Visible = false;
+        }
+        private void _ConfigureFilterControls()
+        {
+            _isUpdatingFilterUI = true;
+
+            try
+            {
+                _ResetFilterControls();
+
+                switch (_GetSelectedFilter())
+                {
+                    case eFilterBy.None:
+                        break;
+
+                    case eFilterBy.MemberID:
+                    case eFilterBy.Name:
+                    case eFilterBy.Area:
+
+                        tbFilterValue.Visible = true;
+                        tbFilterValue.Focus();
+
+                        break;
+
+                    case eFilterBy.Status:
+
+                        _LoadStatusValues();
+                        cbFilterValue.Visible = true;
+
+                        break;
+
+                    case eFilterBy.Gender:
+
+                        _LoadGenderValues();
+                        cbFilterValue.Visible = true;
+
+                        break;
+                }
+            }
+
+            finally
+            {
+                _isUpdatingFilterUI = false;
+            }
+        }
+        private eFilterBy _GetSelectedFilter()
+        {
+            if (cbFilterBy.SelectedIndex < 0) return eFilterBy.None;
+
+            return (eFilterBy)cbFilterBy.SelectedIndex;
+        }
+
+        private void _LoadMembers()
+        {
+            //DataTable members = new DataTable();
+            DataTable members = Member.GetAll();           
+
+            _dvMembers = members.DefaultView;
+
+            dgvMembers.DataSource = _dvMembers;
+            
+            _SetHeaderText();
+            _UpdateCards();
+            _RefreshRecordsCount();
+            _UpdateEmptyState();
+
+        }
+
+        private void ucMembers_Load(object sender, EventArgs e)
+        {
+            _InitializeFilters();
+            _LoadMembers();
+        }
+
+
+        private void _ResetFilterControls()
+        {
+            tbFilterValue.Clear();
+
+            cbFilterValue.Items.Clear();
+            cbFilterValue.SelectedIndex = -1;
+
+            cbFilterValue.Visible = false;
+            tbFilterValue.Visible = false;
+        }
+        private void _LoadStatusValues()
+        {
+            cbFilterValue.Items.AddRange(new object[]
+            {
+                "All",
+                "Active",
+                "Inactive"
+            });
+
+            cbFilterValue.SelectedIndex = 0;
+        }
+        private void _LoadGenderValues()
+        {
+            cbFilterValue.Items.AddRange(new object[]
+            {
+                "All",
+                "Male",
+                "Female"
+            });
+
+            cbFilterValue.SelectedIndex = 0;
+        }
+
+
+        private void FilterData(object sender, EventArgs e)
+        {
+            if (_isUpdatingFilterUI)
+                return;
+
+            _ApplyCurrentFilter();
+        }
+        private void _ApplyCurrentFilter()
+        {
+            if (_dvMembers == null) return;
+
+            switch (_GetSelectedFilter())
+            {
+                case eFilterBy.None:
+                    _ClearFilter();
+                    break;
+
+                case eFilterBy.MemberID:
+                    _FilterByMemberID();
+                    break;
+
+                case eFilterBy.Name:
+                    _FilterByText("FullName");
+                    break;
+
+                case eFilterBy.Area:
+                    _FilterByText("Area");
+                    break;
+
+                case eFilterBy.Status:
+                    _FilterByStatus();
+                    break;
+
+                case eFilterBy.Gender:
+                    _FilterByGender();
+                    break;
+            }
+
+            _RefreshRecordsCount();
+            _UpdateEmptyState();
+        }
+
+        private void _ClearFilter()
+        {
+            _dvMembers.RowFilter = string.Empty;
+        }
+        private void _FilterByMemberID()
+        {
+            string value = tbFilterValue.Text.Trim();
+
+            if (string.IsNullOrEmpty(value))
+            {
+                _ClearFilter();
+                return;
+            }
+
+            _dvMembers.RowFilter = $"MemberID = {value}";
+        }
+        private void _FilterByText(string columnName)
+        {
+            string value = tbFilterValue.Text.Trim();
+
+            if (string.IsNullOrEmpty(value))
+            {
+                _ClearFilter();
+                return;
+            }
+
+            value = _EscapeFilterValue(value);
+
+            _dvMembers.RowFilter =
+                $"{columnName} LIKE '{value}%'";
+        }
+        private void _FilterByStatus()
+        {
+            string selectedValue =
+                cbFilterValue.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(selectedValue) ||
+                selectedValue == "All")
+            {
+                _ClearFilter();
+                return;
+            }
+
+            string isActive = (selectedValue == "Active" ? "Active" : "Inactive");
+
+            _dvMembers.RowFilter = $"Status = '{isActive}'";
+        }
+        private void _FilterByGender()
+        {
+            string selectedValue =
+                cbFilterValue.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(selectedValue) ||
+                selectedValue == "All")
+            {
+                _ClearFilter();
+                return;
+            }            
+
+            _dvMembers.RowFilter = $"Gender = '{selectedValue}'";
+        }
+
+        private string _EscapeFilterValue(string value)
+        {
+            return value.Replace("'", "''");
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedFilter = cbFilterBy.SelectedItem?.ToString();
-
-            tbFilterValue.Clear();
-            cbFilterValue.Items.Clear();
-            _dvMembers.RowFilter = "";
-
-            switch (selectedFilter)
-            {
-                case "None":
-                    cbFilterValue.Visible = false;
-                    tbFilterValue.Visible = false;
-                    break;
-
-                case "Member ID":
-                case "Name":
-                case "Area":
-                    cbFilterValue.Visible = false;
-                    tbFilterValue.Visible = true;
-                    break;
-
-                case "Status":
-                    cbFilterValue.Items.AddRange(new object[] { "All", "Active", "Inactive" });
-                    cbFilterValue.SelectedIndex = 0;
-                    cbFilterValue.Visible = true;
-                    tbFilterValue.Visible = false;
-                    break;
-
-                case "Gender":
-                    cbFilterValue.Items.AddRange(new object[] { "All", "Male", "Female" });
-                    cbFilterValue.SelectedIndex = 0;
-                    cbFilterValue.Visible = true;
-                    tbFilterValue.Visible = false;
-                    break;
-            }
-            _RefreshRecordsCount();
+            _ConfigureFilterControls();
+            _ApplyCurrentFilter();
         }
-
         private void tbFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (cbFilterBy.SelectedItem?.ToString() == "Member ID" && !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (_GetSelectedFilter() != eFilterBy.MemberID) return;
+
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
-
-        private void _ConfigureDataGridViewColumns()
+        private void cmsMembers_Opening(object sender, CancelEventArgs e)
         {
-            dgvMembers.AutoGenerateColumns = false;
-            dgvMembers.Columns.Clear();
+            int? memberID = _GetSelectedMemberID();
 
-            dgvMembers.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "MemberID", HeaderText = "Member ID" });
-            dgvMembers.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "MemberName", HeaderText = "Full Name" });
-            dgvMembers.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "PhoneNumber", HeaderText = "Phone Number" });
-            dgvMembers.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Gender", HeaderText = "Gender" });
-            dgvMembers.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Area", HeaderText = "Area" });
-            dgvMembers.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Status", HeaderText = "Status" });
-        }
-
-        private void dgvMembers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dgvMembers.Columns[e.ColumnIndex].DataPropertyName == "Gender" && e.Value != null)
+            if (!memberID.HasValue)
             {
-                if (bool.TryParse(e.Value.ToString(), out bool isMale))
-                {
-                    e.Value = isMale ? "Male" : "Female";
-                    e.FormattingApplied = true;
-                }
-            }
-
-            if (dgvMembers.Columns[e.ColumnIndex].DataPropertyName == "Status" && e.Value != null)
-            {
-                if (bool.TryParse(e.Value.ToString(), out bool isActive))
-                {
-                    e.Value = isActive ? "Active" : "Inactive";
-                    e.FormattingApplied = true;
-                }
-            }
-        }
-
-        private void FilterData(object sender, EventArgs e)
-        {
-            if (_dvMembers == null) return;
-
-            string filterColumn = cbFilterBy.SelectedItem?.ToString();
-
-            if (filterColumn == "None" || string.IsNullOrEmpty(filterColumn))
-            {
-                _dvMembers.RowFilter = "";
-                _RefreshRecordsCount();
+                e.Cancel = true;
                 return;
             }
 
-            if (tbFilterValue.Visible)
-            {
-                string textValue = tbFilterValue.Text.Trim();
-                if (string.IsNullOrEmpty(textValue))
-                {
-                    _dvMembers.RowFilter = "";
-                }
-                else
-                {
-                    string dbColumn = "";
-                    if (filterColumn == "Member ID") dbColumn = "MemberID";
-                    else if (filterColumn == "Name") dbColumn = "MemberName";
-                    else if (filterColumn == "Area") dbColumn = "Area";
+            bool isActive = dgvMembers.CurrentRow.Cells["Status"].Value.ToString() == "Active";
 
-                    if (filterColumn == "Member ID")
-                    {
-                        _dvMembers.RowFilter = $"{dbColumn} = {textValue}";
-                    }
-                    else
-                    {
-                        _dvMembers.RowFilter = $"{dbColumn} LIKE '{textValue}%'";
-                    }
-                }
-            }
-            else if (cbFilterValue.Visible)
-            {
-                string selectedValue = cbFilterValue.SelectedItem?.ToString();
-
-                if (selectedValue == "All" || string.IsNullOrEmpty(selectedValue))
-                {
-                    _dvMembers.RowFilter = "";
-                }
-                else
-                {
-                    if (filterColumn == "Status")
-                    {
-                        bool isActive = (selectedValue == "Active");
-                        _dvMembers.RowFilter = $"Status = {isActive}";
-                    }
-                    else if (filterColumn == "Gender")
-                    {
-                        bool isMale = (selectedValue == "Male");
-                        _dvMembers.RowFilter = $"Gender = {isMale}";
-                    }
-                }
-            }
-
-            _RefreshRecordsCount();
+            showDetailsToolStripMenuItem.Enabled = true;
+            editToolStripMenuItem.Enabled = true;
+            activateToolStripMenuItem.Enabled = !isActive;
+            deactivateToolStripMenuItem.Enabled = isActive;
         }
 
+        private int? _GetSelectedMemberID()
+        {
+            if (dgvMembers.CurrentRow == null) return null;
+
+            DataGridViewCell cell = dgvMembers.CurrentRow.Cells[0];
+
+            if (cell?.Value == null || cell.Value == DBNull.Value) return null;            
+
+            return Convert.ToInt32(cell.Value);
+        }                
     }
 }
