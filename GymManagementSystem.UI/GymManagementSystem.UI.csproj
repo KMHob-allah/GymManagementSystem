@@ -59,6 +59,24 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Members\frmAddEditMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Members\frmAddEditMember.Designer.cs">
+      <DependentUpon>frmAddEditMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Members\frmMemberDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Members\frmMemberDetails.Designer.cs">
+      <DependentUpon>frmMemberDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Members\ucMemberDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Members\ucMemberDetails.Designer.cs">
+      <DependentUpon>ucMemberDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Members\ucMembers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -77,6 +95,15 @@
       <DependentUpon>Main.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Members\frmAddEditMember.resx">
+      <DependentUpon>frmAddEditMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Members\frmMemberDetails.resx">
+      <DependentUpon>frmMemberDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Members\ucMemberDetails.resx">
+      <DependentUpon>ucMemberDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Members\ucMembers.resx">
       <DependentUpon>ucMembers.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -89,6 +116,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserControls\ucCard.resx">
       <DependentUpon>ucCard.cs</DependentUpon>
@@ -114,6 +142,11 @@
       <Name>GymManagementSystem.BLL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\FemaleAvatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaleAvatar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
