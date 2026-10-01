@@ -180,14 +180,12 @@ namespace GymManagementSystem.UI.Members
 
         private void _LoadMembers()
         {
-            //DataTable members = new DataTable();
             DataTable members = Member.GetAll();           
 
             _dvMembers = members.DefaultView;
 
             dgvMembers.DataSource = _dvMembers;
             
-            _SetHeaderText();
             _UpdateCards();
             _RefreshRecordsCount();
             _UpdateEmptyState();
@@ -198,6 +196,8 @@ namespace GymManagementSystem.UI.Members
         {
             _InitializeFilters();
             _LoadMembers();
+            _SetHeaderText();
+
         }
 
 
@@ -370,8 +370,7 @@ namespace GymManagementSystem.UI.Members
 
             bool isActive = dgvMembers.CurrentRow.Cells["Status"].Value.ToString() == "Active";
 
-            showDetailsToolStripMenuItem.Enabled = true;
-            editToolStripMenuItem.Enabled = true;
+
             activateToolStripMenuItem.Enabled = !isActive;
             deactivateToolStripMenuItem.Enabled = isActive;
         }
@@ -385,6 +384,126 @@ namespace GymManagementSystem.UI.Members
             if (cell?.Value == null || cell.Value == DBNull.Value) return null;            
 
             return Convert.ToInt32(cell.Value);
-        }                
+        }
+
+        private void activateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int? memberID = _GetSelectedMemberID();
+
+            if (!memberID.HasValue) return;
+
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to activate this member?",
+                "Confirm Activation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes) return;
+
+            Member member = Member.GetMemberByID(memberID.Value);
+
+            if (member == null)
+            {
+                MessageBox.Show("Member not found.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!member.Activate())
+            {
+                MessageBox.Show("Failed to activate member.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+
+            MessageBox.Show("Member activated successfully.","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+            _LoadMembers();
+        }
+
+        private void deactivateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int? memberID = _GetSelectedMemberID();
+
+            if (!memberID.HasValue) return;
+
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to deactivate this member?",
+                "Confirm Deactivation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes) return;
+
+            Member member = Member.GetMemberByID(memberID.Value);
+
+            if (member == null)
+            {
+                MessageBox.Show("Member not found.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!member.Deactivate())
+            {
+                MessageBox.Show("Failed to deactivate member.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+
+            MessageBox.Show("Member deactivated successfully.","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+            _LoadMembers();
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int? memberID = _GetSelectedMemberID();
+
+            if (!memberID.HasValue)
+                return;
+
+            Member member = Member.GetMemberByID(memberID.Value);
+
+            if (member == null)
+            {
+                MessageBox.Show("Member not found.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+
+            using (var frm = new frmMemberDetails(member))
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void btnAddMember_Click(object sender, EventArgs e)
+        {
+            using (frmAddEditMember frm = new frmAddEditMember())
+            {
+                frm.MemberSaved += Frm_MemberSaved;
+
+                frm.ShowDialog();
+            }
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int? memberID = _GetSelectedMemberID();
+
+            if (!memberID.HasValue) return;
+
+            Member member = Member.GetMemberByID(memberID.Value);
+
+            if (member == null) return;
+
+            using (frmAddEditMember frm = new frmAddEditMember(member))
+            {
+                frm.MemberSaved += Frm_MemberSaved;
+
+                frm.ShowDialog();
+            }
+        }
+
+        private void Frm_MemberSaved(object sender, EventArgs e)
+        {
+            _LoadMembers();
+        }
     }
 }

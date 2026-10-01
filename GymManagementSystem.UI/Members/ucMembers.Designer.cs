@@ -87,7 +87,7 @@
             this.btnAddMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddMember.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddMember.ForeColor = System.Drawing.Color.Black;
-            this.btnAddMember.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnAddMember.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
             this.btnAddMember.IconColor = System.Drawing.Color.Black;
             this.btnAddMember.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddMember.IconSize = 20;
@@ -100,6 +100,7 @@
             this.btnAddMember.Text = "Add Member";
             this.btnAddMember.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddMember.UseVisualStyleBackColor = false;
+            this.btnAddMember.Click += new System.EventHandler(this.btnAddMember_Click);
             // 
             // lblSubtitle
             // 
@@ -141,7 +142,7 @@
             this.lblNoRecords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.lblNoRecords.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.lblNoRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNoRecords.Location = new System.Drawing.Point(805, 17);
+            this.lblNoRecords.Location = new System.Drawing.Point(804, 17);
             this.lblNoRecords.Name = "lblNoRecords";
             this.lblNoRecords.Size = new System.Drawing.Size(275, 21);
             this.lblNoRecords.TabIndex = 29;
@@ -351,6 +352,7 @@
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
             this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.showDetailsToolStripMenuItem.Text = "Show Details";
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -364,6 +366,7 @@
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -377,6 +380,7 @@
             this.activateToolStripMenuItem.Name = "activateToolStripMenuItem";
             this.activateToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.activateToolStripMenuItem.Text = "Activate";
+            this.activateToolStripMenuItem.Click += new System.EventHandler(this.activateToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -390,6 +394,7 @@
             this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
             this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.deactivateToolStripMenuItem.Text = "Deactivate";
+            this.deactivateToolStripMenuItem.Click += new System.EventHandler(this.deactivateToolStripMenuItem_Click);
             // 
             // panel1
             // 
