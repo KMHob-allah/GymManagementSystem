@@ -9,14 +9,23 @@ namespace GymManagementSystem.BLL.Entities
     // TODO: Exceptions
     public class Member : Person
     {
-        public int MemberID { get; protected set; }
-        public string EmergencyPhone { get; protected set; }
-        public DateTime JoinDate { get; protected set; }
-        public bool IsActive { get; protected set; }
+        public int MemberID { get; set; }
+        public string EmergencyPhone { get; set; }
+        public DateTime JoinDate { get; set; }
+        public bool IsActive { get; set; }
 
         private eMode _Mode;
 
-        public Member() : base(0,string.Empty,string.Empty,string.Empty, string.Empty, string.Empty, DateTime.MinValue,Gender.Male,string.Empty)
+        public Member() : base(
+            0,
+            string.Empty,
+            string.Empty,
+            string.Empty,
+            string.Empty,
+            string.Empty, 
+            DateTime.MinValue,
+            Gender.Male,
+            string.Empty)
         {
             this.MemberID = 0;
             this.EmergencyPhone = string.Empty;
@@ -72,7 +81,8 @@ namespace GymManagementSystem.BLL.Entities
                 this.BirthDate,
                 this.Gender == Gender.Male,
                 this.Area,
-                this.EmergencyPhone);
+                this.EmergencyPhone,
+                this.IsActive);
 
             if (!result.HasValue) return false;
 
@@ -91,9 +101,10 @@ namespace GymManagementSystem.BLL.Entities
                 this.LastName,
                 this.PhoneNumber,
                 this.BirthDate,
-                this.Gender == Gender.Male,
+                this.Gender == Gender.Female,
                 this.Area,
-                this.EmergencyPhone);
+                this.EmergencyPhone,
+                this.IsActive);
         }
 
         public bool Save()

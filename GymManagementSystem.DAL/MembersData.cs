@@ -63,7 +63,8 @@ namespace GymManagementSystem.DAL
             DateTime birthDate,
             bool gender,
             string area,
-            string emergencyPhone)
+            string emergencyPhone,
+            bool isActive)
         {
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             using (SqlCommand command = new SqlCommand("sp_Members_Create", connection))
@@ -80,6 +81,7 @@ namespace GymManagementSystem.DAL
                 command.Parameters.Add("@Gender", SqlDbType.Bit).Value = gender;
                 command.Parameters.Add("@Area", SqlDbType.NVarChar, 100).Value = area;
                 command.Parameters.Add("@EmergencyPhone", SqlDbType.VarChar, 11).Value = emergencyPhone;
+                command.Parameters.Add("@IsActive", SqlDbType.Bit).Value = isActive;
 
                 connection.Open();
 
@@ -98,7 +100,7 @@ namespace GymManagementSystem.DAL
 
         public static bool Update(int memberID,string firstName,string secondName,string thirdName,
             string lastName,string phoneNumber,DateTime birthDate,bool gender,
-            string area,string emergencyPhone)
+            string area,string emergencyPhone, bool isActive)
         {
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
@@ -126,6 +128,7 @@ namespace GymManagementSystem.DAL
                     command.Parameters.Add("@Area", SqlDbType.NVarChar, 100).Value = area;
 
                     command.Parameters.Add("@EmergencyPhone", SqlDbType.VarChar, 11).Value = emergencyPhone;
+                    command.Parameters.Add("@IsActive", SqlDbType.Bit).Value = isActive;
 
                     connection.Open();
 

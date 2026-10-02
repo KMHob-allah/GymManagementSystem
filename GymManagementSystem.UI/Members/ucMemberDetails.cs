@@ -35,7 +35,7 @@ namespace GymManagementSystem.UI.Members
 
             lblFullNameValue.Text = member.FullName;               
 
-            lblBirthDateValue.Text = member.BirthDate.ToShortDateString();
+            lblBirthDateValue.Text = member.BirthDate.ToString("yyyy/MM/dd");
 
             lblGenderValue.Text = member.IsMale ? "Male" : "Female";
 
@@ -43,7 +43,7 @@ namespace GymManagementSystem.UI.Members
             lblEmergencyPhoneValue.Text = member.EmergencyPhone;
             lblAreaValue.Text = member.Area;
 
-            lblJoinDateValue.Text = member.JoinDate.ToShortDateString();
+            lblJoinDateValue.Text = member.JoinDate.ToString("yyyy/MM/dd");
 
             lblStatusValue.Text = member.IsActive ? "Active" : "Inactive";
 

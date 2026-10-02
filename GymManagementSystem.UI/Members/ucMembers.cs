@@ -154,6 +154,7 @@ namespace GymManagementSystem.UI.Members
 
                         _LoadStatusValues();
                         cbFilterValue.Visible = true;
+                        cbFilterValue.Focus();
 
                         break;
 
@@ -161,6 +162,7 @@ namespace GymManagementSystem.UI.Members
 
                         _LoadGenderValues();
                         cbFilterValue.Visible = true;
+                        cbFilterValue.Focus();
 
                         break;
                 }

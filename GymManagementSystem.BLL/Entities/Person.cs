@@ -8,20 +8,20 @@ namespace GymManagementSystem.BLL.Entities
     public abstract class Person
     {
         protected enum eMode { Add, Update };
-        public int PersonID { get; protected set; }
+        public int PersonID { get; set; }
 
-        public string FirstName { get; protected set; }
-        public string SecondName { get; protected set; }
-        public string ThirdName { get; protected set; }
-        public string LastName { get; protected set; }
+        public string FirstName { get; set; }
+        public string SecondName { get; set; }
+        public string ThirdName { get; set; }
+        public string LastName { get; set; }
 
-        public string PhoneNumber { get; protected set; }
+        public string PhoneNumber { get; set; }
 
-        public DateTime BirthDate { get; protected set; }
+        public DateTime BirthDate { get; set; }
 
-        public Gender Gender { get; protected set; }
+        public Gender Gender { get;  set; }
 
-        public string Area { get; protected set; }
+        public string Area { get; set; }
 
         protected Person(int personID,string firstName,string secondName,string thirdName,
             string lastName,string phoneNumber,DateTime birthDate,Gender gender,string area)
