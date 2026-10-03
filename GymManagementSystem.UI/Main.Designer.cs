@@ -65,7 +65,7 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1148, 685);
+            this.pnlMain.Size = new System.Drawing.Size(1500, 800);
             this.pnlMain.TabIndex = 0;
             // 
             // pnlContent
@@ -73,7 +73,7 @@
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Location = new System.Drawing.Point(207, 34);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(941, 651);
+            this.pnlContent.Size = new System.Drawing.Size(1293, 766);
             this.pnlContent.TabIndex = 6;
             // 
             // pnlHeader
@@ -83,7 +83,7 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(207, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(941, 34);
+            this.pnlHeader.Size = new System.Drawing.Size(1293, 34);
             this.pnlHeader.TabIndex = 5;
             // 
             // panel2
@@ -92,7 +92,7 @@
             this.panel2.Controls.Add(this.iconButton11);
             this.panel2.Controls.Add(this.iconButton10);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(794, 0);
+            this.panel2.Location = new System.Drawing.Point(1146, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(147, 34);
             this.panel2.TabIndex = 7;
@@ -154,7 +154,7 @@
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(207, 685);
+            this.pnlSidebar.Size = new System.Drawing.Size(207, 800);
             this.pnlSidebar.TabIndex = 4;
             // 
             // flpnlSidebar
@@ -171,7 +171,7 @@
             this.flpnlSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpnlSidebar.Location = new System.Drawing.Point(0, 34);
             this.flpnlSidebar.Name = "flpnlSidebar";
-            this.flpnlSidebar.Size = new System.Drawing.Size(207, 599);
+            this.flpnlSidebar.Size = new System.Drawing.Size(207, 714);
             this.flpnlSidebar.TabIndex = 5;
             // 
             // btnDashboard
@@ -240,6 +240,7 @@
             this.iconButton1.Text = "          Memberships";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // iconButton3
             // 
@@ -371,7 +372,7 @@
             // 
             this.panel1.Controls.Add(this.iconButton9);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 633);
+            this.panel1.Location = new System.Drawing.Point(0, 748);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(207, 52);
             this.panel1.TabIndex = 4;
@@ -413,13 +414,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(1148, 685);
+            this.ClientSize = new System.Drawing.Size(1500, 800);
             this.Controls.Add(this.pnlMain);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(1000, 600);
+            this.MinimumSize = new System.Drawing.Size(1500, 800);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";

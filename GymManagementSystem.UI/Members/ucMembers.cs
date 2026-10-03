@@ -420,7 +420,6 @@ namespace GymManagementSystem.UI.Members
 
             _LoadMembers();
         }
-
         private void deactivateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int? memberID = _GetSelectedMemberID();
@@ -453,7 +452,6 @@ namespace GymManagementSystem.UI.Members
 
             _LoadMembers();
         }
-
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int? memberID = _GetSelectedMemberID();
@@ -474,17 +472,6 @@ namespace GymManagementSystem.UI.Members
                 frm.ShowDialog();
             }
         }
-
-        private void btnAddMember_Click(object sender, EventArgs e)
-        {
-            using (frmAddEditMember frm = new frmAddEditMember())
-            {
-                frm.MemberSaved += Frm_MemberSaved;
-
-                frm.ShowDialog();
-            }
-        }
-
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int? memberID = _GetSelectedMemberID();
@@ -502,6 +489,17 @@ namespace GymManagementSystem.UI.Members
                 frm.ShowDialog();
             }
         }
+
+        private void btnAddMember_Click(object sender, EventArgs e)
+        {
+            using (frmAddEditMember frm = new frmAddEditMember())
+            {
+                frm.MemberSaved += Frm_MemberSaved;
+
+                frm.ShowDialog();
+            }
+        }
+
 
         private void Frm_MemberSaved(object sender, EventArgs e)
         {

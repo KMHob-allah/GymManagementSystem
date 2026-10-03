@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.btnAddMember = new FontAwesome.Sharp.IconButton();
             this.lblSubtitle = new System.Windows.Forms.Label();
@@ -76,7 +76,7 @@
             this.pnlHeader.Location = new System.Drawing.Point(15, 15);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1083, 72);
+            this.pnlHeader.Size = new System.Drawing.Size(1339, 72);
             this.pnlHeader.TabIndex = 0;
             // 
             // btnAddMember
@@ -92,7 +92,7 @@
             this.btnAddMember.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddMember.IconSize = 20;
             this.btnAddMember.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddMember.Location = new System.Drawing.Point(942, 20);
+            this.btnAddMember.Location = new System.Drawing.Point(1198, 20);
             this.btnAddMember.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddMember.Name = "btnAddMember";
             this.btnAddMember.Size = new System.Drawing.Size(140, 32);
@@ -132,7 +132,7 @@
             this.pnlFooter.Location = new System.Drawing.Point(15, 549);
             this.pnlFooter.Margin = new System.Windows.Forms.Padding(4);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(1083, 54);
+            this.pnlFooter.Size = new System.Drawing.Size(1339, 54);
             this.pnlFooter.TabIndex = 1;
             // 
             // lblNoRecords
@@ -142,7 +142,7 @@
             this.lblNoRecords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.lblNoRecords.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.lblNoRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNoRecords.Location = new System.Drawing.Point(804, 17);
+            this.lblNoRecords.Location = new System.Drawing.Point(1060, 17);
             this.lblNoRecords.Name = "lblNoRecords";
             this.lblNoRecords.Size = new System.Drawing.Size(275, 21);
             this.lblNoRecords.TabIndex = 29;
@@ -174,7 +174,7 @@
             this.tlpCards.Name = "tlpCards";
             this.tlpCards.RowCount = 1;
             this.tlpCards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCards.Size = new System.Drawing.Size(1083, 128);
+            this.tlpCards.Size = new System.Drawing.Size(1339, 128);
             this.tlpCards.TabIndex = 3;
             // 
             // ucAllMembersCard
@@ -186,7 +186,7 @@
             this.ucAllMembersCard.Margin = new System.Windows.Forms.Padding(5);
             this.ucAllMembersCard.Name = "ucAllMembersCard";
             this.ucAllMembersCard.Number = "0";
-            this.ucAllMembersCard.Size = new System.Drawing.Size(351, 118);
+            this.ucAllMembersCard.Size = new System.Drawing.Size(436, 118);
             this.ucAllMembersCard.TabIndex = 3;
             this.ucAllMembersCard.Title = "All Members";
             // 
@@ -195,11 +195,11 @@
             this.ucInactiveMembersCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.ucInactiveMembersCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucInactiveMembersCard.Icon = FontAwesome.Sharp.IconChar.UserSlash;
-            this.ucInactiveMembersCard.Location = new System.Drawing.Point(727, 5);
+            this.ucInactiveMembersCard.Location = new System.Drawing.Point(897, 5);
             this.ucInactiveMembersCard.Margin = new System.Windows.Forms.Padding(5);
             this.ucInactiveMembersCard.Name = "ucInactiveMembersCard";
             this.ucInactiveMembersCard.Number = "0";
-            this.ucInactiveMembersCard.Size = new System.Drawing.Size(351, 118);
+            this.ucInactiveMembersCard.Size = new System.Drawing.Size(437, 118);
             this.ucInactiveMembersCard.TabIndex = 0;
             this.ucInactiveMembersCard.Title = "Inactive Members";
             // 
@@ -208,11 +208,11 @@
             this.ucActiveMembersCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.ucActiveMembersCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucActiveMembersCard.Icon = FontAwesome.Sharp.IconChar.UserCheck;
-            this.ucActiveMembersCard.Location = new System.Drawing.Point(366, 5);
+            this.ucActiveMembersCard.Location = new System.Drawing.Point(451, 5);
             this.ucActiveMembersCard.Margin = new System.Windows.Forms.Padding(5);
             this.ucActiveMembersCard.Name = "ucActiveMembersCard";
             this.ucActiveMembersCard.Number = "0";
-            this.ucActiveMembersCard.Size = new System.Drawing.Size(351, 118);
+            this.ucActiveMembersCard.Size = new System.Drawing.Size(436, 118);
             this.ucActiveMembersCard.TabIndex = 2;
             this.ucActiveMembersCard.Title = "Active Members";
             // 
@@ -225,7 +225,7 @@
             this.pnlFilters.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlFilters.Location = new System.Drawing.Point(15, 215);
             this.pnlFilters.Name = "pnlFilters";
-            this.pnlFilters.Size = new System.Drawing.Size(1083, 61);
+            this.pnlFilters.Size = new System.Drawing.Size(1339, 61);
             this.pnlFilters.TabIndex = 4;
             // 
             // tbFilterValue
@@ -287,7 +287,7 @@
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(15, 276);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(1083, 273);
+            this.pnlGrid.Size = new System.Drawing.Size(1339, 273);
             this.pnlGrid.TabIndex = 5;
             // 
             // dgvMembers
@@ -301,25 +301,25 @@
             this.dgvMembers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvMembers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvMembers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMembers.ColumnHeadersHeight = 45;
             this.dgvMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvMembers.ContextMenuStrip = this.cmsMembers;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMembers.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMembers.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMembers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMembers.EnableHeadersVisualStyles = false;
             this.dgvMembers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
@@ -330,7 +330,7 @@
             this.dgvMembers.RowHeadersVisible = false;
             this.dgvMembers.RowTemplate.Height = 40;
             this.dgvMembers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMembers.Size = new System.Drawing.Size(1083, 273);
+            this.dgvMembers.Size = new System.Drawing.Size(1339, 273);
             this.dgvMembers.TabIndex = 0;
             // 
             // cmsMembers
@@ -417,7 +417,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucMembers";
             this.Padding = new System.Windows.Forms.Padding(15);
-            this.Size = new System.Drawing.Size(1113, 618);
+            this.Size = new System.Drawing.Size(1369, 618);
             this.Load += new System.EventHandler(this.ucMembers_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();

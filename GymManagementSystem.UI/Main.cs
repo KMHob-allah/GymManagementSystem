@@ -1,4 +1,5 @@
 ﻿using GymManagementSystem.UI.Members;
+using GymManagementSystem.UI.Memberships;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,6 +47,11 @@ namespace GymManagementSystem.UI
         private void iconButton4_Click(object sender, EventArgs e)
         {
             _LoadUserControl(new ucMembers());
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            _LoadUserControl(new ucMemberships());
         }
     }
 }
