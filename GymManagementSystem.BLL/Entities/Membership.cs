@@ -9,14 +9,76 @@ namespace GymManagementSystem.BLL.Entities
     // TODO: Exceptions
     public class Membership
     {
+        public enum eSaveResult
+        {
+            Success,
+            InactiveMember,
+            InactivePlan,
+            OverlappingMembership,
+            HasOutstandingDebt,
+            MembershipExpired,
+            HasPayments,
+            HasAttendance,
+            Failed
+        }
+        
+        private Member _member;
+        private Plan _plan;
+
+        private int _memberID;
+        private int _planID;
+
+
         private enum eMode { Add, Update };
-        public int MembershipID { get; protected set; }
-        public int MemberID { get; protected set; }
-        public int PlanID { get; protected set; }
-        public DateTime StartDate { get; protected set; }
-        public DateTime EndDate { get; protected set; }
-        public float TotalAmount { get; protected set; }
+        public int MembershipID { get; set; }
+        public int MemberID
+        {
+            get => _memberID;
+            set
+            {
+                if (_memberID != value)
+                {
+                    _memberID = value;
+                    _member = null;
+                }
+            }
+        }
+        public int PlanID
+        {
+            get => _planID;
+            set
+            {
+                if (_planID != value)
+                {
+                    _planID = value;
+                    _plan = null;
+                }
+            }
+        }
+        
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public decimal TotalAmount { get; set; }
         private eMode _Mode;
+
+        public Member MemberInfo
+        {
+            get
+            {
+                if (_member == null) _member = Member.GetMemberByID(MemberID);
+
+                return _member;
+            }
+        }
+        public Plan PlanInfo
+        {
+            get
+            {
+                if (_plan == null) _plan = Plan.GetByID(PlanID);
+
+                return _plan;
+            }
+        }
 
         public Membership()
         {
@@ -29,7 +91,7 @@ namespace GymManagementSystem.BLL.Entities
             _Mode = eMode.Add;
         }
         protected Membership(int membershipID, int memberID, int planID, DateTime startDate,
-            DateTime endDate, float totalAmount)
+            DateTime endDate, decimal totalAmount)
         {
             MembershipID = membershipID;
             MemberID = memberID;
@@ -55,7 +117,7 @@ namespace GymManagementSystem.BLL.Entities
                 (int)row["PlanID"],
                 (DateTime)row["StartDate"],
                 (DateTime)row["EndDate"],
-                (float)row["TotalAmount"]
+                (decimal)row["TotalAmount"]
             );
         }
 
@@ -64,8 +126,8 @@ namespace GymManagementSystem.BLL.Entities
             int? MembershipID = MembershipsData.Create(
                 this.MemberID, 
                 this.PlanID,
-                this.StartDate, 
-                this.EndDate,
+                this.StartDate,
+                 _CalculateEndDate(),
                 this.TotalAmount);
 
             if (MembershipID.HasValue)
@@ -82,48 +144,86 @@ namespace GymManagementSystem.BLL.Entities
                 this.MembershipID, 
                 this.PlanID,
                 this.StartDate,
+                _CalculateEndDate(),
                 this.TotalAmount);
         }
 
-        public bool Save()
+        private eSaveResult _Validate()
         {
-            bool IsSaved = false;
+            if (!MemberInfo.IsActive) return eSaveResult.InactiveMember;
+      
+            if (!PlanInfo.IsActive) return eSaveResult.InactivePlan;
+
+            if (_Mode == eMode.Add) return _ValidateAdd();
+
+            return _ValidateUpdate();
+        }
+        private eSaveResult _ValidateAdd()
+        {
+            if (HasOutstandingDebt()) return eSaveResult.HasOutstandingDebt;
+
+            if (_IsOverlapping()) return eSaveResult.OverlappingMembership;
+
+            return eSaveResult.Success;
+        }
+        private eSaveResult _ValidateUpdate()
+        {
+            if (HasPayments()) return eSaveResult.HasPayments;
+
+            if (HasAttendance()) return eSaveResult.HasAttendance;
+
+            if (IsExpired()) return eSaveResult.MembershipExpired;
+
+            if (_IsOverlapping()) return eSaveResult.OverlappingMembership;
+
+            return eSaveResult.Success;
+        }
+
+        public eSaveResult Save()
+        {
+            eSaveResult validationResult = _Validate();
+
+            if (validationResult != eSaveResult.Success) return validationResult;
 
             switch (_Mode)
             {
                 case eMode.Add:
-                {
+
                     if (_Add())
                     {
                         _Mode = eMode.Update;
-                        IsSaved = true;
+                        return eSaveResult.Success;
                     }
 
-                    else IsSaved = false;
-
-                    break;
-                }
+                    return eSaveResult.Failed;
 
                 case eMode.Update:
-                {
-                    if (_Update()) IsSaved = true;
 
-                    else IsSaved = false;
+                    return _Update()
+                        ? eSaveResult.Success
+                        : eSaveResult.Failed;
 
-                    break;
-                }
+                default:
+                    return eSaveResult.Failed;
             }
-
-            return IsSaved;
         }
 
         public bool HasOutstandingDebt() => MembershipsData.HasOutstandingDebt(this.MemberID);
+
         public bool IsExpired() => this.EndDate < DateTime.Today;
-        public bool IsOverlapping() 
-        {               
-            return MembershipsData.IsMembershipOverlapping(this.MemberID,this.StartDate,this.EndDate);        
+        
+        private bool _IsOverlapping()
+        {
+            return MembershipsData.IsMembershipOverlapping(
+                MemberID,StartDate,_CalculateEndDate(),
+                _Mode == eMode.Update ? MembershipID : 0);
         }
 
+        private DateTime _CalculateEndDate() => StartDate.AddDays(PlanInfo.DurationInDays - 1);        
+
+        public bool HasPayments() => MembershipsData.HasPayments(MembershipID);        
+
+        public bool HasAttendance() => MembershipsData.HasAttendance(MembershipID);        
 
     }
 }
