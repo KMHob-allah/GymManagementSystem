@@ -24,7 +24,7 @@ namespace GymManagementSystem.UI.Members
 
         private void frmMemberDetails_Load(object sender, EventArgs e)
         {
-            ucMemberDetails1.LoadMember(_Member);
+            ucMemberCard1.LoadMember(_Member);
         }
     }
 }

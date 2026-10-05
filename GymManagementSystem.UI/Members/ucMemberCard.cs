@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace GymManagementSystem.UI.Members
 {
-    public partial class ucMemberDetails : UserControl
+    public partial class ucMemberCard : UserControl
     {
-        public ucMemberDetails()
+        public ucMemberCard()
         {
             InitializeComponent();
         }
@@ -68,6 +68,11 @@ namespace GymManagementSystem.UI.Members
             lblStatusValue.Text = "???";
 
             pbMemberPicture.Image = null;
+        }
+
+        private void pnlContainer_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 
