@@ -6,6 +6,13 @@ namespace GymManagementSystem.UI.Plans
 {
     public partial class ucPlanCard : UserControl
     {
+        private Plan _plan;
+
+        public Plan Plan
+        {
+            get => _plan;
+        }
+
         public ucPlanCard()
         {
             InitializeComponent();
@@ -16,8 +23,11 @@ namespace GymManagementSystem.UI.Plans
             if (plan == null)
             {
                 _SetDefaultValues();
+                _plan = null;
                 return;
             }
+
+            _plan = plan;
 
             lblPlanIDValue.Text = plan.ID.ToString();
 
@@ -26,9 +36,11 @@ namespace GymManagementSystem.UI.Plans
             lblDurationInDaysValue.Text =
                 plan.DurationInDays.ToString();
 
-            lblPriceValue.Text = plan.Price.ToString("0.00");
+            lblPriceValue.Text =
+                plan.Price.ToString("0.00");
 
-            lblStatusValue.Text = plan.IsActive ? "Active" : "Inactive";
+            lblStatusValue.Text =
+                plan.IsActive ? "Active" : "Inactive";
         }
 
         private void _SetDefaultValues()

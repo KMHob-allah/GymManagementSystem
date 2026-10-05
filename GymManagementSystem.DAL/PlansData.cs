@@ -134,7 +134,29 @@ namespace GymManagementSystem.DAL
                     return command.ExecuteNonQuery() > 0;
                 }
             }
-        }       
+        }
+
+        public static DataRow GetByName(string planName)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            using (SqlCommand command = new SqlCommand("sp_Plans_GetByName", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("@PlanName", SqlDbType.NVarChar, 100).Value = planName;
+
+                DataTable table = new DataTable();
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    table.Load(reader);
+                }
+
+                return table.Rows.Count > 0 ? table.Rows[0] : null;
+            }
+        }
 
     }
 }

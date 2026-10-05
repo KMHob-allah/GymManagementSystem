@@ -160,6 +160,30 @@ namespace GymManagementSystem.DAL
             }
         }
 
+        public static DataRow GetActiveByMemberID(int memberID)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(
+                "sp_Memberships_GetActiveByMemberID",
+                connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("@MemberID", SqlDbType.Int).Value = memberID;
+
+                DataTable table = new DataTable();
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    table.Load(reader);
+                }
+
+                return table.Rows.Count > 0 ? table.Rows[0] : null;
+            }
+        }
+
     }
 }
 

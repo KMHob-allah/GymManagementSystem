@@ -33,6 +33,7 @@ namespace GymManagementSystem.BLL.Entities
 
             _Mode = eMode.Add;
         }
+
         protected Plan(int planID, string planName, int durationInDays, decimal price, bool isActive) 
         {
             ID = planID;
@@ -46,6 +47,7 @@ namespace GymManagementSystem.BLL.Entities
 
 
         static public DataTable GetAll() => PlansData.GetAll();
+
         static public Plan GetByID(int planID)
         {
             DataRow row = PlansData.GetByID(planID);
@@ -75,6 +77,7 @@ namespace GymManagementSystem.BLL.Entities
             else return false;
 
         }
+
         private bool _Update()
         {
             return PlansData.Update(this.ID, this.Name, this.DurationInDays, this.Price, this.IsActive);
@@ -117,7 +120,19 @@ namespace GymManagementSystem.BLL.Entities
             return true;
         }
 
+        static public Plan GetByName(string planName)
+        {
+            DataRow row = PlansData.GetByName(planName);
 
+            if (row == null) return null;
 
+            return new Plan(
+                (int)row["PlanID"],
+                (string)row["PlanName"],
+                (int)row["DurationInDays"],
+                (decimal)row["Price"],
+                (bool)row["IsActive"]
+            );
+        }
     }
 }

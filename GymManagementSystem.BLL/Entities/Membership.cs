@@ -223,7 +223,24 @@ namespace GymManagementSystem.BLL.Entities
 
         public bool HasPayments() => MembershipsData.HasPayments(MembershipID);        
 
-        public bool HasAttendance() => MembershipsData.HasAttendance(MembershipID);        
+        public bool HasAttendance() => MembershipsData.HasAttendance(MembershipID);
+
+        static public Membership GetActiveByMemberID(int memberID)
+        {
+            DataRow row = MembershipsData.GetActiveByMemberID(memberID);
+
+            if (row == null)
+                return null;
+
+            return new Membership(
+                (int)row["MembershipID"],
+                (int)row["MemberID"],
+                (int)row["PlanID"],
+                (DateTime)row["StartDate"],
+                (DateTime)row["EndDate"],
+                (decimal)row["TotalAmount"]
+            );
+        }
 
     }
 }
