@@ -1,4 +1,5 @@
 ﻿using GymManagementSystem.BLL.Entities;
+using GymManagementSystem.UI.Members;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -201,11 +202,14 @@ namespace GymManagementSystem.UI.Memberships
 
         private void _LoadMemberships()
         {
-            DataTable memberships = new DataTable();
+            DataTable memberships = Membership.GetAll();
 
             _dvMemberships = memberships.DefaultView;
 
             dgvMemberships.DataSource = _dvMemberships;
+
+            dgvMemberships.Columns["StartDate"].DefaultCellStyle.Format = "yyyy/MM/dd";
+            dgvMemberships.Columns["EndDate"].DefaultCellStyle.Format = "yyyy/MM/dd";
 
             _UpdateCards();
             _RefreshRecordsCount();
@@ -405,6 +409,70 @@ namespace GymManagementSystem.UI.Memberships
 
             //activateToolStripMenuItem.Enabled = !isActive;
             //deactivateToolStripMenuItem.Enabled = isActive;
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int? membershipID = _GetSelectedMembershipID();
+
+            if (!membershipID.HasValue)
+                return;
+
+            Membership membership = Membership.GetByID(membershipID.Value);
+
+            if (membership == null)
+            {
+                MessageBox.Show("Membership not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (var frm = new frmMembershipDetails(membership))
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void btnAddMembership_Click(object sender, EventArgs e)
+        {
+            using (frmAddEditMembership frm = new frmAddEditMembership())
+            {
+                frm.MembershipSaved += Frm_MembershipSaved;
+
+                frm.ShowDialog();
+            }
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int? membershipID = _GetSelectedMembershipID();
+
+            if (!membershipID.HasValue)
+                return;
+
+            Membership membership = Membership.GetByID(membershipID.Value);
+
+            if (membership == null)
+            {
+                MessageBox.Show(
+                    "Membership not found.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+
+            using (frmAddEditMembership frm = new frmAddEditMembership(membership))
+            {
+                frm.MembershipSaved += Frm_MembershipSaved;
+
+                frm.ShowDialog();
+            }
+        }
+
+        private void Frm_MembershipSaved(object sender, EventArgs e)
+        {
+            _LoadMemberships();
         }
     }
 }

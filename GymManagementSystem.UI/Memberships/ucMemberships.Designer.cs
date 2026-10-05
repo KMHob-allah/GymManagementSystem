@@ -77,6 +77,7 @@
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -90,6 +91,7 @@
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
             this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showDetailsToolStripMenuItem.Text = "Show Details";
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // cmsMemberships
             // 
@@ -366,6 +368,7 @@
             this.btnAddMembership.Text = "Add Membership";
             this.btnAddMembership.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddMembership.UseVisualStyleBackColor = false;
+            this.btnAddMembership.Click += new System.EventHandler(this.btnAddMembership_Click);
             // 
             // lblSubtitle
             // 
