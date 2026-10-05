@@ -52,7 +52,7 @@ namespace GymManagementSystem.DAL
             }
         }
 
-        public static int? Create(string planName, int durationInDays, float price, bool isActive)
+        public static int? Create(string planName, int durationInDays, decimal price, bool isActive)
         {
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
@@ -76,7 +76,7 @@ namespace GymManagementSystem.DAL
             }
         }
 
-        public static bool Update(int planID, string planName, int durationInDays, float price)
+        public static bool Update(int planID, string planName, int durationInDays, decimal price, bool isActive)
         {
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
@@ -91,6 +91,8 @@ namespace GymManagementSystem.DAL
                     command.Parameters.Add("@DurationInDays", SqlDbType.Int).Value = durationInDays;
 
                     command.Parameters.Add("@Price", SqlDbType.Decimal).Value = price;
+
+                    command.Parameters.Add("@IsActive", SqlDbType.Bit).Value = isActive;
 
                     connection.Open();
 
@@ -132,60 +134,7 @@ namespace GymManagementSystem.DAL
                     return command.ExecuteNonQuery() > 0;
                 }
             }
-        }
-
-        public static float GetPlanPrice(int planID)
-        {
-            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
-            {
-                using (SqlCommand command = new SqlCommand("sp_Plans_GetPriceByID", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add("@PlanID", SqlDbType.Int).Value = planID;
-
-                    connection.Open();
-
-                    object result = command.ExecuteScalar();
-
-                    //if (result == null || result == DBNull.Value)
-                    //    return null;
-
-                    return Convert.ToSingle(result);
-                }
-            }
-        }
-
-        public static bool IsPlanNameExists(string planName)
-        {
-            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
-
-            using (SqlCommand command = new SqlCommand("sp_Plans_IsNameExists", connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.AddWithValue("@PlanName", planName);
-
-                connection.Open();
-
-                return Convert.ToBoolean(command.ExecuteScalar());
-            }
-        }
-
-        public static bool IsPlanNameExistsForOtherPlan(string planName, int planID)
-        {
-            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
-            using (SqlCommand command = new SqlCommand("sp_Plans_IsNameExistsForOtherPlan", connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.AddWithValue("@PlanName", planName);
-                command.Parameters.AddWithValue("@PlanID", planID);
-
-                connection.Open();
-
-                return Convert.ToBoolean(command.ExecuteScalar());
-            }
-        }
+        }       
 
     }
 }

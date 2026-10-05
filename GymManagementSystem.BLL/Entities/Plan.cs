@@ -15,11 +15,11 @@ namespace GymManagementSystem.BLL.Entities
     {
         private enum eMode { Add, Update};
 
-        public int ID { get; private set; }
-        public string Name {  get; private set; }
-        public int DurationInDays { get; private set; }
-        public float Price { get; private set; }
-        public bool IsActive { get; private set; }
+        public int ID { get; set; }
+        public string Name {  get; set; }
+        public int DurationInDays { get; set; }
+        public decimal Price { get; set; }
+        public bool IsActive { get; set; }
 
         private eMode _Mode;
 
@@ -33,7 +33,7 @@ namespace GymManagementSystem.BLL.Entities
 
             _Mode = eMode.Add;
         }
-        protected Plan(int planID, string planName, int durationInDays, float price, bool isActive) 
+        protected Plan(int planID, string planName, int durationInDays, decimal price, bool isActive) 
         {
             ID = planID;
             Name = planName;
@@ -56,7 +56,7 @@ namespace GymManagementSystem.BLL.Entities
                 (int)row["PlanID"],
                 (string)row["PlanName"],
                 (int)row["DurationInDays"],
-                (float)row["Price"],
+                (decimal)row["Price"],
                 (bool)row["IsActive"]
             );
         }
@@ -77,43 +77,45 @@ namespace GymManagementSystem.BLL.Entities
         }
         private bool _Update()
         {
-            return PlansData.Update(this.ID, this.Name, this.DurationInDays, this.Price);
+            return PlansData.Update(this.ID, this.Name, this.DurationInDays, this.Price, this.IsActive);
         }
 
         public bool Save()
         {
-            bool IsSaved = false;
-
             switch (_Mode)
             {
                 case eMode.Add:
-                    {
-                        if (_Add())
-                        {
-                            _Mode = eMode.Update;
-                            IsSaved = true;
-                        }
+                    if (!_Add())
+                        return false;
 
-                        else IsSaved = false;
-
-                        break;
-                    }
+                    _Mode = eMode.Update;
+                    return true;
 
                 case eMode.Update:
-                    {
-                        if (_Update()) IsSaved = true;
+                    return _Update();
 
-                        else IsSaved = false;
-
-                        break;
-                    }
+                default:
+                    return false;
             }
-
-            return IsSaved;
         }
 
-        public bool Activate() => PlansData.Activate(this.ID);
-        public bool Deactivate() => PlansData.Deactivate(this.ID);
+        public bool Activate()
+        {
+            if (!PlansData.Activate(this.ID))
+                return false;
+
+            IsActive = true;
+            return true;
+        }
+
+        public bool Deactivate()
+        {
+            if (!PlansData.Deactivate(this.ID))
+                return false;
+
+            IsActive = false;
+            return true;
+        }
 
 
 
