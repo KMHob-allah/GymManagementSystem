@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.gbFilter = new System.Windows.Forms.GroupBox();
-            this.btnAddMember = new FontAwesome.Sharp.IconButton();
+            this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.tbFilterValue = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.lblFilter = new System.Windows.Forms.Label();
@@ -39,7 +39,7 @@
             // 
             // gbFilter
             // 
-            this.gbFilter.Controls.Add(this.btnAddMember);
+            this.gbFilter.Controls.Add(this.btnSearch);
             this.gbFilter.Controls.Add(this.tbFilterValue);
             this.gbFilter.Controls.Add(this.cbFilterBy);
             this.gbFilter.Controls.Add(this.lblFilter);
@@ -54,25 +54,26 @@
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Search";
             // 
-            // btnAddMember
+            // btnSearch
             // 
-            this.btnAddMember.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnAddMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.btnAddMember.FlatAppearance.BorderSize = 0;
-            this.btnAddMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMember.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddMember.ForeColor = System.Drawing.Color.White;
-            this.btnAddMember.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnAddMember.IconColor = System.Drawing.Color.White;
-            this.btnAddMember.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAddMember.IconSize = 30;
-            this.btnAddMember.Location = new System.Drawing.Point(633, 43);
-            this.btnAddMember.Margin = new System.Windows.Forms.Padding(5);
-            this.btnAddMember.Name = "btnAddMember";
-            this.btnAddMember.Size = new System.Drawing.Size(42, 29);
-            this.btnAddMember.TabIndex = 35;
-            this.btnAddMember.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddMember.UseVisualStyleBackColor = false;
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnSearch.IconColor = System.Drawing.Color.White;
+            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearch.IconSize = 30;
+            this.btnSearch.Location = new System.Drawing.Point(633, 43);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(42, 29);
+            this.btnSearch.TabIndex = 35;
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // tbFilterValue
             // 
@@ -84,6 +85,8 @@
             this.tbFilterValue.Name = "tbFilterValue";
             this.tbFilterValue.Size = new System.Drawing.Size(241, 29);
             this.tbFilterValue.TabIndex = 34;
+            this.tbFilterValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbFilterValue_KeyDown);
+            this.tbFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFilterValue_KeyPress);
             // 
             // cbFilterBy
             // 
@@ -97,6 +100,7 @@
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(241, 29);
             this.cbFilterBy.TabIndex = 33;
+            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // lblFilter
             // 
@@ -131,6 +135,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucMemberFinder";
             this.Size = new System.Drawing.Size(1102, 556);
+            this.Load += new System.EventHandler(this.ucMemberFinder_Load);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
             this.ResumeLayout(false);
@@ -142,7 +147,7 @@
         private System.Windows.Forms.Label lblFilter;
         private System.Windows.Forms.TextBox tbFilterValue;
         private System.Windows.Forms.ComboBox cbFilterBy;
-        private FontAwesome.Sharp.IconButton btnAddMember;
+        private FontAwesome.Sharp.IconButton btnSearch;
         private ucMemberCard ucMemberCard1;
     }
 }

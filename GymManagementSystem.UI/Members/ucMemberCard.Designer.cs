@@ -70,7 +70,6 @@
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Size = new System.Drawing.Size(1209, 458);
             this.pnlContainer.TabIndex = 0;
-            this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
             // panel1
             // 
@@ -154,6 +153,7 @@
             // lblFullNameValue
             // 
             this.lblFullNameValue.AutoSize = true;
+            this.lblFullNameValue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblFullNameValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblFullNameValue.Location = new System.Drawing.Point(192, 101);
             this.lblFullNameValue.Name = "lblFullNameValue";

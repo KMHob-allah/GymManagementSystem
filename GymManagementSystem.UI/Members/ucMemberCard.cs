@@ -13,6 +13,13 @@ namespace GymManagementSystem.UI.Members
 {
     public partial class ucMemberCard : UserControl
     {
+        private Member _member;
+
+        public Member Member
+        {
+            get => _member;
+        }
+
         public ucMemberCard()
         {
             InitializeComponent();
@@ -28,8 +35,11 @@ namespace GymManagementSystem.UI.Members
             if (member == null)
             {
                 _SetDefaultValues();
+                _member = null;
                 return;
             }
+
+            _member = member;
 
             lblMemberIDValue.Text = member.MemberID.ToString();
 
@@ -49,7 +59,8 @@ namespace GymManagementSystem.UI.Members
 
             _SetDefaultPicture(member.IsMale);
 
-        }
+
+        }       
 
         private void _SetDefaultValues()
         {
@@ -69,14 +80,7 @@ namespace GymManagementSystem.UI.Members
 
             pbMemberPicture.Image = null;
         }
-
-        private void pnlContainer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
     }
-
-
-
 }
 

@@ -59,6 +59,30 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Memberships\frmAddEditMembership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Memberships\frmAddEditMembership.Designer.cs">
+      <DependentUpon>frmAddEditMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Memberships\frmMembershipDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Memberships\frmMembershipDetails.Designer.cs">
+      <DependentUpon>frmMembershipDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Memberships\ucMembershipCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Memberships\ucMembershipCard.Designer.cs">
+      <DependentUpon>ucMembershipCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Memberships\ucMembershipFinder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Memberships\ucMembershipFinder.Designer.cs">
+      <DependentUpon>ucMembershipFinder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Memberships\ucMemberships.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -77,11 +101,17 @@
     <Compile Include="Members\frmMemberDetails.Designer.cs">
       <DependentUpon>frmMemberDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Members\ucMemberDetails.cs">
+    <Compile Include="Members\ucMemberCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Members\ucMemberDetails.Designer.cs">
-      <DependentUpon>ucMemberDetails.cs</DependentUpon>
+    <Compile Include="Members\ucMemberCard.Designer.cs">
+      <DependentUpon>ucMemberCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Members\ucMemberFinder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Members\ucMemberFinder.Designer.cs">
+      <DependentUpon>ucMemberFinder.cs</DependentUpon>
     </Compile>
     <Compile Include="Members\ucMembers.cs">
       <SubType>UserControl</SubType>
@@ -89,8 +119,38 @@
     <Compile Include="Members\ucMembers.Designer.cs">
       <DependentUpon>ucMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Plans\frmAddEditPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plans\frmAddEditPlan.Designer.cs">
+      <DependentUpon>frmAddEditPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plans\frmPlanDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plans\frmPlanDetails.Designer.cs">
+      <DependentUpon>frmPlanDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plans\ucPlanCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plans\ucPlanCard.Designer.cs">
+      <DependentUpon>ucPlanCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plans\ucPlanFinder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plans\ucPlanFinder.Designer.cs">
+      <DependentUpon>ucPlanFinder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Plans\ucPlans.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plans\ucPlans.Designer.cs">
+      <DependentUpon>ucPlans.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,6 +161,18 @@
       <DependentUpon>Main.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Memberships\frmAddEditMembership.resx">
+      <DependentUpon>frmAddEditMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Memberships\frmMembershipDetails.resx">
+      <DependentUpon>frmMembershipDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Memberships\ucMembershipCard.resx">
+      <DependentUpon>ucMembershipCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Memberships\ucMembershipFinder.resx">
+      <DependentUpon>ucMembershipFinder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Memberships\ucMemberships.resx">
       <DependentUpon>ucMemberships.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,12 +182,27 @@
     <EmbeddedResource Include="Members\frmMemberDetails.resx">
       <DependentUpon>frmMemberDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Members\ucMemberDetails.resx">
-      <DependentUpon>ucMemberDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Members\ucMemberCard.resx">
+      <DependentUpon>ucMemberCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Members\ucMemberFinder.resx">
+      <DependentUpon>ucMemberFinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Members\ucMembers.resx">
       <DependentUpon>ucMembers.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plans\frmAddEditPlan.resx">
+      <DependentUpon>frmAddEditPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plans\frmPlanDetails.resx">
+      <DependentUpon>frmPlanDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plans\ucPlanCard.resx">
+      <DependentUpon>ucPlanCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plans\ucPlanFinder.resx">
+      <DependentUpon>ucPlanFinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,6 +214,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Plans\ucPlans.resx">
+      <DependentUpon>ucPlans.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucCard.resx">
       <DependentUpon>ucCard.cs</DependentUpon>
       <SubType>Designer</SubType>
