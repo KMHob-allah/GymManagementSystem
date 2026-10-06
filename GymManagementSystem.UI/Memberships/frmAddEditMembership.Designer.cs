@@ -71,9 +71,9 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1355, 71);
+            this.lblTitle.Size = new System.Drawing.Size(1266, 71);
             this.lblTitle.TabIndex = 41;
-            this.lblTitle.Text = "Membership Information";
+            this.lblTitle.Text = "Add New Membership";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -82,7 +82,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1355, 71);
+            this.panel2.Size = new System.Drawing.Size(1266, 71);
             this.panel2.TabIndex = 42;
             // 
             // panel1
@@ -93,7 +93,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 71);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(50, 25, 50, 25);
-            this.panel1.Size = new System.Drawing.Size(1355, 782);
+            this.panel1.Size = new System.Drawing.Size(1266, 751);
             this.panel1.TabIndex = 43;
             // 
             // tcInfo
@@ -107,7 +107,7 @@
             this.tcInfo.Location = new System.Drawing.Point(50, 25);
             this.tcInfo.Name = "tcInfo";
             this.tcInfo.SelectedIndex = 0;
-            this.tcInfo.Size = new System.Drawing.Size(1255, 660);
+            this.tcInfo.Size = new System.Drawing.Size(1166, 629);
             this.tcInfo.TabIndex = 47;
             this.tcInfo.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tcInfo_Selecting);
             // 
@@ -120,7 +120,7 @@
             this.tpMemberInfo.Location = new System.Drawing.Point(4, 33);
             this.tpMemberInfo.Name = "tpMemberInfo";
             this.tpMemberInfo.Padding = new System.Windows.Forms.Padding(25);
-            this.tpMemberInfo.Size = new System.Drawing.Size(1247, 623);
+            this.tpMemberInfo.Size = new System.Drawing.Size(1158, 592);
             this.tpMemberInfo.TabIndex = 0;
             this.tpMemberInfo.Text = "Member Information";
             // 
@@ -133,7 +133,7 @@
             this.ucMemberFinder1.Location = new System.Drawing.Point(25, 25);
             this.ucMemberFinder1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucMemberFinder1.Name = "ucMemberFinder1";
-            this.ucMemberFinder1.Size = new System.Drawing.Size(1197, 573);
+            this.ucMemberFinder1.Size = new System.Drawing.Size(1108, 542);
             this.ucMemberFinder1.TabIndex = 0;
             // 
             // tpPlanInfo
@@ -323,9 +323,9 @@
             this.panel4.Controls.Add(this.btnBack);
             this.panel4.Controls.Add(this.btnNext);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(50, 685);
+            this.panel4.Location = new System.Drawing.Point(50, 654);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1255, 72);
+            this.panel4.Size = new System.Drawing.Size(1166, 72);
             this.panel4.TabIndex = 46;
             // 
             // btnSave
@@ -341,7 +341,7 @@
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSave.IconSize = 30;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(1128, 23);
+            this.btnSave.Location = new System.Drawing.Point(1039, 23);
             this.btnSave.Margin = new System.Windows.Forms.Padding(5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(127, 35);
@@ -397,7 +397,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(1355, 853);
+            this.ClientSize = new System.Drawing.Size(1266, 822);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);

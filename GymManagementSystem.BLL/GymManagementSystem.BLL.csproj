@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Entities\Member.cs" />
     <Compile Include="Entities\Membership.cs" />
+    <Compile Include="Entities\Payment.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Plan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

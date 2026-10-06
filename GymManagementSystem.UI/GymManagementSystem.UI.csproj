@@ -119,6 +119,30 @@
     <Compile Include="Members\ucMembers.Designer.cs">
       <DependentUpon>ucMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Payments\frmAddEditPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments\frmAddEditPayment.Designer.cs">
+      <DependentUpon>frmAddEditPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\frmPaymentDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments\frmPaymentDetails.Designer.cs">
+      <DependentUpon>frmPaymentDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\ucPaymentCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Payments\ucPaymentCard.Designer.cs">
+      <DependentUpon>ucPaymentCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\ucPayments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Payments\ucPayments.Designer.cs">
+      <DependentUpon>ucPayments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Plans\frmAddEditPlan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +216,18 @@
       <DependentUpon>ucMembers.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Payments\frmAddEditPayment.resx">
+      <DependentUpon>frmAddEditPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\frmPaymentDetails.resx">
+      <DependentUpon>frmPaymentDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\ucPaymentCard.resx">
+      <DependentUpon>ucPaymentCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\ucPayments.resx">
+      <DependentUpon>ucPayments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Plans\frmAddEditPlan.resx">
       <DependentUpon>frmAddEditPlan.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,5 +283,6 @@
   <ItemGroup>
     <None Include="Resources\MaleAvatar.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

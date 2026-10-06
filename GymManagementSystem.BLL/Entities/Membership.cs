@@ -242,5 +242,14 @@ namespace GymManagementSystem.BLL.Entities
             );
         }
 
+        public decimal GetPaidAmount()
+        {
+            return PaymentsData.GetPaidAmountByMembershipID(MembershipID);
+        }
+
+        public decimal GetRemainingAmount()
+        {
+            return TotalAmount - GetPaidAmount();
+        }        
     }
 }

@@ -117,7 +117,7 @@
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(15, 276);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(1339, 273);
+            this.pnlGrid.Size = new System.Drawing.Size(1194, 271);
             this.pnlGrid.TabIndex = 41;
             // 
             // dgvMemberships
@@ -160,7 +160,7 @@
             this.dgvMemberships.RowHeadersVisible = false;
             this.dgvMemberships.RowTemplate.Height = 40;
             this.dgvMemberships.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMemberships.Size = new System.Drawing.Size(1339, 273);
+            this.dgvMemberships.Size = new System.Drawing.Size(1194, 271);
             this.dgvMemberships.TabIndex = 0;
             // 
             // pnlFilters
@@ -172,7 +172,7 @@
             this.pnlFilters.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlFilters.Location = new System.Drawing.Point(15, 215);
             this.pnlFilters.Name = "pnlFilters";
-            this.pnlFilters.Size = new System.Drawing.Size(1339, 61);
+            this.pnlFilters.Size = new System.Drawing.Size(1194, 61);
             this.pnlFilters.TabIndex = 40;
             // 
             // lblFilter
@@ -244,7 +244,7 @@
             this.tlpCards.Name = "tlpCards";
             this.tlpCards.RowCount = 1;
             this.tlpCards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCards.Size = new System.Drawing.Size(1339, 128);
+            this.tlpCards.Size = new System.Drawing.Size(1194, 128);
             this.tlpCards.TabIndex = 39;
             // 
             // ucUpcomingMembershipsCard
@@ -252,11 +252,11 @@
             this.ucUpcomingMembershipsCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.ucUpcomingMembershipsCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucUpcomingMembershipsCard.Icon = FontAwesome.Sharp.IconChar.CalendarAlt;
-            this.ucUpcomingMembershipsCard.Location = new System.Drawing.Point(1009, 9);
+            this.ucUpcomingMembershipsCard.Location = new System.Drawing.Point(901, 9);
             this.ucUpcomingMembershipsCard.Margin = new System.Windows.Forms.Padding(7, 9, 7, 9);
             this.ucUpcomingMembershipsCard.Name = "ucUpcomingMembershipsCard";
             this.ucUpcomingMembershipsCard.Number = "0";
-            this.ucUpcomingMembershipsCard.Size = new System.Drawing.Size(323, 110);
+            this.ucUpcomingMembershipsCard.Size = new System.Drawing.Size(286, 110);
             this.ucUpcomingMembershipsCard.TabIndex = 4;
             this.ucUpcomingMembershipsCard.Title = "Upcoming Memberships";
             // 
@@ -269,7 +269,7 @@
             this.ucAllMembershipsCard.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.ucAllMembershipsCard.Name = "ucAllMembershipsCard";
             this.ucAllMembershipsCard.Number = "0";
-            this.ucAllMembershipsCard.Size = new System.Drawing.Size(322, 114);
+            this.ucAllMembershipsCard.Size = new System.Drawing.Size(286, 114);
             this.ucAllMembershipsCard.TabIndex = 3;
             this.ucAllMembershipsCard.Title = "All Memberships";
             // 
@@ -278,11 +278,11 @@
             this.ucExpiredMembershipsCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.ucExpiredMembershipsCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucExpiredMembershipsCard.Icon = FontAwesome.Sharp.IconChar.History;
-            this.ucExpiredMembershipsCard.Location = new System.Drawing.Point(674, 7);
+            this.ucExpiredMembershipsCard.Location = new System.Drawing.Point(602, 7);
             this.ucExpiredMembershipsCard.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.ucExpiredMembershipsCard.Name = "ucExpiredMembershipsCard";
             this.ucExpiredMembershipsCard.Number = "0";
-            this.ucExpiredMembershipsCard.Size = new System.Drawing.Size(322, 114);
+            this.ucExpiredMembershipsCard.Size = new System.Drawing.Size(286, 114);
             this.ucExpiredMembershipsCard.TabIndex = 0;
             this.ucExpiredMembershipsCard.Title = "Expired Memberships";
             // 
@@ -291,11 +291,11 @@
             this.ucActiveMembershipsCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.ucActiveMembershipsCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucActiveMembershipsCard.Icon = FontAwesome.Sharp.IconChar.CircleCheck;
-            this.ucActiveMembershipsCard.Location = new System.Drawing.Point(340, 7);
+            this.ucActiveMembershipsCard.Location = new System.Drawing.Point(304, 7);
             this.ucActiveMembershipsCard.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.ucActiveMembershipsCard.Name = "ucActiveMembershipsCard";
             this.ucActiveMembershipsCard.Number = "0";
-            this.ucActiveMembershipsCard.Size = new System.Drawing.Size(322, 114);
+            this.ucActiveMembershipsCard.Size = new System.Drawing.Size(286, 114);
             this.ucActiveMembershipsCard.TabIndex = 2;
             this.ucActiveMembershipsCard.Title = "Active Memberships";
             // 
@@ -304,10 +304,10 @@
             this.pnlFooter.Controls.Add(this.lblNoRecords);
             this.pnlFooter.Controls.Add(this.lblRecords);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(15, 549);
+            this.pnlFooter.Location = new System.Drawing.Point(15, 547);
             this.pnlFooter.Margin = new System.Windows.Forms.Padding(4);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(1339, 54);
+            this.pnlFooter.Size = new System.Drawing.Size(1194, 54);
             this.pnlFooter.TabIndex = 38;
             // 
             // lblNoRecords
@@ -317,7 +317,7 @@
             this.lblNoRecords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.lblNoRecords.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.lblNoRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNoRecords.Location = new System.Drawing.Point(1033, 17);
+            this.lblNoRecords.Location = new System.Drawing.Point(888, 17);
             this.lblNoRecords.Name = "lblNoRecords";
             this.lblNoRecords.Size = new System.Drawing.Size(303, 21);
             this.lblNoRecords.TabIndex = 29;
@@ -344,7 +344,7 @@
             this.pnlHeader.Location = new System.Drawing.Point(15, 15);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1339, 72);
+            this.pnlHeader.Size = new System.Drawing.Size(1194, 72);
             this.pnlHeader.TabIndex = 37;
             // 
             // btnAddMembership
@@ -360,7 +360,7 @@
             this.btnAddMembership.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddMembership.IconSize = 20;
             this.btnAddMembership.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddMembership.Location = new System.Drawing.Point(1177, 20);
+            this.btnAddMembership.Location = new System.Drawing.Point(1032, 20);
             this.btnAddMembership.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddMembership.Name = "btnAddMembership";
             this.btnAddMembership.Size = new System.Drawing.Size(161, 32);
@@ -406,7 +406,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucMemberships";
             this.Padding = new System.Windows.Forms.Padding(15);
-            this.Size = new System.Drawing.Size(1369, 618);
+            this.Size = new System.Drawing.Size(1224, 616);
             this.Load += new System.EventHandler(this.ucMemberships_Load);
             this.cmsMemberships.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);

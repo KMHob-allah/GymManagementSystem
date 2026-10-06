@@ -183,7 +183,6 @@ namespace GymManagementSystem.DAL
                 return table.Rows.Count > 0 ? table.Rows[0] : null;
             }
         }
-
     }
 }
 

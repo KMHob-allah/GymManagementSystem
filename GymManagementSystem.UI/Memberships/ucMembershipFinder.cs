@@ -1,4 +1,5 @@
 ﻿using GymManagementSystem.BLL.Entities;
+using GymManagementSystem.UI.Members;
 using System;
 using System.Windows.Forms;
 
@@ -151,6 +152,22 @@ namespace GymManagementSystem.UI.Memberships
                 e.SuppressKeyPress = true;
             }
         }
-       
+
+        public void LoadMembership(Membership membership)
+        {
+            if (membership == null)
+            {
+                _ClearMembershipCard();
+                return;
+            }
+
+            cbFilterBy.SelectedIndex = 0;
+
+            tbFilterValue.Text = membership.MemberID.ToString();
+
+            ucMembershipCard1.LoadMembership(membership);
+
+            MembershipSelected?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
