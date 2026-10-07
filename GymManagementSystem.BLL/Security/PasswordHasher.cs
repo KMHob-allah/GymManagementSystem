@@ -10,7 +10,7 @@ namespace GymManagementSystem.BLL.Security
 
         private const int SaltSize = 16;
         private const int HashSize = 32;
-        private const int Iterations = 600000;
+        private const int Iterations = 100000;
 
         private const int HeaderSize = 1 + 4;
         private const int StoredValueSize = HeaderSize + SaltSize + HashSize;
