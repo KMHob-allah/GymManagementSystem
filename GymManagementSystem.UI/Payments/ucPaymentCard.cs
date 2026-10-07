@@ -46,7 +46,7 @@ namespace GymManagementSystem.UI.Payments
 
             lblAmountValue.Text = payment.Amount.ToString();
 
-            //lblCreatedByValue.Text = payment.CreatedByUserInfo.UserName;
+            lblCreatedByValue.Text = payment.CreatedByUserInfo.UserName;
         }
 
         private void _SetDefaultValues()

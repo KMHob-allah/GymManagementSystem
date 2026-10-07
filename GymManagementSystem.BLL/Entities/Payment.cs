@@ -15,7 +15,7 @@ namespace GymManagementSystem.BLL.Entities
         }
 
         private Membership _membership;
-        //private User _createdByUser;
+        private User _createdByUser;
 
         public int PaymentID { get; set; }
         public int MembershipID { get; set; }
@@ -36,17 +36,17 @@ namespace GymManagementSystem.BLL.Entities
             }
         }
 
-        //public User CreatedByUserInfo
-        //{
-        //    get
-        //    {
-        //        if (_createdByUser == null)
-        //            _createdByUser = User.GetByID(CreatedByUserID);
+        public User CreatedByUserInfo
+        {
+            get
+            {
+                if (_createdByUser == null)
+                    _createdByUser = User.GetByID(CreatedByUserID);
 
-        //        return _createdByUser;
-        //    }
-        //}
-            
+                return _createdByUser;
+            }
+        }
+
         public Payment(
             int paymentID,
             int membershipID,

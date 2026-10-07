@@ -33,12 +33,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvPayments = new System.Windows.Forms.DataGridView();
+            this.cmsPayments = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.updateAmountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlFilters = new System.Windows.Forms.Panel();
             this.dtpFilterDate = new System.Windows.Forms.DateTimePicker();
             this.lblFilter = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.tbFilterValue = new System.Windows.Forms.TextBox();
             this.tlpCards = new System.Windows.Forms.TableLayoutPanel();
+            this.ucTotalRevenueCard = new GymManagementSystem.UI.ucCard();
+            this.ucTodayRevenue = new GymManagementSystem.UI.ucCard();
+            this.ucTotalDebtCard = new GymManagementSystem.UI.ucCard();
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.lblNoRecords = new System.Windows.Forms.Label();
             this.lblRecords = new System.Windows.Forms.Label();
@@ -46,29 +53,22 @@
             this.btnAddPayment = new FontAwesome.Sharp.IconButton();
             this.lblSubtitle = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.cmsPayments = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.updateAmountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ucTotalRevenueCard = new GymManagementSystem.UI.ucCard();
-            this.ucTodayRevenue = new GymManagementSystem.UI.ucCard();
-            this.ucTotalDebtCard = new GymManagementSystem.UI.ucCard();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).BeginInit();
+            this.cmsPayments.SuspendLayout();
             this.pnlFilters.SuspendLayout();
             this.tlpCards.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             this.pnlHeader.SuspendLayout();
-            this.cmsPayments.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlGrid
             // 
             this.pnlGrid.Controls.Add(this.dgvPayments);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGrid.Location = new System.Drawing.Point(10, 271);
+            this.pnlGrid.Location = new System.Drawing.Point(15, 276);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(1154, 205);
+            this.pnlGrid.Size = new System.Drawing.Size(1144, 195);
             this.pnlGrid.TabIndex = 46;
             // 
             // dgvPayments
@@ -111,8 +111,39 @@
             this.dgvPayments.RowHeadersVisible = false;
             this.dgvPayments.RowTemplate.Height = 40;
             this.dgvPayments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPayments.Size = new System.Drawing.Size(1154, 205);
+            this.dgvPayments.Size = new System.Drawing.Size(1144, 195);
             this.dgvPayments.TabIndex = 0;
+            // 
+            // cmsPayments
+            // 
+            this.cmsPayments.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showDetailsToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.updateAmountToolStripMenuItem});
+            this.cmsPayments.Name = "cmsMembers";
+            this.cmsPayments.Size = new System.Drawing.Size(160, 54);
+            this.cmsPayments.Opening += new System.ComponentModel.CancelEventHandler(this.cmsPayments_Opening);
+            // 
+            // showDetailsToolStripMenuItem
+            // 
+            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.showDetailsToolStripMenuItem.Text = "Show Details";
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
+            this.toolStripSeparator1.ForeColor = System.Drawing.Color.White;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(156, 6);
+            // 
+            // updateAmountToolStripMenuItem
+            // 
+            this.updateAmountToolStripMenuItem.Name = "updateAmountToolStripMenuItem";
+            this.updateAmountToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.updateAmountToolStripMenuItem.Text = "Update Amount";
+            this.updateAmountToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // pnlFilters
             // 
@@ -121,9 +152,9 @@
             this.pnlFilters.Controls.Add(this.cbFilterBy);
             this.pnlFilters.Controls.Add(this.tbFilterValue);
             this.pnlFilters.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlFilters.Location = new System.Drawing.Point(10, 210);
+            this.pnlFilters.Location = new System.Drawing.Point(15, 215);
             this.pnlFilters.Name = "pnlFilters";
-            this.pnlFilters.Size = new System.Drawing.Size(1154, 61);
+            this.pnlFilters.Size = new System.Drawing.Size(1144, 61);
             this.pnlFilters.TabIndex = 45;
             // 
             // dtpFilterDate
@@ -185,22 +216,61 @@
             this.tlpCards.Controls.Add(this.ucTodayRevenue, 2, 0);
             this.tlpCards.Controls.Add(this.ucTotalDebtCard, 1, 0);
             this.tlpCards.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlpCards.Location = new System.Drawing.Point(10, 82);
+            this.tlpCards.Location = new System.Drawing.Point(15, 87);
             this.tlpCards.Name = "tlpCards";
             this.tlpCards.RowCount = 1;
             this.tlpCards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCards.Size = new System.Drawing.Size(1154, 128);
+            this.tlpCards.Size = new System.Drawing.Size(1144, 128);
             this.tlpCards.TabIndex = 44;
+            // 
+            // ucTotalRevenueCard
+            // 
+            this.ucTotalRevenueCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.ucTotalRevenueCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucTotalRevenueCard.Icon = FontAwesome.Sharp.IconChar.SackDollar;
+            this.ucTotalRevenueCard.Location = new System.Drawing.Point(6, 7);
+            this.ucTotalRevenueCard.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.ucTotalRevenueCard.Name = "ucTotalRevenueCard";
+            this.ucTotalRevenueCard.Number = "0";
+            this.ucTotalRevenueCard.Size = new System.Drawing.Size(369, 114);
+            this.ucTotalRevenueCard.TabIndex = 3;
+            this.ucTotalRevenueCard.Title = "Total Revenue";
+            // 
+            // ucTodayRevenue
+            // 
+            this.ucTodayRevenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.ucTodayRevenue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucTodayRevenue.Icon = FontAwesome.Sharp.IconChar.CashRegister;
+            this.ucTodayRevenue.Location = new System.Drawing.Point(768, 7);
+            this.ucTodayRevenue.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.ucTodayRevenue.Name = "ucTodayRevenue";
+            this.ucTodayRevenue.Number = "0";
+            this.ucTodayRevenue.Size = new System.Drawing.Size(370, 114);
+            this.ucTodayRevenue.TabIndex = 0;
+            this.ucTodayRevenue.Title = "Today Revenue";
+            // 
+            // ucTotalDebtCard
+            // 
+            this.ucTotalDebtCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.ucTotalDebtCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucTotalDebtCard.Icon = FontAwesome.Sharp.IconChar.HandHoldingUsd;
+            this.ucTotalDebtCard.Location = new System.Drawing.Point(387, 7);
+            this.ucTotalDebtCard.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.ucTotalDebtCard.Name = "ucTotalDebtCard";
+            this.ucTotalDebtCard.Number = "0";
+            this.ucTotalDebtCard.Size = new System.Drawing.Size(369, 114);
+            this.ucTotalDebtCard.TabIndex = 2;
+            this.ucTotalDebtCard.Title = "Total Debt";
             // 
             // pnlFooter
             // 
             this.pnlFooter.Controls.Add(this.lblNoRecords);
             this.pnlFooter.Controls.Add(this.lblRecords);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(10, 476);
+            this.pnlFooter.Location = new System.Drawing.Point(15, 471);
             this.pnlFooter.Margin = new System.Windows.Forms.Padding(4);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(1154, 54);
+            this.pnlFooter.Size = new System.Drawing.Size(1144, 54);
             this.pnlFooter.TabIndex = 43;
             // 
             // lblNoRecords
@@ -210,7 +280,7 @@
             this.lblNoRecords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.lblNoRecords.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.lblNoRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNoRecords.Location = new System.Drawing.Point(872, 17);
+            this.lblNoRecords.Location = new System.Drawing.Point(862, 17);
             this.lblNoRecords.Name = "lblNoRecords";
             this.lblNoRecords.Size = new System.Drawing.Size(278, 21);
             this.lblNoRecords.TabIndex = 29;
@@ -234,10 +304,10 @@
             this.pnlHeader.Controls.Add(this.lblSubtitle);
             this.pnlHeader.Controls.Add(this.lblTitle);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(10, 10);
+            this.pnlHeader.Location = new System.Drawing.Point(15, 15);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1154, 72);
+            this.pnlHeader.Size = new System.Drawing.Size(1144, 72);
             this.pnlHeader.TabIndex = 42;
             // 
             // btnAddPayment
@@ -253,7 +323,7 @@
             this.btnAddPayment.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddPayment.IconSize = 20;
             this.btnAddPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddPayment.Location = new System.Drawing.Point(1009, 20);
+            this.btnAddPayment.Location = new System.Drawing.Point(999, 20);
             this.btnAddPayment.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddPayment.Name = "btnAddPayment";
             this.btnAddPayment.Size = new System.Drawing.Size(144, 32);
@@ -285,76 +355,6 @@
             this.lblTitle.TabIndex = 27;
             this.lblTitle.Text = "Payments";
             // 
-            // cmsPayments
-            // 
-            this.cmsPayments.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showDetailsToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.updateAmountToolStripMenuItem});
-            this.cmsPayments.Name = "cmsMembers";
-            this.cmsPayments.Size = new System.Drawing.Size(160, 54);
-            this.cmsPayments.Opening += new System.ComponentModel.CancelEventHandler(this.cmsPayments_Opening);
-            // 
-            // showDetailsToolStripMenuItem
-            // 
-            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.showDetailsToolStripMenuItem.Text = "Show Details";
-            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.toolStripSeparator1.ForeColor = System.Drawing.Color.White;
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(156, 6);
-            // 
-            // updateAmountToolStripMenuItem
-            // 
-            this.updateAmountToolStripMenuItem.Name = "updateAmountToolStripMenuItem";
-            this.updateAmountToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.updateAmountToolStripMenuItem.Text = "Update Amount";
-            this.updateAmountToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
-            // ucTotalRevenueCard
-            // 
-            this.ucTotalRevenueCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.ucTotalRevenueCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucTotalRevenueCard.Icon = FontAwesome.Sharp.IconChar.SackDollar;
-            this.ucTotalRevenueCard.Location = new System.Drawing.Point(6, 7);
-            this.ucTotalRevenueCard.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.ucTotalRevenueCard.Name = "ucTotalRevenueCard";
-            this.ucTotalRevenueCard.Number = "0";
-            this.ucTotalRevenueCard.Size = new System.Drawing.Size(372, 114);
-            this.ucTotalRevenueCard.TabIndex = 3;
-            this.ucTotalRevenueCard.Title = "Total Revenue";
-            // 
-            // ucTodayRevenue
-            // 
-            this.ucTodayRevenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.ucTodayRevenue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucTodayRevenue.Icon = FontAwesome.Sharp.IconChar.CashRegister;
-            this.ucTodayRevenue.Location = new System.Drawing.Point(774, 7);
-            this.ucTodayRevenue.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.ucTodayRevenue.Name = "ucTodayRevenue";
-            this.ucTodayRevenue.Number = "0";
-            this.ucTodayRevenue.Size = new System.Drawing.Size(374, 114);
-            this.ucTodayRevenue.TabIndex = 0;
-            this.ucTodayRevenue.Title = "Today Revenue";
-            // 
-            // ucTotalDebtCard
-            // 
-            this.ucTotalDebtCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.ucTotalDebtCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucTotalDebtCard.Icon = FontAwesome.Sharp.IconChar.HandHoldingUsd;
-            this.ucTotalDebtCard.Location = new System.Drawing.Point(390, 7);
-            this.ucTotalDebtCard.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.ucTotalDebtCard.Name = "ucTotalDebtCard";
-            this.ucTotalDebtCard.Number = "0";
-            this.ucTotalDebtCard.Size = new System.Drawing.Size(372, 114);
-            this.ucTotalDebtCard.TabIndex = 2;
-            this.ucTotalDebtCard.Title = "Total Debt";
-            // 
             // ucPayments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -368,11 +368,12 @@
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucPayments";
-            this.Padding = new System.Windows.Forms.Padding(10);
+            this.Padding = new System.Windows.Forms.Padding(15);
             this.Size = new System.Drawing.Size(1174, 540);
             this.Load += new System.EventHandler(this.ucPayments_Load);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).EndInit();
+            this.cmsPayments.ResumeLayout(false);
             this.pnlFilters.ResumeLayout(false);
             this.pnlFilters.PerformLayout();
             this.tlpCards.ResumeLayout(false);
@@ -380,7 +381,6 @@
             this.pnlFooter.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            this.cmsPayments.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

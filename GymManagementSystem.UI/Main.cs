@@ -2,6 +2,7 @@
 using GymManagementSystem.UI.Memberships;
 using GymManagementSystem.UI.Payments;
 using GymManagementSystem.UI.Plans;
+using GymManagementSystem.UI.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,6 +66,12 @@ namespace GymManagementSystem.UI
         private void iconButton5_Click(object sender, EventArgs e)
         {
             _LoadUserControl(new ucPayments());
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            _LoadUserControl(new ucUsers());
+
         }
     }
 }

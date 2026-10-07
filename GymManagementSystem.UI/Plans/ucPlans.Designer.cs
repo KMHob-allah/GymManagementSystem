@@ -69,9 +69,9 @@
             // 
             this.pnlGrid.Controls.Add(this.dgvPlans);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGrid.Location = new System.Drawing.Point(12, 274);
+            this.pnlGrid.Location = new System.Drawing.Point(15, 276);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(1345, 277);
+            this.pnlGrid.Size = new System.Drawing.Size(1339, 273);
             this.pnlGrid.TabIndex = 10;
             // 
             // dgvPlans
@@ -114,7 +114,7 @@
             this.dgvPlans.RowHeadersVisible = false;
             this.dgvPlans.RowTemplate.Height = 40;
             this.dgvPlans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlans.Size = new System.Drawing.Size(1345, 277);
+            this.dgvPlans.Size = new System.Drawing.Size(1339, 273);
             this.dgvPlans.TabIndex = 0;
             // 
             // cmsPlans
@@ -179,9 +179,9 @@
             this.pnlFilters.Controls.Add(this.tbFilterValue);
             this.pnlFilters.Controls.Add(this.cbFilterValue);
             this.pnlFilters.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlFilters.Location = new System.Drawing.Point(12, 213);
+            this.pnlFilters.Location = new System.Drawing.Point(15, 215);
             this.pnlFilters.Name = "pnlFilters";
-            this.pnlFilters.Size = new System.Drawing.Size(1345, 61);
+            this.pnlFilters.Size = new System.Drawing.Size(1339, 61);
             this.pnlFilters.TabIndex = 9;
             // 
             // lblFilter
@@ -247,11 +247,11 @@
             this.tlpCards.Controls.Add(this.ucInactivePlansCard, 2, 0);
             this.tlpCards.Controls.Add(this.ucActivePlansCard, 1, 0);
             this.tlpCards.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlpCards.Location = new System.Drawing.Point(12, 85);
+            this.tlpCards.Location = new System.Drawing.Point(15, 87);
             this.tlpCards.Name = "tlpCards";
             this.tlpCards.RowCount = 1;
             this.tlpCards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCards.Size = new System.Drawing.Size(1345, 128);
+            this.tlpCards.Size = new System.Drawing.Size(1339, 128);
             this.tlpCards.TabIndex = 8;
             // 
             // ucAllPlansCard
@@ -263,7 +263,7 @@
             this.ucAllPlansCard.Margin = new System.Windows.Forms.Padding(5);
             this.ucAllPlansCard.Name = "ucAllPlansCard";
             this.ucAllPlansCard.Number = "0";
-            this.ucAllPlansCard.Size = new System.Drawing.Size(438, 118);
+            this.ucAllPlansCard.Size = new System.Drawing.Size(436, 118);
             this.ucAllPlansCard.TabIndex = 3;
             this.ucAllPlansCard.Title = "All Plans";
             // 
@@ -272,11 +272,11 @@
             this.ucInactivePlansCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.ucInactivePlansCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucInactivePlansCard.Icon = FontAwesome.Sharp.IconChar.CircleXmark;
-            this.ucInactivePlansCard.Location = new System.Drawing.Point(901, 5);
+            this.ucInactivePlansCard.Location = new System.Drawing.Point(897, 5);
             this.ucInactivePlansCard.Margin = new System.Windows.Forms.Padding(5);
             this.ucInactivePlansCard.Name = "ucInactivePlansCard";
             this.ucInactivePlansCard.Number = "0";
-            this.ucInactivePlansCard.Size = new System.Drawing.Size(439, 118);
+            this.ucInactivePlansCard.Size = new System.Drawing.Size(437, 118);
             this.ucInactivePlansCard.TabIndex = 0;
             this.ucInactivePlansCard.Title = "Inactive Plans";
             // 
@@ -285,11 +285,11 @@
             this.ucActivePlansCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.ucActivePlansCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucActivePlansCard.Icon = FontAwesome.Sharp.IconChar.CircleCheck;
-            this.ucActivePlansCard.Location = new System.Drawing.Point(453, 5);
+            this.ucActivePlansCard.Location = new System.Drawing.Point(451, 5);
             this.ucActivePlansCard.Margin = new System.Windows.Forms.Padding(5);
             this.ucActivePlansCard.Name = "ucActivePlansCard";
             this.ucActivePlansCard.Number = "0";
-            this.ucActivePlansCard.Size = new System.Drawing.Size(438, 118);
+            this.ucActivePlansCard.Size = new System.Drawing.Size(436, 118);
             this.ucActivePlansCard.TabIndex = 2;
             this.ucActivePlansCard.Title = "Active Plans";
             // 
@@ -298,10 +298,10 @@
             this.pnlFooter.Controls.Add(this.lblNoRecords);
             this.pnlFooter.Controls.Add(this.lblRecords);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(12, 551);
+            this.pnlFooter.Location = new System.Drawing.Point(15, 549);
             this.pnlFooter.Margin = new System.Windows.Forms.Padding(4);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(1345, 54);
+            this.pnlFooter.Size = new System.Drawing.Size(1339, 54);
             this.pnlFooter.TabIndex = 7;
             // 
             // lblNoRecords
@@ -311,7 +311,7 @@
             this.lblNoRecords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.lblNoRecords.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.lblNoRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNoRecords.Location = new System.Drawing.Point(1095, 17);
+            this.lblNoRecords.Location = new System.Drawing.Point(1089, 17);
             this.lblNoRecords.Name = "lblNoRecords";
             this.lblNoRecords.Size = new System.Drawing.Size(247, 21);
             this.lblNoRecords.TabIndex = 29;
@@ -335,10 +335,10 @@
             this.pnlHeader.Controls.Add(this.lblSubtitle);
             this.pnlHeader.Controls.Add(this.lblTitle);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(12, 13);
+            this.pnlHeader.Location = new System.Drawing.Point(15, 15);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1345, 72);
+            this.pnlHeader.Size = new System.Drawing.Size(1339, 72);
             this.pnlHeader.TabIndex = 6;
             // 
             // btnAddPlan
@@ -354,7 +354,7 @@
             this.btnAddPlan.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddPlan.IconSize = 20;
             this.btnAddPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddPlan.Location = new System.Drawing.Point(1215, 20);
+            this.btnAddPlan.Location = new System.Drawing.Point(1209, 20);
             this.btnAddPlan.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddPlan.Name = "btnAddPlan";
             this.btnAddPlan.Size = new System.Drawing.Size(129, 32);
@@ -399,7 +399,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucPlans";
-            this.Padding = new System.Windows.Forms.Padding(12, 13, 12, 13);
+            this.Padding = new System.Windows.Forms.Padding(15);
             this.Size = new System.Drawing.Size(1369, 618);
             this.Load += new System.EventHandler(this.ucPlans_Load);
             this.pnlGrid.ResumeLayout(false);

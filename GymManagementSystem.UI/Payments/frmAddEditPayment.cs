@@ -115,7 +115,7 @@ namespace GymManagementSystem.UI.Payments
                 lblPaymentDateValue.Text =
                     _payment.PaymentDate.ToString("yyyy/MM/dd HH:mm");
 
-                lblCreatedByValue.Text ="" /*_payment.CreatedByUserInfo.UserName.ToString()*/; // Issue
+                lblCreatedByValue.Text = _payment.CreatedByUserInfo.UserName.ToString();
             }
         }       
         private void UcMembershipFinder1_MembershipSelected(object sender,EventArgs e)
