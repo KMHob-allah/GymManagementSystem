@@ -65,6 +65,12 @@
     <Compile Include="Attendance\ucAttendance.Designer.cs">
       <DependentUpon>ucAttendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="AuditLogs\ucAuditLogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AuditLogs\ucAuditLogs.Designer.cs">
+      <DependentUpon>ucAuditLogs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Attendance\ucAttendance.resx">
       <DependentUpon>ucAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditLogs\ucAuditLogs.resx">
+      <DependentUpon>ucAuditLogs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

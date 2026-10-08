@@ -350,6 +350,7 @@
             this.iconButton8.Text = "          Logs";
             this.iconButton8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton8.UseVisualStyleBackColor = false;
+            this.iconButton8.Click += new System.EventHandler(this.iconButton8_Click);
             // 
             // iconButton6
             // 

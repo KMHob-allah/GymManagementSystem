@@ -1,4 +1,5 @@
 ﻿using GymManagementSystem.UI.Attendance;
+using GymManagementSystem.UI.AuditLogs;
 using GymManagementSystem.UI.Members;
 using GymManagementSystem.UI.Memberships;
 using GymManagementSystem.UI.Payments;
@@ -78,6 +79,12 @@ namespace GymManagementSystem.UI
         private void iconButton7_Click(object sender, EventArgs e)
         {
             _LoadUserControl(new ucAttendance());
+
+        }
+
+        private void iconButton8_Click(object sender, EventArgs e)
+        {
+            _LoadUserControl(new ucAuditLogs());
 
         }
     }
