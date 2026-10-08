@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Entities\Attendance.cs" />
     <Compile Include="Entities\AuditLog.cs" />
+    <Compile Include="Entities\Dashboard.cs" />
+    <Compile Include="Entities\DashboardSummary.cs" />
     <Compile Include="Entities\Member.cs" />
     <Compile Include="Entities\Membership.cs" />
     <Compile Include="Entities\Payment.cs" />
