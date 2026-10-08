@@ -1,22 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using GymManagementSystem.BLL;
+using GymManagementSystem.UI;
+using GymManagementSystem.UI.Authentication;
+using System;
 using System.Windows.Forms;
 
-namespace GymManagementSystem.UI
+namespace GymManagementSystem
 {
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+
+            while (true)
+            {
+                using (var frmLogin = new frmLogin())
+                {
+                    if (frmLogin.ShowDialog() != DialogResult.OK)
+                        break;
+                }
+
+                using (var frmMain = new Main())
+                {
+                    Application.Run(frmMain);
+                }
+
+                GlobalSettings.CurrentUser = null;
+            }
         }
     }
 }
