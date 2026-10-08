@@ -72,7 +72,7 @@
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(15, 276);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(796, 63);
+            this.pnlGrid.Size = new System.Drawing.Size(1152, 320);
             this.pnlGrid.TabIndex = 25;
             // 
             // dgvAuditLogs
@@ -114,7 +114,7 @@
             this.dgvAuditLogs.RowHeadersVisible = false;
             this.dgvAuditLogs.RowTemplate.Height = 40;
             this.dgvAuditLogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAuditLogs.Size = new System.Drawing.Size(796, 63);
+            this.dgvAuditLogs.Size = new System.Drawing.Size(1152, 320);
             this.dgvAuditLogs.TabIndex = 0;
             // 
             // pnlFilters
@@ -127,7 +127,7 @@
             this.pnlFilters.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlFilters.Location = new System.Drawing.Point(15, 215);
             this.pnlFilters.Name = "pnlFilters";
-            this.pnlFilters.Size = new System.Drawing.Size(796, 61);
+            this.pnlFilters.Size = new System.Drawing.Size(1152, 61);
             this.pnlFilters.TabIndex = 24;
             // 
             // cbFilterValue
@@ -196,7 +196,7 @@
             this.lblNoRecords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.lblNoRecords.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.lblNoRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNoRecords.Location = new System.Drawing.Point(552, 17);
+            this.lblNoRecords.Location = new System.Drawing.Point(908, 17);
             this.lblNoRecords.Name = "lblNoRecords";
             this.lblNoRecords.Size = new System.Drawing.Size(241, 21);
             this.lblNoRecords.TabIndex = 29;
@@ -223,7 +223,7 @@
             this.ucAllAuditLogsCard.Margin = new System.Windows.Forms.Padding(5);
             this.ucAllAuditLogsCard.Name = "ucAllAuditLogsCard";
             this.ucAllAuditLogsCard.Number = "0";
-            this.ucAllAuditLogsCard.Size = new System.Drawing.Size(388, 118);
+            this.ucAllAuditLogsCard.Size = new System.Drawing.Size(566, 118);
             this.ucAllAuditLogsCard.TabIndex = 3;
             this.ucAllAuditLogsCard.Title = "All Logs";
             // 
@@ -232,11 +232,11 @@
             this.ucTodayAuditLogsCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.ucTodayAuditLogsCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucTodayAuditLogsCard.Icon = FontAwesome.Sharp.IconChar.ClockFour;
-            this.ucTodayAuditLogsCard.Location = new System.Drawing.Point(403, 5);
+            this.ucTodayAuditLogsCard.Location = new System.Drawing.Point(581, 5);
             this.ucTodayAuditLogsCard.Margin = new System.Windows.Forms.Padding(5);
             this.ucTodayAuditLogsCard.Name = "ucTodayAuditLogsCard";
             this.ucTodayAuditLogsCard.Number = "0";
-            this.ucTodayAuditLogsCard.Size = new System.Drawing.Size(388, 118);
+            this.ucTodayAuditLogsCard.Size = new System.Drawing.Size(566, 118);
             this.ucTodayAuditLogsCard.TabIndex = 2;
             this.ucTodayAuditLogsCard.Title = "Today\'s  Logs";
             // 
@@ -253,7 +253,7 @@
             this.tlpCards.Name = "tlpCards";
             this.tlpCards.RowCount = 1;
             this.tlpCards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCards.Size = new System.Drawing.Size(796, 128);
+            this.tlpCards.Size = new System.Drawing.Size(1152, 128);
             this.tlpCards.TabIndex = 23;
             // 
             // pnlFooter
@@ -261,10 +261,10 @@
             this.pnlFooter.Controls.Add(this.lblNoRecords);
             this.pnlFooter.Controls.Add(this.lblRecords);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(15, 339);
+            this.pnlFooter.Location = new System.Drawing.Point(15, 596);
             this.pnlFooter.Margin = new System.Windows.Forms.Padding(4);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(796, 54);
+            this.pnlFooter.Size = new System.Drawing.Size(1152, 54);
             this.pnlFooter.TabIndex = 22;
             // 
             // lblSubtitle
@@ -286,7 +286,7 @@
             this.pnlHeader.Location = new System.Drawing.Point(15, 15);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(796, 72);
+            this.pnlHeader.Size = new System.Drawing.Size(1152, 72);
             this.pnlHeader.TabIndex = 21;
             // 
             // ucAuditLogs
@@ -303,7 +303,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucAuditLogs";
             this.Padding = new System.Windows.Forms.Padding(15);
-            this.Size = new System.Drawing.Size(826, 408);
+            this.Size = new System.Drawing.Size(1182, 665);
             this.Load += new System.EventHandler(this.ucAuditLogs_Load);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuditLogs)).EndInit();

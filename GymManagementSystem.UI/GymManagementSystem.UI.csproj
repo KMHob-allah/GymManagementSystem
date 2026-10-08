@@ -71,6 +71,12 @@
     <Compile Include="AuditLogs\ucAuditLogs.Designer.cs">
       <DependentUpon>ucAuditLogs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Authentication\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authentication\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +256,9 @@
     <EmbeddedResource Include="AuditLogs\ucAuditLogs.resx">
       <DependentUpon>ucAuditLogs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Authentication\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -373,6 +382,11 @@
   <ItemGroup>
     <None Include="Resources\MaleAvatar.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\LoginImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dumbbell.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

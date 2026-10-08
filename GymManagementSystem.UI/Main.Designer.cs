@@ -28,15 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.flpnlSidebar = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblCurrentUser = new System.Windows.Forms.Label();
+            this.lblCurrentTime = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblGymName = new System.Windows.Forms.Label();
+            this.lblDash2 = new System.Windows.Forms.Label();
+            this.lblDash = new System.Windows.Forms.Label();
             this.iconButton12 = new FontAwesome.Sharp.IconButton();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
-            this.pnlSidebar = new System.Windows.Forms.Panel();
-            this.flpnlSidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -46,15 +56,17 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlMain.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
             this.flpnlSidebar.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -79,6 +91,7 @@
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
+            this.pnlHeader.Controls.Add(this.flowLayoutPanel1);
             this.pnlHeader.Controls.Add(this.panel2);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(207, 0);
@@ -96,6 +109,127 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(147, 34);
             this.panel2.TabIndex = 7;
+            // 
+            // pnlSidebar
+            // 
+            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.pnlSidebar.Controls.Add(this.flpnlSidebar);
+            this.pnlSidebar.Controls.Add(this.panel1);
+            this.pnlSidebar.Controls.Add(this.panel3);
+            this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
+            this.pnlSidebar.Name = "pnlSidebar";
+            this.pnlSidebar.Size = new System.Drawing.Size(207, 800);
+            this.pnlSidebar.TabIndex = 4;
+            // 
+            // flpnlSidebar
+            // 
+            this.flpnlSidebar.Controls.Add(this.btnDashboard);
+            this.flpnlSidebar.Controls.Add(this.iconButton4);
+            this.flpnlSidebar.Controls.Add(this.iconButton1);
+            this.flpnlSidebar.Controls.Add(this.iconButton3);
+            this.flpnlSidebar.Controls.Add(this.iconButton5);
+            this.flpnlSidebar.Controls.Add(this.iconButton7);
+            this.flpnlSidebar.Controls.Add(this.iconButton2);
+            this.flpnlSidebar.Controls.Add(this.iconButton8);
+            this.flpnlSidebar.Controls.Add(this.iconButton6);
+            this.flpnlSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpnlSidebar.Location = new System.Drawing.Point(0, 55);
+            this.flpnlSidebar.Name = "flpnlSidebar";
+            this.flpnlSidebar.Size = new System.Drawing.Size(207, 693);
+            this.flpnlSidebar.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.iconButton9);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 748);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(207, 52);
+            this.panel1.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(207, 55);
+            this.panel3.TabIndex = 5;
+            // 
+            // lblCurrentUser
+            // 
+            this.lblCurrentUser.AutoSize = true;
+            this.lblCurrentUser.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblCurrentUser.ForeColor = System.Drawing.Color.Red;
+            this.lblCurrentUser.Location = new System.Drawing.Point(230, 5);
+            this.lblCurrentUser.Name = "lblCurrentUser";
+            this.lblCurrentUser.Size = new System.Drawing.Size(142, 19);
+            this.lblCurrentUser.TabIndex = 8;
+            this.lblCurrentUser.Text = "Logged in as ??? | ???";
+            // 
+            // lblCurrentTime
+            // 
+            this.lblCurrentTime.AutoSize = true;
+            this.lblCurrentTime.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblCurrentTime.ForeColor = System.Drawing.Color.Red;
+            this.lblCurrentTime.Location = new System.Drawing.Point(415, 5);
+            this.lblCurrentTime.Name = "lblCurrentTime";
+            this.lblCurrentTime.Size = new System.Drawing.Size(65, 19);
+            this.lblCurrentTime.TabIndex = 9;
+            this.lblCurrentTime.Text = "00:00:00";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.ClockTimer_Tick);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.lblGymName);
+            this.flowLayoutPanel1.Controls.Add(this.lblDash2);
+            this.flowLayoutPanel1.Controls.Add(this.lblCurrentUser);
+            this.flowLayoutPanel1.Controls.Add(this.lblDash);
+            this.flowLayoutPanel1.Controls.Add(this.lblCurrentTime);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1146, 34);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // lblGymName
+            // 
+            this.lblGymName.AutoSize = true;
+            this.lblGymName.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblGymName.ForeColor = System.Drawing.Color.Red;
+            this.lblGymName.Location = new System.Drawing.Point(8, 5);
+            this.lblGymName.Name = "lblGymName";
+            this.lblGymName.Size = new System.Drawing.Size(179, 19);
+            this.lblGymName.TabIndex = 10;
+            this.lblGymName.Text = "Gym Management System";
+            // 
+            // lblDash2
+            // 
+            this.lblDash2.AutoSize = true;
+            this.lblDash2.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblDash2.ForeColor = System.Drawing.Color.Red;
+            this.lblDash2.Location = new System.Drawing.Point(193, 5);
+            this.lblDash2.Name = "lblDash2";
+            this.lblDash2.Size = new System.Drawing.Size(31, 19);
+            this.lblDash2.TabIndex = 11;
+            this.lblDash2.Text = "  -  ";
+            // 
+            // lblDash
+            // 
+            this.lblDash.AutoSize = true;
+            this.lblDash.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblDash.ForeColor = System.Drawing.Color.Red;
+            this.lblDash.Location = new System.Drawing.Point(378, 5);
+            this.lblDash.Name = "lblDash";
+            this.lblDash.Size = new System.Drawing.Size(31, 19);
+            this.lblDash.TabIndex = 12;
+            this.lblDash.Text = "  -  ";
             // 
             // iconButton12
             // 
@@ -144,35 +278,6 @@
             this.iconButton10.TabIndex = 6;
             this.iconButton10.UseVisualStyleBackColor = true;
             this.iconButton10.Click += new System.EventHandler(this.iconButton10_Click);
-            // 
-            // pnlSidebar
-            // 
-            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.pnlSidebar.Controls.Add(this.flpnlSidebar);
-            this.pnlSidebar.Controls.Add(this.panel1);
-            this.pnlSidebar.Controls.Add(this.panel3);
-            this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
-            this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(207, 800);
-            this.pnlSidebar.TabIndex = 4;
-            // 
-            // flpnlSidebar
-            // 
-            this.flpnlSidebar.Controls.Add(this.btnDashboard);
-            this.flpnlSidebar.Controls.Add(this.iconButton4);
-            this.flpnlSidebar.Controls.Add(this.iconButton1);
-            this.flpnlSidebar.Controls.Add(this.iconButton3);
-            this.flpnlSidebar.Controls.Add(this.iconButton5);
-            this.flpnlSidebar.Controls.Add(this.iconButton7);
-            this.flpnlSidebar.Controls.Add(this.iconButton2);
-            this.flpnlSidebar.Controls.Add(this.iconButton8);
-            this.flpnlSidebar.Controls.Add(this.iconButton6);
-            this.flpnlSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpnlSidebar.Location = new System.Drawing.Point(0, 34);
-            this.flpnlSidebar.Name = "flpnlSidebar";
-            this.flpnlSidebar.Size = new System.Drawing.Size(207, 714);
-            this.flpnlSidebar.TabIndex = 5;
             // 
             // btnDashboard
             // 
@@ -374,15 +479,6 @@
             this.iconButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton6.UseVisualStyleBackColor = false;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.iconButton9);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 748);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(207, 52);
-            this.panel1.TabIndex = 4;
-            // 
             // iconButton9
             // 
             this.iconButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
@@ -405,15 +501,19 @@
             this.iconButton9.Text = "Log Out";
             this.iconButton9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton9.UseVisualStyleBackColor = false;
+            this.iconButton9.Click += new System.EventHandler(this.iconButton9_Click);
             // 
-            // panel3
+            // pictureBox1
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(207, 34);
-            this.panel3.TabIndex = 5;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::GymManagementSystem.UI.Properties.Resources.dumbbell;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(207, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Main
             // 
@@ -432,12 +532,17 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Main_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.pnlSidebar.ResumeLayout(false);
             this.flpnlSidebar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -465,5 +570,13 @@
         private FontAwesome.Sharp.IconButton iconButton11;
         private System.Windows.Forms.Panel pnlContent;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblCurrentUser;
+        private System.Windows.Forms.Label lblCurrentTime;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label lblGymName;
+        private System.Windows.Forms.Label lblDash2;
+        private System.Windows.Forms.Label lblDash;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

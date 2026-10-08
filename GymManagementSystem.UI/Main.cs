@@ -1,4 +1,6 @@
-﻿using GymManagementSystem.UI.Attendance;
+﻿using GymManagementSystem.BLL;
+using GymManagementSystem.BLL.Entities;
+using GymManagementSystem.UI.Attendance;
 using GymManagementSystem.UI.AuditLogs;
 using GymManagementSystem.UI.Members;
 using GymManagementSystem.UI.Memberships;
@@ -6,27 +8,32 @@ using GymManagementSystem.UI.Payments;
 using GymManagementSystem.UI.Plans;
 using GymManagementSystem.UI.Users;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GymManagementSystem.UI
 {
     public partial class Main : Form
     {
+        private Timer _clockTimer;
+
         public Main()
         {
             InitializeComponent();
         }
       
+        private void ClockTimer_Tick(object sender, EventArgs e)
+        {
+            UpdateCurrentTime();
+        }
+
+        private void UpdateCurrentTime()
+        {
+            lblCurrentTime.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt");
+        }
+
         private void iconButton10_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Exit(); // Issue
         }
 
         private void iconButton11_Click(object sender, EventArgs e)
@@ -93,5 +100,61 @@ namespace GymManagementSystem.UI
             _LoadUserControl(new ucDashboard());
 
         }
+
+        private void iconButton9_Click(object sender, EventArgs e)
+        {
+            DialogResult result =
+                MessageBox.Show(
+                    "Are you sure you want to logout?",
+                    "Confirm Logout",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes)
+                return;
+
+            int userID =
+                GlobalSettings.CurrentUser.UserID;
+
+            AuditLog auditLog =
+                new AuditLog();
+
+            auditLog.UserID = userID;
+            auditLog.ActionType = "Logout";
+            auditLog.TableName = "Users";
+            auditLog.RecordID = userID;
+
+            
+            if (!auditLog.Save())
+            {
+                MessageBox.Show(
+                    "Failed to record logout.",
+                    "Logout Failed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+
+            GlobalSettings.CurrentUser = null;
+
+            Close();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            lblGymName.Text = "Gym Management System";
+
+            lblCurrentUser.Text =
+            $"Logged in as : " +
+            $"{GlobalSettings.CurrentUser.UserName}  |  {GlobalSettings.CurrentUser.RoleInfo.RoleName}";
+            UpdateCurrentTime();
+
+            _clockTimer = new Timer();
+            _clockTimer.Interval = 1000;
+            _clockTimer.Tick += ClockTimer_Tick;
+            _clockTimer.Start();
+        }
     }
+
 }

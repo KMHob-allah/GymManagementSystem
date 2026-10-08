@@ -16,7 +16,7 @@ namespace GymManagementSystem.UI
         }
 
         private DataView _dvExpiringMemberships;
-        private bool _isUpdatingFilterUI;
+        private bool _isUpdatingFilterUI = false;
 
         public ucDashboard()
         {
