@@ -341,6 +341,7 @@
             this.pnlHeader.Controls.Add(this.lblSubtitle);
             this.pnlHeader.Controls.Add(this.lblTitle);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.pnlHeader.Location = new System.Drawing.Point(15, 15);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";

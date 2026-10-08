@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvAuditLogs = new System.Windows.Forms.DataGridView();
             this.pnlFilters = new System.Windows.Forms.Panel();
+            this.cbFilterValue = new System.Windows.Forms.ComboBox();
             this.lblFilter = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.tbFilterValue = new System.Windows.Forms.TextBox();
@@ -46,7 +47,6 @@
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.lblSubtitle = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.cbFilterValue = new System.Windows.Forms.ComboBox();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuditLogs)).BeginInit();
             this.pnlFilters.SuspendLayout();
@@ -86,24 +86,24 @@
             this.dgvAuditLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAuditLogs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvAuditLogs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAuditLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAuditLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAuditLogs.ColumnHeadersHeight = 45;
             this.dgvAuditLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAuditLogs.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAuditLogs.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAuditLogs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAuditLogs.EnableHeadersVisualStyles = false;
             this.dgvAuditLogs.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
@@ -129,6 +129,19 @@
             this.pnlFilters.Name = "pnlFilters";
             this.pnlFilters.Size = new System.Drawing.Size(796, 61);
             this.pnlFilters.TabIndex = 24;
+            // 
+            // cbFilterValue
+            // 
+            this.cbFilterValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
+            this.cbFilterValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilterValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbFilterValue.ForeColor = System.Drawing.Color.White;
+            this.cbFilterValue.FormattingEnabled = true;
+            this.cbFilterValue.Location = new System.Drawing.Point(307, 17);
+            this.cbFilterValue.Name = "cbFilterValue";
+            this.cbFilterValue.Size = new System.Drawing.Size(241, 25);
+            this.cbFilterValue.TabIndex = 32;
+            this.cbFilterValue.SelectedIndexChanged += new System.EventHandler(this.FilterData);
             // 
             // lblFilter
             // 
@@ -205,7 +218,7 @@
             // 
             this.ucAllAuditLogsCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.ucAllAuditLogsCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucAllAuditLogsCard.Icon = FontAwesome.Sharp.IconChar.Users;
+            this.ucAllAuditLogsCard.Icon = FontAwesome.Sharp.IconChar.List;
             this.ucAllAuditLogsCard.Location = new System.Drawing.Point(5, 5);
             this.ucAllAuditLogsCard.Margin = new System.Windows.Forms.Padding(5);
             this.ucAllAuditLogsCard.Name = "ucAllAuditLogsCard";
@@ -218,7 +231,7 @@
             // 
             this.ucTodayAuditLogsCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.ucTodayAuditLogsCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucTodayAuditLogsCard.Icon = FontAwesome.Sharp.IconChar.UserCheck;
+            this.ucTodayAuditLogsCard.Icon = FontAwesome.Sharp.IconChar.ClockFour;
             this.ucTodayAuditLogsCard.Location = new System.Drawing.Point(403, 5);
             this.ucTodayAuditLogsCard.Margin = new System.Windows.Forms.Padding(5);
             this.ucTodayAuditLogsCard.Name = "ucTodayAuditLogsCard";
@@ -275,17 +288,6 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(796, 72);
             this.pnlHeader.TabIndex = 21;
-            // 
-            // cbFilterValue
-            // 
-            this.cbFilterValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFilterValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbFilterValue.FormattingEnabled = true;
-            this.cbFilterValue.Location = new System.Drawing.Point(307, 17);
-            this.cbFilterValue.Name = "cbFilterValue";
-            this.cbFilterValue.Size = new System.Drawing.Size(241, 25);
-            this.cbFilterValue.TabIndex = 32;
-            this.cbFilterValue.SelectedIndexChanged += new System.EventHandler(this.FilterData);
             // 
             // ucAuditLogs
             // 

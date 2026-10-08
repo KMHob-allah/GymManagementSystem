@@ -87,5 +87,11 @@ namespace GymManagementSystem.UI
             _LoadUserControl(new ucAuditLogs());
 
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            _LoadUserControl(new ucDashboard());
+
+        }
     }
 }

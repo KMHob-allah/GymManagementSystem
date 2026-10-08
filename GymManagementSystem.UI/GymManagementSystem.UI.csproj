@@ -193,6 +193,12 @@
     <Compile Include="Plans\ucPlans.Designer.cs">
       <DependentUpon>ucPlans.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\ucDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard\ucDashboard.Designer.cs">
+      <DependentUpon>ucDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -315,6 +321,9 @@
     </Compile>
     <EmbeddedResource Include="Plans\ucPlans.resx">
       <DependentUpon>ucPlans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\ucDashboard.resx">
+      <DependentUpon>ucDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucCard.resx">
       <DependentUpon>ucCard.cs</DependentUpon>

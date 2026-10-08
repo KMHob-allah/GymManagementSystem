@@ -263,7 +263,7 @@
             this.btnCheckIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckIn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckIn.ForeColor = System.Drawing.Color.Black;
-            this.btnCheckIn.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnCheckIn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
             this.btnCheckIn.IconColor = System.Drawing.Color.Black;
             this.btnCheckIn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCheckIn.IconSize = 20;
