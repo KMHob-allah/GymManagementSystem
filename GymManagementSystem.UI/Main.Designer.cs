@@ -303,9 +303,10 @@
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Size = new System.Drawing.Size(198, 46);
             this.iconButton7.TabIndex = 26;
-            this.iconButton7.Text = "          Attendances";
+            this.iconButton7.Text = "          Attendance";
             this.iconButton7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton7.UseVisualStyleBackColor = false;
+            this.iconButton7.Click += new System.EventHandler(this.iconButton7_Click);
             // 
             // iconButton2
             // 
