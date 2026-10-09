@@ -1,5 +1,6 @@
 ﻿using GymManagementSystem.BLL;
 using GymManagementSystem.BLL.Entities;
+using GymManagementSystem.BLL.Security;
 using System;
 using System.Windows.Forms;
 
@@ -82,10 +83,10 @@ namespace GymManagementSystem.UI.Authentication
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (!_ValidateInput()) return;
+            if (!_ValidateInput())
+                return;
 
             string userName = tbUserName.Text.Trim();
-
             string password = tbPassword.Text;
 
             User user;
@@ -97,15 +98,45 @@ namespace GymManagementSystem.UI.Authentication
             {
                 case BLL.Security.Authentication.eLoginResult.Success:
 
+                    try
+                    {
+                        if (!PermissionManager.LoadForRole(user.RoleID))
+                        {
+                            PermissionManager.Clear();
+                            GlobalSettings.CurrentUser = null;
+
+                            MessageBox.Show(
+                                "Unable to load user permissions.",
+                                "Login Failed",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+
+                            return;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        PermissionManager.Clear();
+                        GlobalSettings.CurrentUser = null;
+
+                        MessageBox.Show(
+                            "Unable to load user permissions. Please try again.",
+                            "Login Failed",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return;
+                    }
+
                     GlobalSettings.CurrentUser = user;
 
                     _SaveRememberedUserName();
 
-                    LoginSucceeded?.Invoke(this,EventArgs.Empty);
+                    AuditLogger.Log("Login", "Users", user.UserID);
+
+                    LoginSucceeded?.Invoke(this, EventArgs.Empty);
 
                     DialogResult = DialogResult.OK;
-
-                    AuditLogger.Log("Login", "Users", GlobalSettings.CurrentUser.UserID);
 
                     break;
 
@@ -117,7 +148,7 @@ namespace GymManagementSystem.UI.Authentication
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
 
-                      tbUserName.Focus();
+                    tbUserName.Focus();
 
                     break;
 

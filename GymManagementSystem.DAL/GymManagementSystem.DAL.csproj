@@ -49,6 +49,7 @@
     <Compile Include="MembershipsData.cs" />
     <Compile Include="PaymentsData.cs" />
     <Compile Include="PeopleData.cs" />
+    <Compile Include="PermissionsData.cs" />
     <Compile Include="PlansData.cs" />
     <Compile Include="RolesData.cs" />
     <Compile Include="Settings.cs" />
