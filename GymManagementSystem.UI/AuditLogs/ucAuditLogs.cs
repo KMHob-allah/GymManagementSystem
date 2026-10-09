@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
+using GymManagementSystem.BLL.Security;
 
 namespace GymManagementSystem.UI.AuditLogs
 {
@@ -263,8 +264,14 @@ namespace GymManagementSystem.UI.AuditLogs
             _RefreshRecordsCount();
             _UpdateEmptyState();
         }
-        private void ucAuditLogs_Load(object sender,EventArgs e)
+        private void ucAuditLogs_Load(object sender, EventArgs e)
         {
+            if (!_RequirePermission("AuditLogs.View"))
+            {
+                Enabled = false;
+                return;
+            }
+
             _InitializeFilters();
             _LoadAuditLogs();
             _SetHeaderText();
@@ -395,6 +402,25 @@ namespace GymManagementSystem.UI.AuditLogs
             _ConfigureFilterControls();
 
             _ApplyCurrentFilter();
+        }
+
+
+        private bool _HasPermission(string permissionName)
+        {
+            return PermissionManager.HasPermission(permissionName);
+        }
+        private bool _RequirePermission(string permissionName)
+        {
+            if (_HasPermission(permissionName))
+                return true;
+
+            MessageBox.Show(
+                "You do not have permission to perform this action.",
+                "Access Denied",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+
+            return false;
         }
     }
 }
