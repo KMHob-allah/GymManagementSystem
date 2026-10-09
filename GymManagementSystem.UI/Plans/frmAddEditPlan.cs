@@ -1,4 +1,5 @@
-﻿using GymManagementSystem.BLL.Entities;
+﻿using GymManagementSystem.BLL;
+using GymManagementSystem.BLL.Entities;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -101,6 +102,11 @@ namespace GymManagementSystem.UI.Plans
                         MessageBoxIcon.Information);
 
                     PlanSaved?.Invoke(this, EventArgs.Empty);
+
+                    if(_mode == eMode.Add)
+                        AuditLogger.Log("Create", "Plans", _plan.ID);
+                    else
+                        AuditLogger.Log("Update", "Plans", _plan.ID);
 
                     Close();
                 }

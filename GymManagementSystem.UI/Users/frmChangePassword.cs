@@ -1,4 +1,5 @@
-﻿using GymManagementSystem.BLL.Entities;
+﻿using GymManagementSystem.BLL;
+using GymManagementSystem.BLL.Entities;
 using GymManagementSystem.BLL.Security;
 using System;
 using System.Windows.Forms;
@@ -207,6 +208,9 @@ namespace GymManagementSystem.UI.Users
                     "Success",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
+                AuditLogger.Log("Update", "Users", GlobalSettings.CurrentUser.UserID);
+
 
                 Close();
             }

@@ -1,4 +1,5 @@
-﻿using GymManagementSystem.BLL.Entities;
+﻿using GymManagementSystem.BLL;
+using GymManagementSystem.BLL.Entities;
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -418,6 +419,8 @@ namespace GymManagementSystem.UI.Members
 
             MessageBox.Show("Member activated successfully.","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
+            AuditLogger.Log("Activate", "Members", member.MemberID);
+
             _LoadMembers();
         }
         private void deactivateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -449,6 +452,8 @@ namespace GymManagementSystem.UI.Members
             }
 
             MessageBox.Show("Member deactivated successfully.","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+            AuditLogger.Log("Dectivate", "Members", member.MemberID);
 
             _LoadMembers();
         }

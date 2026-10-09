@@ -131,6 +131,7 @@ namespace GymManagementSystem.BLL.Entities
                     if( _Add())
                     {
                         _mode = eMode.Update;
+
                         return true;
                     }
                     return false;

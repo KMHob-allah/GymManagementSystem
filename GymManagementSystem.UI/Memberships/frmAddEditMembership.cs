@@ -1,4 +1,5 @@
-﻿using GymManagementSystem.BLL.Entities;
+﻿using GymManagementSystem.BLL;
+using GymManagementSystem.BLL.Entities;
 using System;
 using System.Windows.Forms;
 
@@ -227,6 +228,13 @@ namespace GymManagementSystem.UI.Memberships
                         MessageBoxIcon.Information);
 
                     MembershipSaved?.Invoke(this, EventArgs.Empty);
+
+                    if(_mode == eMode.Add)
+                        AuditLogger.Log("Create", "Memberships", _membership.MembershipID);
+
+                    else
+                        AuditLogger.Log("Update", "Memberships", _membership.MembershipID);
+
 
                     Close();
                 }

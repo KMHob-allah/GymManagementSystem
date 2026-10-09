@@ -1,4 +1,5 @@
-﻿using GymManagementSystem.BLL.Entities;
+﻿using GymManagementSystem.BLL;
+using GymManagementSystem.BLL.Entities;
 using System;
 using System.Windows.Forms;
 
@@ -55,6 +56,7 @@ namespace GymManagementSystem.UI.Attendance
 
                     CheckInSaved?.Invoke(this, EventArgs.Empty);
 
+                    AuditLogger.Log("Create", "Attendance", attendance.AttendanceID);
                     Close();
 
                     break;

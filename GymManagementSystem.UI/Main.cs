@@ -9,6 +9,7 @@ using GymManagementSystem.UI.Plans;
 using GymManagementSystem.UI.Users;
 using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace GymManagementSystem.UI
 {
@@ -20,7 +21,7 @@ namespace GymManagementSystem.UI
         {
             InitializeComponent();
         }
-      
+
         private void ClockTimer_Tick(object sender, EventArgs e)
         {
             UpdateCurrentTime();
@@ -58,45 +59,60 @@ namespace GymManagementSystem.UI
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
+            HideSettingsSubMenu();
+
             _LoadUserControl(new ucMembers());
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
+            HideSettingsSubMenu();
+
             _LoadUserControl(new ucMemberships());
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
+            HideSettingsSubMenu();
+
             _LoadUserControl(new ucPlans());
 
         }
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
+            HideSettingsSubMenu();
+
             _LoadUserControl(new ucPayments());
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
+            HideSettingsSubMenu();
+
             _LoadUserControl(new ucUsers());
 
         }
 
         private void iconButton7_Click(object sender, EventArgs e)
         {
+            HideSettingsSubMenu();
+
             _LoadUserControl(new ucAttendance());
 
         }
 
         private void iconButton8_Click(object sender, EventArgs e)
         {
+            HideSettingsSubMenu();
+
             _LoadUserControl(new ucAuditLogs());
 
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            HideSettingsSubMenu();
             _LoadUserControl(new ucDashboard());
 
         }
@@ -136,6 +152,8 @@ namespace GymManagementSystem.UI
                 return;
             }
 
+            AuditLogger.Log("Logout", "Users", GlobalSettings.CurrentUser.UserID);
+
             GlobalSettings.CurrentUser = null;
 
             Close();
@@ -154,6 +172,40 @@ namespace GymManagementSystem.UI
             _clockTimer.Interval = 1000;
             _clockTimer.Tick += ClockTimer_Tick;
             _clockTimer.Start();
+
+            ButtonStyleHelper.Apply(this);
+
+            HideSettingsSubMenu();
+            _LoadUserControl(new ucDashboard());
+        }
+
+        private void pnlContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+        
+            btnChangePassword.Visible = !btnChangePassword.Visible;
+            btnGymInfo.Visible = !btnGymInfo.Visible;
+        
+        }
+
+        private void HideSettingsSubMenu()
+        {
+            btnChangePassword.Visible = false;
+            btnGymInfo.Visible = false;
+        }
+
+        private void btnAccountSecurity_Click(object sender, EventArgs e)
+        {
+            using(var frm = new frmChangePassword(GlobalSettings.CurrentUser))
+            {
+                frm.ShowDialog();
+            }
+                    
+
         }
     }
 

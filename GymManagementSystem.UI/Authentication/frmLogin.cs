@@ -105,6 +105,8 @@ namespace GymManagementSystem.UI.Authentication
 
                     DialogResult = DialogResult.OK;
 
+                    AuditLogger.Log("Login", "Users", GlobalSettings.CurrentUser.UserID);
+
                     break;
 
                 case BLL.Security.Authentication.eLoginResult.Inactive:
@@ -115,8 +117,7 @@ namespace GymManagementSystem.UI.Authentication
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
 
-                    tbPassword.Clear();
-                    tbPassword.Focus();
+                      tbUserName.Focus();
 
                     break;
 
@@ -128,7 +129,6 @@ namespace GymManagementSystem.UI.Authentication
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
 
-                    tbPassword.Clear();
                     tbPassword.Focus();
 
                     break;

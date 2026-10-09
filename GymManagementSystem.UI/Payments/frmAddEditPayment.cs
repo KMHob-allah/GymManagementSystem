@@ -1,4 +1,5 @@
-﻿using GymManagementSystem.BLL.Entities;
+﻿using GymManagementSystem.BLL;
+using GymManagementSystem.BLL.Entities;
 using System;
 using System.Windows.Forms;
 
@@ -204,6 +205,12 @@ namespace GymManagementSystem.UI.Payments
                             this,
                             EventArgs.Empty);
 
+                        if(_mode == eMode.Add)
+                            AuditLogger.Log("Create", "Payments", _payment.PaymentID);
+                        else
+                            AuditLogger.Log("Update", "Payments", _payment.PaymentID);
+
+
                         Close();
                     }
 
@@ -300,6 +307,8 @@ namespace GymManagementSystem.UI.Payments
                         "The payment amount exceeds the remaining amount.";
 
                     break;
+
+
             }
 
             MessageBox.Show(

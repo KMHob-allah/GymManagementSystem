@@ -1,4 +1,5 @@
-﻿using GymManagementSystem.BLL.Entities;
+﻿using GymManagementSystem.BLL;
+using GymManagementSystem.BLL.Entities;
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -408,6 +409,7 @@ namespace GymManagementSystem.UI.Plans
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
+            AuditLogger.Log("Activate", "Plans", plan.ID);
             _LoadPlans();
         }
 
@@ -456,6 +458,8 @@ namespace GymManagementSystem.UI.Plans
                 "Success",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
+
+            AuditLogger.Log("Deactivate", "Plans", plan.ID);
 
             _LoadPlans();
         }
