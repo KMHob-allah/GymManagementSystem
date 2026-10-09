@@ -81,6 +81,16 @@ namespace GymManagementSystem.UI.Attendance
 
                     break;
 
+                case BLL.Entities.Attendance.eSaveResult.Unauthorized:
+
+                    MessageBox.Show(
+                        "You do not have permission to perform this action.",
+                        "Access Denied",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    break;
+
                 case BLL.Entities.Attendance.eSaveResult.Failed:
 
                     MessageBox.Show(

@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
+using GymManagementSystem.BLL.Security;
 
 namespace GymManagementSystem.UI.Attendance
 {
@@ -200,9 +201,16 @@ namespace GymManagementSystem.UI.Attendance
             _UpdateEmptyState();
         }
 
-        private void ucAttendance_Load(object sender,EventArgs e)
+        private void ucAttendance_Load(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Attendance.View"))
+            {
+                Enabled = false;
+                return;
+            }
+
             _InitializeFilters();
+            _ApplyPermissions();
             _LoadAttendance();
             _SetHeaderText();
         }
@@ -343,10 +351,12 @@ namespace GymManagementSystem.UI.Attendance
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Attendance.Create"))
+                return;
+
             using (var frm = new frmCheckIn())
             {
                 frm.CheckInSaved += Frm_CheckInSaved;
-
                 frm.ShowDialog();
             }
         }
@@ -355,6 +365,29 @@ namespace GymManagementSystem.UI.Attendance
         {
             _LoadAttendance();
         }
-    
+
+        private bool _HasPermission(string permissionName)
+        {
+            return PermissionManager.HasPermission(permissionName);
+        }
+        private bool _RequirePermission(string permissionName)
+        {
+            if (_HasPermission(permissionName))
+                return true;
+
+            MessageBox.Show(
+                "You do not have permission to perform this action.",
+                "Access Denied",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+
+            return false;
+        }
+        private void _ApplyPermissions()
+        {
+            btnCheckIn.Visible =
+                _HasPermission("Attendance.Create");
+        }
+
     }
 }

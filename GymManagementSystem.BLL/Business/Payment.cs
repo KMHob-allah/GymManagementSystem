@@ -1,4 +1,5 @@
-﻿using GymManagementSystem.DAL;
+﻿using GymManagementSystem.BLL.Security;
+using GymManagementSystem.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,7 @@ namespace GymManagementSystem.BLL.Entities
         {
             Success,
             AmountExceedsRemaining,
+            Unauthorized,
             Failed
         }
 
@@ -94,7 +96,9 @@ namespace GymManagementSystem.BLL.Entities
         }
 
         public eSaveResult Save()
-        {             
+        {
+            if (!PermissionManager.HasPermission("Payments.Create")) return eSaveResult.Unauthorized;
+
             if (Amount > MembershipInfo.GetRemainingAmount()) return eSaveResult.AmountExceedsRemaining;
 
             int? paymentID = PaymentsData.Create(MembershipID,Amount,CreatedByUserID);
@@ -109,7 +113,9 @@ namespace GymManagementSystem.BLL.Entities
         }
 
         public eSaveResult UpdateAmount(decimal newAmount)
-        {                       
+        {
+            if (!PermissionManager.HasPermission("Payments.Update")) return eSaveResult.Unauthorized;
+
             decimal remainingAmountForUpdate = MembershipInfo.GetRemainingAmount() + Amount;
 
             if (newAmount > remainingAmountForUpdate) return eSaveResult.AmountExceedsRemaining;

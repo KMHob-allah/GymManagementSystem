@@ -85,8 +85,7 @@ namespace GymManagementSystem.UI.Payments
             lblRemainingAmountValue.Text = "???";
             lblPaymentDateValue.Text = DateTime.Today.Date.ToString();
 
-            lblCreatedByValue.Text = "???"; // Issue
-                //GlobalSettings.CurrentUser.UserName;
+            lblCreatedByValue.Text =  GlobalSettings.CurrentUser.UserName;
 
             textBox1.Clear();
         }
@@ -188,8 +187,7 @@ namespace GymManagementSystem.UI.Payments
 
                     _payment.Amount = amount;
 
-                    _payment.CreatedByUserID = 4; // Issue
-                        //GlobalSettings.CurrentUser.UserID;
+                    _payment.CreatedByUserID = GlobalSettings.CurrentUser.UserID;
 
                     Payment.eSaveResult result = _payment.Save();
 
@@ -205,11 +203,7 @@ namespace GymManagementSystem.UI.Payments
                             this,
                             EventArgs.Empty);
 
-                        if(_mode == eMode.Add)
                             AuditLogger.Log("Create", "Payments", _payment.PaymentID);
-                        else
-                            AuditLogger.Log("Update", "Payments", _payment.PaymentID);
-
 
                         Close();
                     }
@@ -222,6 +216,17 @@ namespace GymManagementSystem.UI.Payments
                 else
                 {
                     Payment.eSaveResult success = _payment.UpdateAmount(amount);
+
+                    if (success == Payment.eSaveResult.Unauthorized)
+                    {
+                        MessageBox.Show(
+                            "You do not have permission to perform this action.",
+                            "Access Denied",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+
+                        return;
+                    }
 
                     if (success == Payment.eSaveResult.Failed)
                     {
@@ -254,6 +259,9 @@ namespace GymManagementSystem.UI.Payments
                     PaymentSaved?.Invoke(
                         this,
                         EventArgs.Empty);
+
+                    AuditLogger.Log("Update", "Payments", _payment.PaymentID);
+
 
                     Close();
                 }
@@ -308,12 +316,20 @@ namespace GymManagementSystem.UI.Payments
 
                     break;
 
+                case Payment.eSaveResult.Unauthorized:
+
+                    message =
+                        "You do not have permission to perform this action.";
+
+                    break;
 
             }
 
             MessageBox.Show(
                 message,
-                "Save Failed",
+                result == Payment.eSaveResult.Unauthorized
+                ? "Access Denied"
+                : "Save Failed",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Warning);
         }

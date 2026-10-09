@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
+using GymManagementSystem.BLL.Security;
 
 namespace GymManagementSystem.UI.Payments
 {
@@ -211,10 +212,15 @@ namespace GymManagementSystem.UI.Payments
         }
         private void ucPayments_Load(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Payments.View"))
+            {
+                Enabled = false;
+                return;
+            }
+
             _InitializeFilters();
-
+            _ApplyPermissions();
             _LoadPayments();
-
             _SetHeaderText();
         }
 
@@ -347,7 +353,7 @@ namespace GymManagementSystem.UI.Payments
                 e.Handled = true;
             }
         }
-        private void cmsPayments_Opening(object sender,CancelEventArgs e)
+        private void cmsPayments_Opening(object sender, CancelEventArgs e)
         {
             int? paymentID = _GetSelectedPaymentID();
 
@@ -355,6 +361,20 @@ namespace GymManagementSystem.UI.Payments
             {
                 e.Cancel = true;
                 return;
+            }
+
+            bool canView =
+                _HasPermission("Payments.View");
+
+            bool canUpdate =
+                _HasPermission("Payments.Update");
+
+            showDetailsToolStripMenuItem.Available = canView;
+            updateAmountToolStripMenuItem.Available = canUpdate;
+
+            if (!canView && !canUpdate)
+            {
+                e.Cancel = true;
             }
         }
         private int? _GetSelectedPaymentID()
@@ -376,6 +396,8 @@ namespace GymManagementSystem.UI.Payments
 
         private void btnAddPayment_Click(object sender,EventArgs e)
         {
+            if (!_RequirePermission("Payments.Create")) return;
+
             using (frmAddEditPayment frm = new frmAddEditPayment())
             {
                 frm.PaymentSaved += Frm_PaymentSaved;
@@ -385,6 +407,8 @@ namespace GymManagementSystem.UI.Payments
         }
         private void showDetailsToolStripMenuItem_Click(object sender,EventArgs e)
         {
+            if (!_RequirePermission("Payments.View")) return;
+
             int? paymentID =
                 _GetSelectedPaymentID();
 
@@ -412,6 +436,8 @@ namespace GymManagementSystem.UI.Payments
         }
         private void editToolStripMenuItem_Click(object sender,EventArgs e)
         {
+            if (!_RequirePermission("Payments.Update")) return;
+
             int? paymentID =
                 _GetSelectedPaymentID();
 
@@ -435,6 +461,30 @@ namespace GymManagementSystem.UI.Payments
         private void Frm_PaymentSaved(object sender,EventArgs e)
         {
             _LoadPayments();
-        }      
+        }
+
+
+        private bool _HasPermission(string permissionName)
+        {
+            return PermissionManager.HasPermission(permissionName);
+        }
+        private bool _RequirePermission(string permissionName)
+        {
+            if (_HasPermission(permissionName))
+                return true;
+
+            MessageBox.Show(
+                "You do not have permission to perform this action.",
+                "Access Denied",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+
+            return false;
+        }
+        private void _ApplyPermissions()
+        {
+            btnAddPayment.Visible =
+                _HasPermission("Payments.Create");
+        }
     }
 }

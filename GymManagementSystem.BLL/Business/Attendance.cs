@@ -1,4 +1,5 @@
 ﻿using GymManagementSystem.DAL;
+using GymManagementSystem.BLL.Security;
 using System;
 using System.Data;
 
@@ -13,6 +14,7 @@ namespace GymManagementSystem.BLL.Entities
             Success,
             MemberNotActive,
             MembershipNotValid,
+            Unauthorized,
             Failed
         }
 
@@ -85,6 +87,7 @@ namespace GymManagementSystem.BLL.Entities
             {
                 case eMode.Add:
                 {
+                    if (!PermissionManager.HasPermission("Attendance.Create")) return eSaveResult.Unauthorized;
 
                     if (!MembershipInfo.MemberInfo.IsActive) return eSaveResult.MemberNotActive;
 
