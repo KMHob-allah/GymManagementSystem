@@ -1,4 +1,5 @@
-﻿using GymManagementSystem.DAL;
+﻿using GymManagementSystem.BLL.Security;
+using GymManagementSystem.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -88,6 +89,9 @@ namespace GymManagementSystem.BLL.Entities
             switch (_Mode)
             {
                 case eMode.Add:
+
+                    if (!PermissionManager.HasPermission("Plans.Create")) return false;
+
                     if (!_Add())
                         return false;
 
@@ -95,6 +99,9 @@ namespace GymManagementSystem.BLL.Entities
                     return true;
 
                 case eMode.Update:
+
+                    if (!PermissionManager.HasPermission("Plans.Update")) return false;
+
                     return _Update();
 
                 default:
@@ -104,6 +111,8 @@ namespace GymManagementSystem.BLL.Entities
 
         public bool Activate()
         {
+            if (!PermissionManager.HasPermission("Plans.Activate")) return false;
+            
             if (!PlansData.Activate(this.ID))
                 return false;
 
@@ -113,6 +122,8 @@ namespace GymManagementSystem.BLL.Entities
 
         public bool Deactivate()
         {
+            if (!PermissionManager.HasPermission("Plans.Deactivate")) return false;
+
             if (!PlansData.Deactivate(this.ID))
                 return false;
 

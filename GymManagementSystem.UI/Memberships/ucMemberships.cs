@@ -1,13 +1,10 @@
 ﻿using GymManagementSystem.BLL.Entities;
 using GymManagementSystem.UI.Members;
+using GymManagementSystem.BLL.Security;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace GymManagementSystem.UI.Memberships
@@ -218,7 +215,14 @@ namespace GymManagementSystem.UI.Memberships
 
         private void ucMemberships_Load(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Memberships.View"))
+            {
+                Enabled = false;
+                return;
+            }
+
             _InitializeFilters();
+            _ApplyPermissions();
             _LoadMemberships();
             _SetHeaderText();
             _HideInternalColumns();
@@ -404,15 +408,23 @@ namespace GymManagementSystem.UI.Memberships
                 return;
             }
 
-            //bool isActive = dgvMemberships.CurrentRow.Cells["Status"].Value.ToString() == "Active";
+            bool canView = _HasPermission("Memberships.View");
 
+            bool canUpdate = _HasPermission("Memberships.Update");
 
-            //activateToolStripMenuItem.Enabled = !isActive;
-            //deactivateToolStripMenuItem.Enabled = isActive;
+            showDetailsToolStripMenuItem.Available = canView;
+            editToolStripMenuItem.Available = canUpdate;
+
+            if (!canView && !canUpdate)
+            {
+                e.Cancel = true;
+            }
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Memberships.View")) return;
+
             int? membershipID = _GetSelectedMembershipID();
 
             if (!membershipID.HasValue)
@@ -431,9 +443,10 @@ namespace GymManagementSystem.UI.Memberships
                 frm.ShowDialog();
             }
         }
-
         private void btnAddMembership_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Memberships.Create")) return;
+
             using (frmAddEditMembership frm = new frmAddEditMembership())
             {
                 frm.MembershipSaved += Frm_MembershipSaved;
@@ -441,9 +454,10 @@ namespace GymManagementSystem.UI.Memberships
                 frm.ShowDialog();
             }
         }
-
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Memberships.Update")) return;
+
             int? membershipID = _GetSelectedMembershipID();
 
             if (!membershipID.HasValue)
@@ -473,6 +487,29 @@ namespace GymManagementSystem.UI.Memberships
         private void Frm_MembershipSaved(object sender, EventArgs e)
         {
             _LoadMemberships();
+        }
+
+        private bool _HasPermission(string permissionName)
+        {
+            return PermissionManager.HasPermission(permissionName);
+        }
+        private bool _RequirePermission(string permissionName)
+        {
+            if (_HasPermission(permissionName))
+                return true;
+
+            MessageBox.Show(
+                "You do not have permission to perform this action.",
+                "Access Denied",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+
+            return false;
+        }
+        private void _ApplyPermissions()
+        {
+            btnAddMembership.Visible =
+                _HasPermission("Memberships.Create");
         }
     }
 }

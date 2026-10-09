@@ -326,13 +326,21 @@ namespace GymManagementSystem.UI.Memberships
                 case Membership.eSaveResult.HasAttendance:
                     message = "This membership has attendance records and cannot be updated.";
                     break;
+
+                case Membership.eSaveResult.Unauthorized:
+                    message = "You do not have permission to perform this action.";
+                    break;
             }
 
             MessageBox.Show(
                 message,
-                "Save Failed",
+                result == Membership.eSaveResult.Unauthorized
+                    ? "Access Denied"
+                    : "Save Failed",
                 MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
+                result == Membership.eSaveResult.Unauthorized
+                    ? MessageBoxIcon.Warning
+                    : MessageBoxIcon.Warning);
         }
 
         private void tcInfo_Selecting(object sender, TabControlCancelEventArgs e)

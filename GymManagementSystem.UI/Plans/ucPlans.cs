@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
-
+using GymManagementSystem.BLL.Security;
 namespace GymManagementSystem.UI.Plans
 {
     public partial class ucPlans : UserControl
@@ -42,7 +42,6 @@ namespace GymManagementSystem.UI.Plans
             if (dgvPlans.Columns.Contains("IsActive"))
                 dgvPlans.Columns["IsActive"].HeaderText = "Status";
         }
-
         private void _InitializeFilters()
         {
             cbFilterBy.Items.AddRange(new object[]
@@ -58,14 +57,12 @@ namespace GymManagementSystem.UI.Plans
             cbFilterValue.Visible = false;
             tbFilterValue.Visible = false;
         }
-
         private void _RefreshRecordsCount()
         {
             int count = _dvPlans?.Count ?? 0;
 
             lblRecords.Text = $"Records : {count}";
         }
-
         private void _UpdateCards()
         {
             if (_dvPlans?.Table == null)
@@ -95,7 +92,6 @@ namespace GymManagementSystem.UI.Plans
             ucInactivePlansCard.Number =
                 inactiveCount.ToString();
         }
-
         private void _UpdateEmptyState()
         {
             if (_dvPlans?.Table == null)
@@ -131,7 +127,6 @@ namespace GymManagementSystem.UI.Plans
                 lblNoRecords.Visible = false;
             }
         }
-
         private void _ConfigureFilterControls()
         {
             _isUpdatingFilterUI = true;
@@ -167,7 +162,6 @@ namespace GymManagementSystem.UI.Plans
                 _isUpdatingFilterUI = false;
             }
         }
-
         private eFilterBy _GetSelectedFilter()
         {
             if (cbFilterBy.SelectedIndex < 0)
@@ -191,11 +185,17 @@ namespace GymManagementSystem.UI.Plans
 
         private void ucPlans_Load(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Plans.View"))
+            {
+                Enabled = false;
+                return;
+            }
+
             _InitializeFilters();
+            _ApplyPermissions();
             _LoadPlans();
             _SetHeaderText();
         }
-
         private void _ResetFilterControls()
         {
             tbFilterValue.Clear();
@@ -206,7 +206,6 @@ namespace GymManagementSystem.UI.Plans
             cbFilterValue.Visible = false;
             tbFilterValue.Visible = false;
         }
-
         private void _LoadStatusValues()
         {
             cbFilterValue.Items.AddRange(new object[]
@@ -272,7 +271,6 @@ namespace GymManagementSystem.UI.Plans
 
             _dvPlans.RowFilter = $"PlanID = {value}";
         }
-
         private void _FilterByText(string columnName)
         {
             string value = tbFilterValue.Text.Trim();
@@ -288,7 +286,6 @@ namespace GymManagementSystem.UI.Plans
             _dvPlans.RowFilter =
                 $"{columnName} LIKE '{value}%'";
         }
-
         private void _FilterByStatus()
         {
             string selectedValue =
@@ -317,7 +314,6 @@ namespace GymManagementSystem.UI.Plans
             _ConfigureFilterControls();
             _ApplyCurrentFilter();
         }
-
         private void tbFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (_GetSelectedFilter() != eFilterBy.PlanID)
@@ -340,10 +336,27 @@ namespace GymManagementSystem.UI.Plans
                 return;
             }
 
-           string isActive = dgvPlans.CurrentRow.Cells["Status"].Value.ToString();
+            string status = Convert.ToString(dgvPlans.CurrentRow.Cells["Status"].Value);
 
-            activateToolStripMenuItem.Enabled = isActive == "Inactive";
-            deactivateToolStripMenuItem.Enabled = isActive == "Active";
+            bool isActive = status == "Active";
+
+            bool canView = _HasPermission("Plans.View");
+
+            bool canUpdate = _HasPermission("Plans.Update");
+
+            bool canActivate = _HasPermission("Plans.Activate") && !isActive;
+
+            bool canDeactivate = _HasPermission("Plans.Deactivate") && isActive;
+
+            showDetailsToolStripMenuItem.Available = canView;
+            editToolStripMenuItem.Available = canUpdate;
+            activateToolStripMenuItem.Available = canActivate;
+            deactivateToolStripMenuItem.Available = canDeactivate;
+
+            if (!canView && !canUpdate && !canActivate && !canDeactivate)
+            {
+                e.Cancel = true;
+            }
         }
 
         private int? _GetSelectedPlanID()
@@ -365,6 +378,8 @@ namespace GymManagementSystem.UI.Plans
 
         private void activateToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Plans.Activate")) return;
+
             int? planID = _GetSelectedPlanID();
 
             if (!planID.HasValue)
@@ -412,9 +427,10 @@ namespace GymManagementSystem.UI.Plans
             AuditLogger.Log("Activate", "Plans", plan.ID);
             _LoadPlans();
         }
-
         private void deactivateToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Plans.Deactivate")) return;
+
             int? planID = _GetSelectedPlanID();
 
             if (!planID.HasValue)
@@ -463,9 +479,10 @@ namespace GymManagementSystem.UI.Plans
 
             _LoadPlans();
         }
-
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Plans.View")) return;
+
             int? planID = _GetSelectedPlanID();
 
             if (!planID.HasValue)
@@ -489,9 +506,10 @@ namespace GymManagementSystem.UI.Plans
                 frm.ShowDialog();
             }
         }
-
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Plans.Update")) return;
+
             int? planID = _GetSelectedPlanID();
 
             if (!planID.HasValue)
@@ -512,6 +530,8 @@ namespace GymManagementSystem.UI.Plans
 
         private void btnAddPlan_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Plans.Create")) return;
+
             using (var frm = new frmAddEditPlan())
             {
                 frm.PlanSaved += Frm_PlanSaved;
@@ -523,6 +543,29 @@ namespace GymManagementSystem.UI.Plans
         private void Frm_PlanSaved(object sender, EventArgs e)
         {
             _LoadPlans();
+        }
+
+        private bool _HasPermission(string permissionName)
+        {
+            return PermissionManager.HasPermission(permissionName);
+        }
+        private bool _RequirePermission(string permissionName)
+        {
+            if (_HasPermission(permissionName))
+                return true;
+
+            MessageBox.Show(
+                "You do not have permission to perform this action.",
+                "Access Denied",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+
+            return false;
+        }
+        private void _ApplyPermissions()
+        {
+            btnAddPlan.Visible =
+                _HasPermission("Plans.Create");
         }
     }
 }

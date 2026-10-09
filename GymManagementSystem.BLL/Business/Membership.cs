@@ -1,4 +1,5 @@
 ﻿using GymManagementSystem.DAL;
+using GymManagementSystem.BLL.Security;
 using System;
 using System.Data;
 
@@ -19,6 +20,7 @@ namespace GymManagementSystem.BLL.Entities
             MembershipExpired,
             HasPayments,
             HasAttendance,
+            Unauthorized,
             Failed
         }
         
@@ -180,7 +182,7 @@ namespace GymManagementSystem.BLL.Entities
         }
 
         public eSaveResult Save()
-        {
+        {            
             eSaveResult validationResult = _Validate();
 
             if (validationResult != eSaveResult.Success) return validationResult;
@@ -188,6 +190,8 @@ namespace GymManagementSystem.BLL.Entities
             switch (_Mode)
             {
                 case eMode.Add:
+
+                    if (!PermissionManager.HasPermission("Memberships.Create")) return eSaveResult.Unauthorized;
 
                     if (_Add())
                     {
@@ -199,11 +203,12 @@ namespace GymManagementSystem.BLL.Entities
 
                 case eMode.Update:
 
-                    return _Update()
-                        ? eSaveResult.Success
-                        : eSaveResult.Failed;
+                    if (!PermissionManager.HasPermission("Memberships.Update")) return eSaveResult.Unauthorized;
+
+                    return _Update() ? eSaveResult.Success : eSaveResult.Failed;
 
                 default:
+
                     return eSaveResult.Failed;
             }
         }
