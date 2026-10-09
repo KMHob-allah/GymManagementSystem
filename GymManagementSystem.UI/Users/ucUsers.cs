@@ -1,5 +1,6 @@
 ﻿using GymManagementSystem.BLL;
 using GymManagementSystem.BLL.Entities;
+using GymManagementSystem.BLL.Security;
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -190,7 +191,14 @@ namespace GymManagementSystem.UI.Users
         }
         private void ucUsers_Load(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Users.View"))
+            {
+                Enabled = false;
+                return;
+            }
+
             _InitializeFilters();
+            _ApplyPermissions();
             _LoadUsers();
             _SetHeaderText();
         }
@@ -328,7 +336,7 @@ namespace GymManagementSystem.UI.Users
             _ConfigureFilterControls();
             _ApplyCurrentFilter();
         }
-        private void cmsUsers_Opening(object sender,CancelEventArgs e)
+        private void cmsUsers_Opening(object sender, CancelEventArgs e)
         {
             int? userID = _GetSelectedUserID();
 
@@ -338,15 +346,42 @@ namespace GymManagementSystem.UI.Users
                 return;
             }
 
-            string status =
-                dgvUsers.CurrentRow.Cells["IsActive"]
-                .Value.ToString();
+            string status = Convert.ToString(
+                dgvUsers.CurrentRow.Cells["IsActive"].Value);
 
-            activateToolStripMenuItem.Enabled =
-                status == "Inactive";
+            bool isActive = status == "Active";
 
-            deactivateToolStripMenuItem.Enabled =
-                status == "Active";
+            bool canView =
+                _HasPermission("Users.View");
+
+            bool canUpdate =
+                _HasPermission("Users.Update");
+
+            bool canActivate =
+                _HasPermission("Users.Activate") && !isActive;
+
+            bool canDeactivate =
+                _HasPermission("Users.Deactivate") && isActive;
+
+            // This item opens the selected user's Change Password form.
+            // Users.Update is the closest existing permission for this action.
+            bool canChangePassword =
+                _HasPermission("Users.Update");
+
+            showDetailsToolStripMenuItem.Available = canView;
+            editToolStripMenuItem.Available = canUpdate;
+            activateToolStripMenuItem.Available = canActivate;
+            deactivateToolStripMenuItem.Available = canDeactivate;
+            toolStripMenuItem1.Available = canChangePassword;
+
+            if (!canView &&
+                !canUpdate &&
+                !canActivate &&
+                !canDeactivate &&
+                !canChangePassword)
+            {
+                e.Cancel = true;
+            }
         }
 
         private int? _GetSelectedUserID()
@@ -368,6 +403,9 @@ namespace GymManagementSystem.UI.Users
 
         private void activateToolStripMenuItem_Click(object sender,EventArgs e)
         {
+            if (!_RequirePermission("Users.Activate"))
+                return;
+
             int? userID = _GetSelectedUserID();
 
             if (!userID.HasValue)
@@ -414,11 +452,13 @@ namespace GymManagementSystem.UI.Users
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
-            AuditLogger.Log("Activate", "Users", GlobalSettings.CurrentUser.UserID);
+            AuditLogger.Log("Activate", "Users", user.UserID);
             _LoadUsers();
         }
         private void deactivateToolStripMenuItem_Click(object sender,EventArgs e)
         {
+            if (!_RequirePermission("Users.Deactivate")) return;
+
             int? userID = _GetSelectedUserID();
 
             if (!userID.HasValue)
@@ -464,13 +504,14 @@ namespace GymManagementSystem.UI.Users
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
-            AuditLogger.Log("Deactivate", "Users", GlobalSettings.CurrentUser.UserID);
+            AuditLogger.Log("Deactivate", "Users", user.UserID);
 
 
             _LoadUsers();
         }
         private void showDetailsToolStripMenuItem_Click(object sender,EventArgs e)
         {
+            if (!_RequirePermission("Users.View")) return;
             int? userID = _GetSelectedUserID();
 
             if (!userID.HasValue)
@@ -497,6 +538,8 @@ namespace GymManagementSystem.UI.Users
         }
         private void editToolStripMenuItem_Click(object sender,EventArgs e)
         {
+            if (!_RequirePermission("Users.Update")) return;
+
             int? userID = _GetSelectedUserID();
 
             if (!userID.HasValue)
@@ -517,6 +560,8 @@ namespace GymManagementSystem.UI.Users
         }
         private void btnAddUser_Click(object sender,EventArgs e)
         {
+            if (!_RequirePermission("Users.Create")) return;
+
             using (var frm = new frmAddEditUser())
             {
                 frm.UserSaved += Frm_UserSaved;
@@ -532,6 +577,8 @@ namespace GymManagementSystem.UI.Users
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Users.Update")) return;
+
             int? userID = _GetSelectedUserID();
 
             User user = User.GetByID(userID.Value);
@@ -543,6 +590,32 @@ namespace GymManagementSystem.UI.Users
             {
                 frm.ShowDialog();
             }
+        }
+
+
+        private bool _HasPermission(string permissionName)
+        {
+            return PermissionManager.HasPermission(permissionName);
+        }
+
+        private bool _RequirePermission(string permissionName)
+        {
+            if (_HasPermission(permissionName))
+                return true;
+
+            MessageBox.Show(
+                "You do not have permission to perform this action.",
+                "Access Denied",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+
+            return false;
+        }
+
+        private void _ApplyPermissions()
+        {
+            btnAddUser.Visible =
+                _HasPermission("Users.Create");
         }
     }
 }

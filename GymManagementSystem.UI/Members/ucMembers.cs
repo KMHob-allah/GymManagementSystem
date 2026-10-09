@@ -1,5 +1,6 @@
 ﻿using GymManagementSystem.BLL;
 using GymManagementSystem.BLL.Entities;
+using GymManagementSystem.BLL.Security;
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -197,7 +198,14 @@ namespace GymManagementSystem.UI.Members
 
         private void ucMembers_Load(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Members.View"))
+            {
+                Enabled = false;
+                return;
+            }
+
             _InitializeFilters();
+            _ApplyPermissions();
             _LoadMembers();
             _SetHeaderText();
 
@@ -371,11 +379,25 @@ namespace GymManagementSystem.UI.Members
                 return;
             }
 
-            bool isActive = dgvMembers.CurrentRow.Cells["Status"].Value.ToString() == "Active";
+            bool isActive = dgvMembers.CurrentRow.Cells["Status"].Value?.ToString() == "Active";
 
+            bool canView = _HasPermission("Members.View");
 
-            activateToolStripMenuItem.Enabled = !isActive;
-            deactivateToolStripMenuItem.Enabled = isActive;
+            bool canUpdate = _HasPermission("Members.Update");
+
+            bool canActivate = _HasPermission("Members.Activate") && !isActive;
+
+            bool canDeactivate = _HasPermission("Members.Deactivate") && isActive;
+
+            showDetailsToolStripMenuItem.Available = canView;
+            editToolStripMenuItem.Available = canUpdate;
+            activateToolStripMenuItem.Available = canActivate;
+            deactivateToolStripMenuItem.Available = canDeactivate;
+
+            if (!canView && !canUpdate && !canActivate && !canDeactivate)
+            {
+                e.Cancel = true;
+            }
         }
 
         private int? _GetSelectedMemberID()
@@ -391,6 +413,8 @@ namespace GymManagementSystem.UI.Members
 
         private void activateToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Members.Activate")) return;
+
             int? memberID = _GetSelectedMemberID();
 
             if (!memberID.HasValue) return;
@@ -425,6 +449,8 @@ namespace GymManagementSystem.UI.Members
         }
         private void deactivateToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Members.Deactivate"))  return;
+
             int? memberID = _GetSelectedMemberID();
 
             if (!memberID.HasValue) return;
@@ -459,6 +485,8 @@ namespace GymManagementSystem.UI.Members
         }
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Members.View")) return;
+
             int? memberID = _GetSelectedMemberID();
 
             if (!memberID.HasValue)
@@ -479,6 +507,8 @@ namespace GymManagementSystem.UI.Members
         }
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Members.Update")) return;
+
             int? memberID = _GetSelectedMemberID();
 
             if (!memberID.HasValue) return;
@@ -497,6 +527,8 @@ namespace GymManagementSystem.UI.Members
 
         private void btnAddMember_Click(object sender, EventArgs e)
         {
+            if (!_RequirePermission("Members.Create")) return;
+
             using (frmAddEditMember frm = new frmAddEditMember())
             {
                 frm.MemberSaved += Frm_MemberSaved;
@@ -504,11 +536,35 @@ namespace GymManagementSystem.UI.Members
                 frm.ShowDialog();
             }
         }
-
-
         private void Frm_MemberSaved(object sender, EventArgs e)
         {
             _LoadMembers();
+        }
+
+
+        private bool _HasPermission(string permissionName)
+        {
+            return PermissionManager.HasPermission(permissionName);
+        }
+
+        private bool _RequirePermission(string permissionName)
+        {
+            if (_HasPermission(permissionName))
+                return true;
+
+            MessageBox.Show(
+                "You do not have permission to perform this action.",
+                "Access Denied",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+
+            return false;
+        }
+
+        private void _ApplyPermissions()
+        {
+            btnAddMember.Visible =
+                _HasPermission("Members.Create");
         }
     }
 }

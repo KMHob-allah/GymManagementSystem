@@ -1,6 +1,8 @@
-﻿using GymManagementSystem.DAL;
+﻿using GymManagementSystem.BLL.Security;
+using GymManagementSystem.DAL;
 using System;
 using System.Data;
+using static GymManagementSystem.BLL.Entities.User;
 
 namespace GymManagementSystem.BLL.Entities
 {
@@ -111,10 +113,15 @@ namespace GymManagementSystem.BLL.Entities
         {
             bool IsSaved = false;
 
+
+            
             switch(_Mode)
             {
+                 
                 case eMode.Add:
                 {
+                    if (!PermissionManager.HasPermission("Members.Create")) return false;
+
                     if (_Add())
                     {
                         _Mode = eMode.Update;
@@ -128,6 +135,8 @@ namespace GymManagementSystem.BLL.Entities
 
                 case eMode.Update:
                 {
+                    if (!PermissionManager.HasPermission("Members.Update")) return false;
+
                     if (_Update()) IsSaved = true;
 
                     else IsSaved = false;
@@ -141,10 +150,14 @@ namespace GymManagementSystem.BLL.Entities
 
         public bool Activate()
         {
+            if (!PermissionManager.HasPermission("Members.Activate")) return false;            
+            
             return MembersData.Activate(this.MemberID);
         }
         public bool Deactivate()
         {
+            if (!PermissionManager.HasPermission("Members.Deactivate")) return false;            
+            
             return MembersData.Deactivate(this.MemberID);
         }
     }
