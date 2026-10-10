@@ -129,6 +129,7 @@
             // 
             // pnlLogin
             // 
+            this.pnlLogin.BackColor = System.Drawing.Color.Black;
             this.pnlLogin.Controls.Add(this.lblPassword);
             this.pnlLogin.Controls.Add(this.lblUserName);
             this.pnlLogin.Controls.Add(this.btnExit);
@@ -227,8 +228,9 @@
             // 
             // pbImage
             // 
+            this.pbImage.BackColor = System.Drawing.Color.Black;
             this.pbImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbImage.Image = global::GymManagementSystem.UI.Properties.Resources.LoginImage;
+            this.pbImage.Image = global::GymManagementSystem.UI.Properties.Resources.GymLogo;
             this.pbImage.Location = new System.Drawing.Point(0, 0);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(681, 658);

@@ -39,11 +39,13 @@
             this.lblDash = new System.Windows.Forms.Label();
             this.lblCurrentTime = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.flpnlSidebar = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.iconButton12 = new FontAwesome.Sharp.IconButton();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
-            this.pnlSidebar = new System.Windows.Forms.Panel();
-            this.flpnlSidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -55,10 +57,8 @@
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.btnChangePassword = new FontAwesome.Sharp.IconButton();
             this.btnGymInfo = new FontAwesome.Sharp.IconButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlMain.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -102,7 +102,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.flowLayoutPanel1.Controls.Add(this.lblGymName);
             this.flowLayoutPanel1.Controls.Add(this.lblDash2);
             this.flowLayoutPanel1.Controls.Add(this.lblCurrentUser);
@@ -181,60 +181,9 @@
             this.panel2.Size = new System.Drawing.Size(147, 41);
             this.panel2.TabIndex = 7;
             // 
-            // iconButton12
-            // 
-            this.iconButton12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.iconButton12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton12.FlatAppearance.BorderSize = 0;
-            this.iconButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton12.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            this.iconButton12.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton12.IconSize = 25;
-            this.iconButton12.Location = new System.Drawing.Point(0, 0);
-            this.iconButton12.Name = "iconButton12";
-            this.iconButton12.Size = new System.Drawing.Size(47, 41);
-            this.iconButton12.TabIndex = 8;
-            this.iconButton12.UseVisualStyleBackColor = false;
-            this.iconButton12.Click += new System.EventHandler(this.iconButton12_Click);
-            // 
-            // iconButton11
-            // 
-            this.iconButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.iconButton11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton11.FlatAppearance.BorderSize = 0;
-            this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.Square;
-            this.iconButton11.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton11.IconSize = 20;
-            this.iconButton11.Location = new System.Drawing.Point(47, 0);
-            this.iconButton11.Name = "iconButton11";
-            this.iconButton11.Size = new System.Drawing.Size(50, 41);
-            this.iconButton11.TabIndex = 7;
-            this.iconButton11.UseVisualStyleBackColor = false;
-            this.iconButton11.Click += new System.EventHandler(this.iconButton11_Click);
-            // 
-            // iconButton10
-            // 
-            this.iconButton10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.iconButton10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton10.FlatAppearance.BorderSize = 0;
-            this.iconButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
-            this.iconButton10.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton10.IconSize = 30;
-            this.iconButton10.Location = new System.Drawing.Point(97, 0);
-            this.iconButton10.Name = "iconButton10";
-            this.iconButton10.Size = new System.Drawing.Size(50, 41);
-            this.iconButton10.TabIndex = 6;
-            this.iconButton10.UseVisualStyleBackColor = false;
-            this.iconButton10.Click += new System.EventHandler(this.iconButton10_Click);
-            // 
             // pnlSidebar
             // 
-            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.pnlSidebar.Controls.Add(this.flpnlSidebar);
             this.pnlSidebar.Controls.Add(this.panel1);
             this.pnlSidebar.Controls.Add(this.panel3);
@@ -263,9 +212,73 @@
             this.flpnlSidebar.Size = new System.Drawing.Size(219, 707);
             this.flpnlSidebar.TabIndex = 5;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.iconButton9);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 748);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(219, 52);
+            this.panel1.TabIndex = 4;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.ClockTimer_Tick);
+            // 
+            // iconButton12
+            // 
+            this.iconButton12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconButton12.FlatAppearance.BorderSize = 0;
+            this.iconButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton12.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.iconButton12.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
+            this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton12.IconSize = 25;
+            this.iconButton12.Location = new System.Drawing.Point(0, 0);
+            this.iconButton12.Name = "iconButton12";
+            this.iconButton12.Size = new System.Drawing.Size(47, 41);
+            this.iconButton12.TabIndex = 8;
+            this.iconButton12.UseVisualStyleBackColor = false;
+            this.iconButton12.Click += new System.EventHandler(this.iconButton12_Click);
+            // 
+            // iconButton11
+            // 
+            this.iconButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton11.FlatAppearance.BorderSize = 0;
+            this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.Square;
+            this.iconButton11.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
+            this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton11.IconSize = 20;
+            this.iconButton11.Location = new System.Drawing.Point(47, 0);
+            this.iconButton11.Name = "iconButton11";
+            this.iconButton11.Size = new System.Drawing.Size(50, 41);
+            this.iconButton11.TabIndex = 7;
+            this.iconButton11.UseVisualStyleBackColor = false;
+            this.iconButton11.Click += new System.EventHandler(this.iconButton11_Click);
+            // 
+            // iconButton10
+            // 
+            this.iconButton10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton10.FlatAppearance.BorderSize = 0;
+            this.iconButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
+            this.iconButton10.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
+            this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton10.IconSize = 30;
+            this.iconButton10.Location = new System.Drawing.Point(97, 0);
+            this.iconButton10.Name = "iconButton10";
+            this.iconButton10.Size = new System.Drawing.Size(50, 41);
+            this.iconButton10.TabIndex = 6;
+            this.iconButton10.UseVisualStyleBackColor = false;
+            this.iconButton10.Click += new System.EventHandler(this.iconButton10_Click);
+            // 
             // btnDashboard
             // 
-            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(60)))), ((int)(((byte)(45)))));
             this.btnDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(43)))), ((int)(((byte)(32)))));
@@ -289,7 +302,7 @@
             // 
             // iconButton4
             // 
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.iconButton4.FlatAppearance.BorderSize = 0;
             this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton4.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -311,7 +324,7 @@
             // 
             // iconButton1
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton1.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -333,7 +346,7 @@
             // 
             // iconButton3
             // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.iconButton3.FlatAppearance.BorderSize = 0;
             this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton3.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -355,7 +368,7 @@
             // 
             // iconButton5
             // 
-            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.iconButton5.FlatAppearance.BorderSize = 0;
             this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton5.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -377,7 +390,7 @@
             // 
             // iconButton7
             // 
-            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.iconButton7.FlatAppearance.BorderSize = 0;
             this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton7.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -399,7 +412,7 @@
             // 
             // iconButton2
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.iconButton2.FlatAppearance.BorderSize = 0;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -421,7 +434,7 @@
             // 
             // iconButton8
             // 
-            this.iconButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.iconButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.iconButton8.FlatAppearance.BorderSize = 0;
             this.iconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton8.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -443,7 +456,7 @@
             // 
             // iconButton6
             // 
-            this.iconButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.iconButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.iconButton6.FlatAppearance.BorderSize = 0;
             this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton6.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -465,7 +478,7 @@
             // 
             // btnChangePassword
             // 
-            this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.btnChangePassword.FlatAppearance.BorderSize = 0;
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -488,7 +501,7 @@
             // 
             // btnGymInfo
             // 
-            this.btnGymInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.btnGymInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.btnGymInfo.FlatAppearance.BorderSize = 0;
             this.btnGymInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGymInfo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -508,18 +521,9 @@
             this.btnGymInfo.UseVisualStyleBackColor = false;
             this.btnGymInfo.Visible = false;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.iconButton9);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 748);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(219, 52);
-            this.panel1.TabIndex = 4;
-            // 
             // iconButton9
             // 
-            this.iconButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.iconButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.iconButton9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.iconButton9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.iconButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -543,16 +547,12 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(219, 41);
             this.panel3.TabIndex = 5;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.ClockTimer_Tick);
             // 
             // Main
             // 
@@ -613,8 +613,8 @@
         private System.Windows.Forms.Label lblGymName;
         private FontAwesome.Sharp.IconButton btnChangePassword;
         private FontAwesome.Sharp.IconButton btnGymInfo;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblDash2;
         private System.Windows.Forms.Label lblDash;
+        private System.Windows.Forms.Panel panel3;
     }
 }

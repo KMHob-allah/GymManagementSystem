@@ -63,9 +63,9 @@ namespace GymManagementSystem.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dumbbell {
+        internal static System.Drawing.Bitmap FemaleAvatar {
             get {
-                object obj = ResourceManager.GetObject("dumbbell", resourceCulture);
+                object obj = ResourceManager.GetObject("FemaleAvatar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace GymManagementSystem.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FemaleAvatar {
+        internal static System.Drawing.Bitmap GymLogo {
             get {
-                object obj = ResourceManager.GetObject("FemaleAvatar", resourceCulture);
+                object obj = ResourceManager.GetObject("GymLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
