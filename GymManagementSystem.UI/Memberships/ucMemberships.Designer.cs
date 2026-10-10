@@ -36,7 +36,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsMemberships = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvMemberships = new System.Windows.Forms.DataGridView();
             this.pnlFilters = new System.Windows.Forms.Panel();
@@ -53,9 +52,10 @@
             this.lblNoRecords = new System.Windows.Forms.Label();
             this.lblRecords = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.btnAddMembership = new FontAwesome.Sharp.IconButton();
             this.lblSubtitle = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.tsRecordPayment = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAddMembership = new FontAwesome.Sharp.IconButton();
             this.cmsMemberships.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberships)).BeginInit();
@@ -70,12 +70,12 @@
             this.toolStripSeparator2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.toolStripSeparator2.ForeColor = System.Drawing.Color.White;
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(158, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -84,12 +84,12 @@
             this.toolStripSeparator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.toolStripSeparator1.ForeColor = System.Drawing.Color.White;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(158, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showDetailsToolStripMenuItem.Text = "Show Details";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
@@ -100,16 +100,10 @@
             this.toolStripSeparator1,
             this.editToolStripMenuItem,
             this.toolStripSeparator2,
-            this.deactivateToolStripMenuItem});
+            this.tsRecordPayment});
             this.cmsMemberships.Name = "cmsMembers";
-            this.cmsMemberships.Size = new System.Drawing.Size(162, 82);
+            this.cmsMemberships.Size = new System.Drawing.Size(181, 104);
             this.cmsMemberships.Opening += new System.ComponentModel.CancelEventHandler(this.cmsMemberships_Opening);
-            // 
-            // deactivateToolStripMenuItem
-            // 
-            this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
-            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.deactivateToolStripMenuItem.Text = "Record Payment";
             // 
             // pnlGrid
             // 
@@ -348,6 +342,35 @@
             this.pnlHeader.Size = new System.Drawing.Size(1194, 72);
             this.pnlHeader.TabIndex = 37;
             // 
+            // lblSubtitle
+            // 
+            this.lblSubtitle.AutoSize = true;
+            this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Italic);
+            this.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(145)))));
+            this.lblSubtitle.Location = new System.Drawing.Point(2, 42);
+            this.lblSubtitle.Name = "lblSubtitle";
+            this.lblSubtitle.Size = new System.Drawing.Size(185, 17);
+            this.lblSubtitle.TabIndex = 28;
+            this.lblSubtitle.Text = "View and manage memberships";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(1, 10);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(168, 32);
+            this.lblTitle.TabIndex = 27;
+            this.lblTitle.Text = "Memberships";
+            // 
+            // tsRecordPayment
+            // 
+            this.tsRecordPayment.Name = "tsRecordPayment";
+            this.tsRecordPayment.Size = new System.Drawing.Size(180, 22);
+            this.tsRecordPayment.Text = "Record Payment";
+            this.tsRecordPayment.Click += new System.EventHandler(this.tsRecordPayment_Click);
+            // 
             // btnAddMembership
             // 
             this.btnAddMembership.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -370,28 +393,6 @@
             this.btnAddMembership.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddMembership.UseVisualStyleBackColor = false;
             this.btnAddMembership.Click += new System.EventHandler(this.btnAddMembership_Click);
-            // 
-            // lblSubtitle
-            // 
-            this.lblSubtitle.AutoSize = true;
-            this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Italic);
-            this.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(145)))));
-            this.lblSubtitle.Location = new System.Drawing.Point(2, 42);
-            this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(185, 17);
-            this.lblSubtitle.TabIndex = 28;
-            this.lblSubtitle.Text = "View and manage memberships";
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(1, 10);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(168, 32);
-            this.lblTitle.TabIndex = 27;
-            this.lblTitle.Text = "Memberships";
             // 
             // ucMemberships
             // 
@@ -429,7 +430,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip cmsMemberships;
-        private System.Windows.Forms.ToolStripMenuItem deactivateToolStripMenuItem;
         private System.Windows.Forms.Panel pnlGrid;
         private System.Windows.Forms.DataGridView dgvMemberships;
         private System.Windows.Forms.Panel pnlFilters;
@@ -449,5 +449,6 @@
         private System.Windows.Forms.Label lblSubtitle;
         private System.Windows.Forms.Label lblTitle;
         private ucCard ucUpcomingMembershipsCard;
+        private System.Windows.Forms.ToolStripMenuItem tsRecordPayment;
     }
 }

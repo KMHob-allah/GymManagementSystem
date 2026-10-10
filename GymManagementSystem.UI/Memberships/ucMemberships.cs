@@ -1,10 +1,10 @@
 ﻿using GymManagementSystem.BLL.Entities;
-using GymManagementSystem.UI.Members;
 using GymManagementSystem.BLL.Security;
+using GymManagementSystem.UI.Members;
+using GymManagementSystem.UI.Payments;
 using System;
 using System.ComponentModel;
 using System.Data;
-
 using System.Windows.Forms;
 
 namespace GymManagementSystem.UI.Memberships
@@ -510,6 +510,31 @@ namespace GymManagementSystem.UI.Memberships
         {
             btnAddMembership.Visible =
                 _HasPermission("Memberships.Create");
+        }
+
+        private void tsRecordPayment_Click(object sender, EventArgs e)
+        {
+            if (!_RequirePermission("Payments.Create")) return;
+
+            int? membershipID = _GetSelectedMembershipID();
+
+            if (!membershipID.HasValue) return;
+
+            Membership membership = Membership.GetByID(membershipID.Value);
+
+            if (membership == null) return;
+
+            using (frmAddEditPayment frm = new frmAddEditPayment(membership))
+            {
+                frm.PaymentSaved += Frm_PaymentSaved;
+
+                frm.ShowDialog();
+            }
+        }
+
+        private void Frm_PaymentSaved(object sender, EventArgs e)
+        {
+            _LoadMemberships();
         }
     }
 }

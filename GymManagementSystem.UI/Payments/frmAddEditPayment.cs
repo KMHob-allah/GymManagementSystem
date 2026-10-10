@@ -13,6 +13,7 @@ namespace GymManagementSystem.UI.Payments
         private readonly eMode _mode;
 
         private readonly Payment _payment;
+        private readonly Membership _membership;
 
         public event EventHandler PaymentSaved;
 
@@ -29,6 +30,14 @@ namespace GymManagementSystem.UI.Payments
 
             _mode = eMode.Update;
             _payment = payment;
+        }
+        public frmAddEditPayment(Membership membership)
+        {
+            InitializeComponent();
+
+            _mode = eMode.Add;
+            _payment = new Payment();
+            _membership = membership;
         }
 
         private void frmAddEditPayment_Load(object sender, EventArgs e)
@@ -61,6 +70,14 @@ namespace GymManagementSystem.UI.Payments
             ucMembershipFinder1.FilteringEnabled = true;
 
             _SetPaymentInformationDefaultValues();
+
+            if (_membership != null)
+            {
+                ucMembershipFinder1.LoadMembership(_membership);
+                ucMembershipFinder1.FilteringEnabled = false;
+
+                _UpdatePaymentInformation();
+            }
         }
         private void _InitializeUpdateMode()
         {
