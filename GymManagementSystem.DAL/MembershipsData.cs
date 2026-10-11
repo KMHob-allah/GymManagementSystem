@@ -118,14 +118,14 @@ namespace GymManagementSystem.DAL
                 return Convert.ToBoolean(command.ExecuteScalar());
             }
         }
-        public static bool HasOutstandingDebt(int memberID)
+        public static bool HasOutstandingDebt(int membershipID)
         {
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             using (SqlCommand command = new SqlCommand("sp_Memberships_HasOutstandingDebt", connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.AddWithValue("@MemberID", memberID);
+                command.Parameters.AddWithValue("@MembershipID", membershipID);
 
                 connection.Open();
 

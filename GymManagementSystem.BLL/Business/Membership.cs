@@ -162,7 +162,7 @@ namespace GymManagementSystem.BLL.Entities
         }
         private eSaveResult _ValidateAdd()
         {
-            if (HasOutstandingDebt()) return eSaveResult.HasOutstandingDebt;
+            if (this.MemberInfo.HasOutstandingDebt()) return eSaveResult.HasOutstandingDebt;
 
             if (_IsOverlapping()) return eSaveResult.OverlappingMembership;
 
@@ -213,7 +213,8 @@ namespace GymManagementSystem.BLL.Entities
             }
         }
 
-        public bool HasOutstandingDebt() => MembershipsData.HasOutstandingDebt(this.MemberID);
+        public bool HasOutstandingDebt() => MembershipsData.HasOutstandingDebt(this.MembershipID);
+        static public bool HasOutstandingDebt(int membershipID) => MembershipsData.HasOutstandingDebt(membershipID);
 
         public bool IsExpired() => this.EndDate < DateTime.Today;
         
@@ -227,8 +228,10 @@ namespace GymManagementSystem.BLL.Entities
         private DateTime _CalculateEndDate() => StartDate.AddDays(PlanInfo.DurationInDays - 1);        
 
         public bool HasPayments() => MembershipsData.HasPayments(MembershipID);        
-
         public bool HasAttendance() => MembershipsData.HasAttendance(MembershipID);
+
+        public static bool HasPayments(int membershipID) => MembershipsData.HasPayments(membershipID);        
+        public static bool HasAttendance(int membershipID) => MembershipsData.HasAttendance(membershipID);
 
         static public Membership GetActiveByMemberID(int memberID)
         {
@@ -251,7 +254,6 @@ namespace GymManagementSystem.BLL.Entities
         {
             return PaymentsData.GetPaidAmountByMembershipID(MembershipID);
         }
-
         public decimal GetRemainingAmount()
         {
             return TotalAmount - GetPaidAmount();

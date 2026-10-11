@@ -160,5 +160,10 @@ namespace GymManagementSystem.BLL.Entities
             
             return MembersData.Deactivate(this.MemberID);
         }
+
+        public bool HasOutstandingDebt()
+        {
+            return  MembersData.HasOutstandingDebt(this.MemberID);
+        }
     }
 }
