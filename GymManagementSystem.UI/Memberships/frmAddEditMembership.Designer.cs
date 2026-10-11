@@ -408,6 +408,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddEditMembership";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Membership";
             this.Load += new System.EventHandler(this.frmAddEditMembership_Load);

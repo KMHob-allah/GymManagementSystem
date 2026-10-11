@@ -56,6 +56,7 @@
             this.MinimizeBox = false;
             this.Name = "frmPaymentDetails";
             this.Padding = new System.Windows.Forms.Padding(30);
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Payment Details";
             this.Load += new System.EventHandler(this.frmMembershipDetails_Load);

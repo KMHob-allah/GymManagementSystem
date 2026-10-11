@@ -273,6 +273,7 @@
             this.MinimizeBox = false;
             this.Name = "frmAddEditUser";
             this.Padding = new System.Windows.Forms.Padding(30, 30, 30, 60);
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditUser";
             this.Load += new System.EventHandler(this.frmAddEditUser_Load);

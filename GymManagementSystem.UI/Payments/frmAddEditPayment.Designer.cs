@@ -406,6 +406,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddEditPayment";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditPayment";
             this.Load += new System.EventHandler(this.frmAddEditPayment_Load);

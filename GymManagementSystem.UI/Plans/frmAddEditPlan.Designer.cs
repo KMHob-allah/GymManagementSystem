@@ -198,6 +198,7 @@
             this.MinimizeBox = false;
             this.Name = "frmAddEditPlan";
             this.Padding = new System.Windows.Forms.Padding(60, 50, 60, 70);
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Plan";
             this.Load += new System.EventHandler(this.frmAddEditPlan_Load);

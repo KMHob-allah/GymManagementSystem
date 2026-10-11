@@ -370,6 +370,7 @@
             this.MinimizeBox = false;
             this.Name = "frmAddEditMember";
             this.Padding = new System.Windows.Forms.Padding(50, 55, 50, 77);
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Member";
             this.Load += new System.EventHandler(this.frmAddEditMember_Load);
