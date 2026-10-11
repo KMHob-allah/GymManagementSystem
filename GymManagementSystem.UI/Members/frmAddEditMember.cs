@@ -103,10 +103,6 @@ namespace GymManagementSystem.UI.Members
             // TODO: Must Fix Area , Should I Change it in the database 
             
         }
-        private void btnCancel_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void frmAddEditMember_Load(object sender, EventArgs e)
         {
@@ -114,7 +110,6 @@ namespace GymManagementSystem.UI.Members
             _ConfigBirthDateLimits();
             _InitializeForm();
         }
-
 
 
         private void txtFirstName_Validating(object sender, CancelEventArgs e)
@@ -137,8 +132,6 @@ namespace GymManagementSystem.UI.Members
         {
             _ValidateEmergencyPhoneTextBox(tbEmergencyPhone);
         }
-
-
 
         private bool _IsValidEgyptianPhone(string phone)
         {
@@ -224,9 +217,60 @@ namespace GymManagementSystem.UI.Members
             }
         }
 
-        private void customIconButton2_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!_ValidateAllInputs())
+            {
+                MessageBox.Show(
+                    "Please fix the errors before saving.",
+                    "Validation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
 
+                return;
+            }
+
+            try
+            {
+                _FillMemberInfo();
+
+                if (_member.Save())
+                {
+                    MessageBox.Show(
+                        "Member saved successfully!",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    MemberSaved?.Invoke(this, EventArgs.Empty);
+
+                    if (_mode == eMode.Add)
+                        AuditLogger.Log("Create", "Members", _member.MemberID);
+
+                    else
+                        AuditLogger.Log("Update", "Members", _member.MemberID);
+
+                    this.Close();
+                }
+
+                else
+                {
+                    MessageBox.Show(
+                        "Failed to save member. Please try again.",
+                        "Save Failed",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show(
+                    $"An error occurred while saving.Please try again later.",
+                    "Save Failed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
     }
 }

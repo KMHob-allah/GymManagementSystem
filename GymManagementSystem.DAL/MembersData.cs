@@ -214,7 +214,7 @@ namespace GymManagementSystem.DAL
             {
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.AddWithValue("@MembersID", membersID);
+                command.Parameters.AddWithValue("@MemberID", membersID);
 
                 connection.Open();
 

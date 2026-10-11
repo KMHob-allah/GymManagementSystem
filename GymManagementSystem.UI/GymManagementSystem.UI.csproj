@@ -40,6 +40,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -222,6 +223,12 @@
     </Compile>
     <Compile Include="UserControls\CustomIconButton.Designer.cs">
       <DependentUpon>CustomIconButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CustomSegmentedControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CustomSegmentedControl.Designer.cs">
+      <DependentUpon>CustomSegmentedControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ucCard.cs">
       <SubType>UserControl</SubType>

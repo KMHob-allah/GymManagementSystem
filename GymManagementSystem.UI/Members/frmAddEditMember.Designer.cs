@@ -48,7 +48,7 @@
             this.lblBirthDate = new System.Windows.Forms.Label();
             this.tbThirdName = new GymManagementSystem.UI.Controls.CustomTextBox();
             this.lblArea = new System.Windows.Forms.Label();
-            this.customIconButton2 = new GymManagementSystem.UI.UserControls.CustomIconButton();
+            this.btnSave = new GymManagementSystem.UI.UserControls.CustomIconButton();
             ((System.ComponentModel.ISupportInitialize)(this.errpAddEditMember)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -104,6 +104,7 @@
             this.tbFirstName.TabIndex = 43;
             this.tbFirstName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbFirstName.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
+            this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
             // 
             // lblStatus
             // 
@@ -150,6 +151,7 @@
             this.tbPhoneNumber.ForeColor = System.Drawing.Color.White;
             this.tbPhoneNumber.Location = new System.Drawing.Point(24, 436);
             this.tbPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPhoneNumber.MaxLength = 11;
             this.tbPhoneNumber.Multiline = false;
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.PasswordChar = '\0';
@@ -159,6 +161,8 @@
             this.tbPhoneNumber.TabIndex = 48;
             this.tbPhoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbPhoneNumber.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
+            this.tbPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhoneNumber_KeyPress);
+            this.tbPhoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating);
             // 
             // lblGender
             // 
@@ -193,6 +197,7 @@
             this.tbEmergencyPhone.ForeColor = System.Drawing.Color.White;
             this.tbEmergencyPhone.Location = new System.Drawing.Point(24, 522);
             this.tbEmergencyPhone.Margin = new System.Windows.Forms.Padding(4);
+            this.tbEmergencyPhone.MaxLength = 11;
             this.tbEmergencyPhone.Multiline = false;
             this.tbEmergencyPhone.Name = "tbEmergencyPhone";
             this.tbEmergencyPhone.PasswordChar = '\0';
@@ -202,6 +207,7 @@
             this.tbEmergencyPhone.TabIndex = 47;
             this.tbEmergencyPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbEmergencyPhone.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
+            this.tbEmergencyPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmergencyPhone_Validating);
             // 
             // ckbActive
             // 
@@ -246,6 +252,7 @@
             this.tbSecondName.TabIndex = 46;
             this.tbSecondName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbSecondName.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
+            this.tbSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.txtSecondName_Validating);
             // 
             // cbAreas
             // 
@@ -280,6 +287,7 @@
             this.tbLastName.TabIndex = 45;
             this.tbLastName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbLastName.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
+            this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtLastName_Validating);
             // 
             // lblMemberID
             // 
@@ -335,25 +343,26 @@
             this.lblArea.TabIndex = 23;
             this.lblArea.Text = "Area";
             // 
-            // customIconButton2
+            // btnSave
             // 
-            this.customIconButton2.BackColor = System.Drawing.Color.White;
-            this.customIconButton2.BorderRadius = 10;
-            this.customIconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customIconButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.customIconButton2.ForeColor = System.Drawing.Color.Black;
-            this.customIconButton2.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
-            this.customIconButton2.IconColor = System.Drawing.Color.Black;
-            this.customIconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.customIconButton2.IconSize = 30;
-            this.customIconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.customIconButton2.Location = new System.Drawing.Point(985, 686);
-            this.customIconButton2.Name = "customIconButton2";
-            this.customIconButton2.Size = new System.Drawing.Size(121, 36);
-            this.customIconButton2.TabIndex = 46;
-            this.customIconButton2.Text = "Save";
-            this.customIconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.customIconButton2.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.Color.White;
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            this.btnSave.IconColor = System.Drawing.Color.Black;
+            this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSave.IconSize = 30;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(985, 686);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(121, 36);
+            this.btnSave.TabIndex = 46;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frmAddEditMember
             // 
@@ -362,7 +371,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.ClientSize = new System.Drawing.Size(1156, 741);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.customIconButton2);
+            this.Controls.Add(this.btnSave);
             this.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -390,7 +399,7 @@
         private System.Windows.Forms.DateTimePicker dtpBirthDate;
         private Controls.CustomTextBox tbPhoneNumber;
         private System.Windows.Forms.Label lblGender;
-        private UserControls.CustomIconButton customIconButton2;
+        private UserControls.CustomIconButton btnSave;
         private System.Windows.Forms.Label lblMemberIDValue;
         private Controls.CustomTextBox tbEmergencyPhone;
         private System.Windows.Forms.CheckBox ckbActive;
