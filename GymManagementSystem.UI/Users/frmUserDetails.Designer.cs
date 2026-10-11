@@ -33,13 +33,13 @@
             // 
             // ucUserCard1
             // 
-            this.ucUserCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
+            this.ucUserCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
             this.ucUserCard1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucUserCard1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ucUserCard1.Location = new System.Drawing.Point(30, 30);
             this.ucUserCard1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucUserCard1.Name = "ucUserCard1";
-            this.ucUserCard1.Size = new System.Drawing.Size(1001, 274);
+            this.ucUserCard1.Size = new System.Drawing.Size(1001, 226);
             this.ucUserCard1.TabIndex = 0;
             // 
             // frmUserDetails
@@ -47,7 +47,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(1061, 334);
+            this.ClientSize = new System.Drawing.Size(1061, 286);
             this.Controls.Add(this.ucUserCard1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

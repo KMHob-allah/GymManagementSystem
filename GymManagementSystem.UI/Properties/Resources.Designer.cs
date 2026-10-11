@@ -93,6 +93,16 @@ namespace GymManagementSystem.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GymLogo {
+            get {
+                object obj = ResourceManager.GetObject("GymLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LoginImage {
             get {
                 object obj = ResourceManager.GetObject("LoginImage", resourceCulture);

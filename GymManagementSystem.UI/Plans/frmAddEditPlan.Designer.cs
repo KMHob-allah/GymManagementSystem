@@ -30,26 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblPlanID = new System.Windows.Forms.Label();
-            this.tbDurationInDays = new System.Windows.Forms.TextBox();
-            this.tbPrice = new System.Windows.Forms.TextBox();
             this.ckbActive = new System.Windows.Forms.CheckBox();
-            this.pnlContainer = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnCancel = new FontAwesome.Sharp.IconButton();
-            this.btnSave = new FontAwesome.Sharp.IconButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.gbPlanInfo = new System.Windows.Forms.GroupBox();
-            this.lblPlanName = new System.Windows.Forms.Label();
-            this.tbPlanName = new System.Windows.Forms.TextBox();
-            this.lblPrice = new System.Windows.Forms.Label();
             this.lblPlanIDValue = new System.Windows.Forms.Label();
-            this.lblDurationInDays = new System.Windows.Forms.Label();
             this.errpAddEditPlan = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pnlContainer.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.gbPlanInfo.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tbPrice = new GymManagementSystem.UI.Controls.CustomTextBox();
+            this.tbDurationInDays = new GymManagementSystem.UI.Controls.CustomTextBox();
+            this.tbPlanName = new GymManagementSystem.UI.Controls.CustomTextBox();
+            this.btnSave = new GymManagementSystem.UI.UserControls.CustomIconButton();
             ((System.ComponentModel.ISupportInitialize)(this.errpAddEditPlan)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblPlanID
@@ -57,226 +47,163 @@
             this.lblPlanID.AutoSize = true;
             this.lblPlanID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblPlanID.ForeColor = System.Drawing.Color.White;
-            this.lblPlanID.Location = new System.Drawing.Point(24, 52);
+            this.lblPlanID.Location = new System.Drawing.Point(37, 32);
             this.lblPlanID.Name = "lblPlanID";
             this.lblPlanID.Size = new System.Drawing.Size(65, 21);
             this.lblPlanID.TabIndex = 1;
             this.lblPlanID.Text = "Plan ID";
             // 
-            // tbDurationInDays
-            // 
-            this.tbDurationInDays.BackColor = System.Drawing.Color.White;
-            this.tbDurationInDays.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbDurationInDays.Location = new System.Drawing.Point(167, 187);
-            this.tbDurationInDays.MaxLength = 11;
-            this.tbDurationInDays.Name = "tbDurationInDays";
-            this.tbDurationInDays.Size = new System.Drawing.Size(202, 29);
-            this.tbDurationInDays.TabIndex = 21;
-            this.tbDurationInDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDurationInDays_KeyPress);
-            this.tbDurationInDays.Validating += new System.ComponentModel.CancelEventHandler(this.tbDurationInDays_Validating);
-            // 
-            // tbPrice
-            // 
-            this.tbPrice.BackColor = System.Drawing.Color.White;
-            this.tbPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbPrice.Location = new System.Drawing.Point(167, 264);
-            this.tbPrice.MaxLength = 11;
-            this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(202, 29);
-            this.tbPrice.TabIndex = 22;
-            this.tbPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrice_KeyPress);
-            this.tbPrice.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrice_Validating);
-            // 
             // ckbActive
             // 
             this.ckbActive.AutoSize = true;
             this.ckbActive.ForeColor = System.Drawing.Color.White;
-            this.ckbActive.Location = new System.Drawing.Point(167, 331);
+            this.ckbActive.Location = new System.Drawing.Point(37, 328);
             this.ckbActive.Name = "ckbActive";
-            this.ckbActive.Size = new System.Drawing.Size(71, 25);
+            this.ckbActive.Size = new System.Drawing.Size(65, 23);
             this.ckbActive.TabIndex = 25;
             this.ckbActive.Text = "Active";
             this.ckbActive.UseVisualStyleBackColor = true;
-            // 
-            // pnlContainer
-            // 
-            this.pnlContainer.Controls.Add(this.panel2);
-            this.pnlContainer.Controls.Add(this.panel1);
-            this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.pnlContainer.Location = new System.Drawing.Point(0, 0);
-            this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(1106, 493);
-            this.pnlContainer.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
-            this.panel2.Controls.Add(this.btnCancel);
-            this.panel2.Controls.Add(this.btnSave);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 433);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1106, 60);
-            this.panel2.TabIndex = 27;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.Gray;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.Remove;
-            this.btnCancel.IconColor = System.Drawing.Color.Black;
-            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCancel.IconSize = 25;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(862, 12);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(5);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(105, 32);
-            this.btnCancel.TabIndex = 28;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.BackColor = System.Drawing.Color.Gray;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
-            this.btnSave.IconColor = System.Drawing.Color.Black;
-            this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSave.IconSize = 25;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(981, 12);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(5);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(105, 32);
-            this.btnSave.TabIndex = 27;
-            this.btnSave.Text = "Save";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.gbPlanInfo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(20, 20, 20, 10);
-            this.panel1.Size = new System.Drawing.Size(1106, 421);
-            this.panel1.TabIndex = 26;
-            // 
-            // gbPlanInfo
-            // 
-            this.gbPlanInfo.Controls.Add(this.lblPlanID);
-            this.gbPlanInfo.Controls.Add(this.tbDurationInDays);
-            this.gbPlanInfo.Controls.Add(this.tbPrice);
-            this.gbPlanInfo.Controls.Add(this.ckbActive);
-            this.gbPlanInfo.Controls.Add(this.lblPlanName);
-            this.gbPlanInfo.Controls.Add(this.tbPlanName);
-            this.gbPlanInfo.Controls.Add(this.lblPrice);
-            this.gbPlanInfo.Controls.Add(this.lblPlanIDValue);
-            this.gbPlanInfo.Controls.Add(this.lblDurationInDays);
-            this.gbPlanInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbPlanInfo.ForeColor = System.Drawing.Color.White;
-            this.gbPlanInfo.Location = new System.Drawing.Point(20, 20);
-            this.gbPlanInfo.Name = "gbPlanInfo";
-            this.gbPlanInfo.Size = new System.Drawing.Size(1066, 391);
-            this.gbPlanInfo.TabIndex = 26;
-            this.gbPlanInfo.TabStop = false;
-            this.gbPlanInfo.Text = "Member Info";
-            // 
-            // lblPlanName
-            // 
-            this.lblPlanName.AutoSize = true;
-            this.lblPlanName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblPlanName.ForeColor = System.Drawing.Color.White;
-            this.lblPlanName.Location = new System.Drawing.Point(24, 122);
-            this.lblPlanName.Name = "lblPlanName";
-            this.lblPlanName.Size = new System.Drawing.Size(56, 21);
-            this.lblPlanName.TabIndex = 3;
-            this.lblPlanName.Text = "Name";
-            // 
-            // tbPlanName
-            // 
-            this.tbPlanName.BackColor = System.Drawing.Color.White;
-            this.tbPlanName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbPlanName.Location = new System.Drawing.Point(167, 120);
-            this.tbPlanName.MaxLength = 50;
-            this.tbPlanName.Name = "tbPlanName";
-            this.tbPlanName.Size = new System.Drawing.Size(202, 29);
-            this.tbPlanName.TabIndex = 4;
-            this.tbPlanName.Validating += new System.ComponentModel.CancelEventHandler(this.tbPlanName_Validating);
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblPrice.ForeColor = System.Drawing.Color.White;
-            this.lblPrice.Location = new System.Drawing.Point(24, 266);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(48, 21);
-            this.lblPrice.TabIndex = 18;
-            this.lblPrice.Text = "Price";
             // 
             // lblPlanIDValue
             // 
             this.lblPlanIDValue.AutoSize = true;
             this.lblPlanIDValue.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lblPlanIDValue.ForeColor = System.Drawing.Color.White;
-            this.lblPlanIDValue.Location = new System.Drawing.Point(163, 52);
+            this.lblPlanIDValue.Location = new System.Drawing.Point(136, 32);
             this.lblPlanIDValue.Name = "lblPlanIDValue";
             this.lblPlanIDValue.Size = new System.Drawing.Size(48, 21);
             this.lblPlanIDValue.TabIndex = 2;
             this.lblPlanIDValue.Text = "[A/N]";
             // 
-            // lblDurationInDays
-            // 
-            this.lblDurationInDays.AutoSize = true;
-            this.lblDurationInDays.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblDurationInDays.ForeColor = System.Drawing.Color.White;
-            this.lblDurationInDays.Location = new System.Drawing.Point(20, 189);
-            this.lblDurationInDays.Name = "lblDurationInDays";
-            this.lblDurationInDays.Size = new System.Drawing.Size(131, 21);
-            this.lblDurationInDays.TabIndex = 20;
-            this.lblDurationInDays.Text = "Duration (Days)";
-            // 
             // errpAddEditPlan
             // 
             this.errpAddEditPlan.ContainerControl = this;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.panel1.Controls.Add(this.tbPrice);
+            this.panel1.Controls.Add(this.tbDurationInDays);
+            this.panel1.Controls.Add(this.tbPlanName);
+            this.panel1.Controls.Add(this.lblPlanID);
+            this.panel1.Controls.Add(this.ckbActive);
+            this.panel1.Controls.Add(this.lblPlanIDValue);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(60, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(879, 382);
+            this.panel1.TabIndex = 26;
+            // 
+            // tbPrice
+            // 
+            this.tbPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tbPrice.BorderColor = System.Drawing.Color.LightGray;
+            this.tbPrice.BorderRadius = 5;
+            this.tbPrice.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbPrice.FocusBorderColor = System.Drawing.SystemColors.GrayText;
+            this.tbPrice.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.tbPrice.ForeColor = System.Drawing.Color.White;
+            this.tbPrice.Location = new System.Drawing.Point(37, 249);
+            this.tbPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPrice.Multiline = false;
+            this.tbPrice.Name = "tbPrice";
+            this.tbPrice.PasswordChar = '\0';
+            this.tbPrice.PlaceholderText = "price";
+            this.tbPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbPrice.Size = new System.Drawing.Size(440, 46);
+            this.tbPrice.TabIndex = 46;
+            this.tbPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbPrice.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
+            this.tbPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrice_KeyPress);
+            this.tbPrice.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrice_Validating);
+            // 
+            // tbDurationInDays
+            // 
+            this.tbDurationInDays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tbDurationInDays.BorderColor = System.Drawing.Color.LightGray;
+            this.tbDurationInDays.BorderRadius = 5;
+            this.tbDurationInDays.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbDurationInDays.FocusBorderColor = System.Drawing.SystemColors.GrayText;
+            this.tbDurationInDays.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.tbDurationInDays.ForeColor = System.Drawing.Color.White;
+            this.tbDurationInDays.Location = new System.Drawing.Point(37, 174);
+            this.tbDurationInDays.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDurationInDays.Multiline = false;
+            this.tbDurationInDays.Name = "tbDurationInDays";
+            this.tbDurationInDays.PasswordChar = '\0';
+            this.tbDurationInDays.PlaceholderText = "duration (days)";
+            this.tbDurationInDays.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbDurationInDays.Size = new System.Drawing.Size(440, 46);
+            this.tbDurationInDays.TabIndex = 45;
+            this.tbDurationInDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbDurationInDays.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
+            this.tbDurationInDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDurationInDays_KeyPress);
+            this.tbDurationInDays.Validating += new System.ComponentModel.CancelEventHandler(this.tbDurationInDays_Validating);
+            // 
+            // tbPlanName
+            // 
+            this.tbPlanName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tbPlanName.BorderColor = System.Drawing.Color.LightGray;
+            this.tbPlanName.BorderRadius = 5;
+            this.tbPlanName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbPlanName.FocusBorderColor = System.Drawing.SystemColors.GrayText;
+            this.tbPlanName.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.tbPlanName.ForeColor = System.Drawing.Color.White;
+            this.tbPlanName.Location = new System.Drawing.Point(37, 99);
+            this.tbPlanName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPlanName.Multiline = false;
+            this.tbPlanName.Name = "tbPlanName";
+            this.tbPlanName.PasswordChar = '\0';
+            this.tbPlanName.PlaceholderText = "plan name";
+            this.tbPlanName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbPlanName.Size = new System.Drawing.Size(440, 46);
+            this.tbPlanName.TabIndex = 44;
+            this.tbPlanName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbPlanName.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
+            this.tbPlanName.Validating += new System.ComponentModel.CancelEventHandler(this.tbPlanName_Validating);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.White;
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            this.btnSave.IconColor = System.Drawing.Color.Black;
+            this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSave.IconSize = 30;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(818, 451);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(121, 33);
+            this.btnSave.TabIndex = 48;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // frmAddEditPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(1106, 493);
-            this.Controls.Add(this.pnlContainer);
+            this.ClientSize = new System.Drawing.Size(999, 502);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddEditPlan";
+            this.Padding = new System.Windows.Forms.Padding(60, 50, 60, 70);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Plan";
             this.Load += new System.EventHandler(this.frmAddEditPlan_Load);
-            this.pnlContainer.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.gbPlanInfo.ResumeLayout(false);
-            this.gbPlanInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errpAddEditPlan)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -284,20 +211,13 @@
         #endregion
 
         private System.Windows.Forms.Label lblPlanID;
-        private System.Windows.Forms.TextBox tbDurationInDays;
-        private System.Windows.Forms.TextBox tbPrice;
         private System.Windows.Forms.CheckBox ckbActive;
-        private System.Windows.Forms.Panel pnlContainer;
-        private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton btnCancel;
-        private FontAwesome.Sharp.IconButton btnSave;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox gbPlanInfo;
-        private System.Windows.Forms.Label lblPlanName;
-        private System.Windows.Forms.TextBox tbPlanName;
-        private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblPlanIDValue;
-        private System.Windows.Forms.Label lblDurationInDays;
         private System.Windows.Forms.ErrorProvider errpAddEditPlan;
+        private System.Windows.Forms.Panel panel1;
+        private UserControls.CustomIconButton btnSave;
+        private Controls.CustomTextBox tbDurationInDays;
+        private Controls.CustomTextBox tbPlanName;
+        private Controls.CustomTextBox tbPrice;
     }
 }

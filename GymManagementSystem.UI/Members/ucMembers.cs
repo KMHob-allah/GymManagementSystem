@@ -379,22 +379,25 @@ namespace GymManagementSystem.UI.Members
                 return;
             }
 
-            bool isActive = dgvMembers.CurrentRow.Cells["Status"].Value?.ToString() == "Active";
+            bool isActive =
+                dgvMembers.CurrentRow.Cells["Status"].Value?.ToString() == "Active";
+
+            bool canChangeStatus = isActive ? 
+                _HasPermission("Members.Deactivate"): _HasPermission("Members.Activate");
 
             bool canView = _HasPermission("Members.View");
 
             bool canUpdate = _HasPermission("Members.Update");
 
-            bool canActivate = _HasPermission("Members.Activate") && !isActive;
-
-            bool canDeactivate = _HasPermission("Members.Deactivate") && isActive;
-
             showDetailsToolStripMenuItem.Available = canView;
             editToolStripMenuItem.Available = canUpdate;
-            activateToolStripMenuItem.Available = canActivate;
-            deactivateToolStripMenuItem.Available = canDeactivate;
+            changeStatusToolStripMenuItem.Available = canChangeStatus;
 
-            if (!canView && !canUpdate && !canActivate && !canDeactivate)
+
+            changeStatusToolStripMenuItem.Text = isActive ? "Deactivate" : "Activate";
+
+
+            if (!canView && !canUpdate && !canChangeStatus)
             {
                 e.Cancel = true;
             }
@@ -411,75 +414,70 @@ namespace GymManagementSystem.UI.Members
             return Convert.ToInt32(cell.Value);
         }
 
-        private void activateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!_RequirePermission("Members.Activate")) return;
 
+        private void changeStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             int? memberID = _GetSelectedMemberID();
 
-            if (!memberID.HasValue) return;
-
-            DialogResult result = MessageBox.Show(
-                "Are you sure you want to activate this member?",
-                "Confirm Activation",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (result != DialogResult.Yes) return;
+            if (!memberID.HasValue)
+                return;
 
             Member member = Member.GetMemberByID(memberID.Value);
 
             if (member == null)
             {
-                MessageBox.Show("Member not found.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Member not found.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             }
 
-            if (!member.Activate())
-            {
-                MessageBox.Show("Failed to activate member.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            bool isActivating = !member.IsActive;
+
+            string permission = isActivating
+                ? "Members.Activate"
+                : "Members.Deactivate";
+
+            if (!_RequirePermission(permission))
                 return;
-            }
 
-            MessageBox.Show("Member activated successfully.","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
-            AuditLogger.Log("Activate", "Members", member.MemberID);
-
-            _LoadMembers();
-        }
-        private void deactivateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!_RequirePermission("Members.Deactivate"))  return;
-
-            int? memberID = _GetSelectedMemberID();
-
-            if (!memberID.HasValue) return;
+            string action = isActivating ? "activate" : "deactivate";
 
             DialogResult result = MessageBox.Show(
-                "Are you sure you want to deactivate this member?",
-                "Confirm Deactivation",
+                $"Are you sure you want to {action} this member?",
+                "Confirm Status Change",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-            if (result != DialogResult.Yes) return;
+            if (result != DialogResult.Yes)
+                return;
 
-            Member member = Member.GetMemberByID(memberID.Value);
+            bool success = isActivating
+                ? member.Activate()
+                : member.Deactivate();
 
-            if (member == null)
+            if (!success)
             {
-                MessageBox.Show("Member not found.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(
+                    $"Failed to {action} member.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             }
 
-            if (!member.Deactivate())
-            {
-                MessageBox.Show("Failed to deactivate member.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
+            MessageBox.Show(
+                $"Member {(isActivating ? "activated" : "deactivated")} successfully.",
+                "Success",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
 
-            MessageBox.Show("Member deactivated successfully.","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
-            AuditLogger.Log("Dectivate", "Members", member.MemberID);
+            AuditLogger.Log(
+                isActivating ? "Activate" : "Deactivate",
+                "Members",
+                member.MemberID);
 
             _LoadMembers();
         }
@@ -566,5 +564,6 @@ namespace GymManagementSystem.UI.Members
             btnAddMember.Visible =
                 _HasPermission("Members.Create");
         }
+
     }
 }

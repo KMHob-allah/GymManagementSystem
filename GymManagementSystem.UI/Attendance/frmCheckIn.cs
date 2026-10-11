@@ -19,7 +19,7 @@ namespace GymManagementSystem.UI.Attendance
             ucMembershipFinder1.FilteringEnabled = true;
         }
 
-        private void btnCheckIn_Click(object sender, EventArgs e)
+        private void btnCheckIn_Click_1(object sender, EventArgs e)
         {
             if (!ucMembershipFinder1.HasSelectedMembership)
             {
@@ -102,6 +102,7 @@ namespace GymManagementSystem.UI.Attendance
                     break;
             }
         }
+        
     }
 
 

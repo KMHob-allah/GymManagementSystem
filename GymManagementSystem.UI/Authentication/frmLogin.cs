@@ -81,7 +81,7 @@ namespace GymManagementSystem.UI.Authentication
             return true;
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnLogin_Click_1(object sender, EventArgs e)
         {
             if (!_ValidateInput())
                 return;
@@ -195,6 +195,9 @@ namespace GymManagementSystem.UI.Authentication
                 return;
 
             Application.Exit();
-        }        
+        }
+
+        
+
     }
 }

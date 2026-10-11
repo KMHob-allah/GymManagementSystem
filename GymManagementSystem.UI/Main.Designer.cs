@@ -102,7 +102,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(34)))));
             this.flowLayoutPanel1.Controls.Add(this.lblGymName);
             this.flowLayoutPanel1.Controls.Add(this.lblDash2);
             this.flowLayoutPanel1.Controls.Add(this.lblCurrentUser);
@@ -183,7 +183,7 @@
             // 
             // iconButton12
             // 
-            this.iconButton12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(34)))));
             this.iconButton12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.iconButton12.FlatAppearance.BorderSize = 0;
             this.iconButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -200,7 +200,7 @@
             // 
             // iconButton11
             // 
-            this.iconButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(34)))));
             this.iconButton11.Dock = System.Windows.Forms.DockStyle.Right;
             this.iconButton11.FlatAppearance.BorderSize = 0;
             this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -217,7 +217,7 @@
             // 
             // iconButton10
             // 
-            this.iconButton10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(34)))));
             this.iconButton10.Dock = System.Windows.Forms.DockStyle.Right;
             this.iconButton10.FlatAppearance.BorderSize = 0;
             this.iconButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -246,6 +246,7 @@
             // 
             // flpnlSidebar
             // 
+            this.flpnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.flpnlSidebar.Controls.Add(this.btnDashboard);
             this.flpnlSidebar.Controls.Add(this.iconButton4);
             this.flpnlSidebar.Controls.Add(this.iconButton1);
@@ -265,7 +266,7 @@
             // 
             // btnDashboard
             // 
-            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(60)))), ((int)(((byte)(45)))));
             this.btnDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(43)))), ((int)(((byte)(32)))));
@@ -289,7 +290,7 @@
             // 
             // iconButton4
             // 
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.iconButton4.FlatAppearance.BorderSize = 0;
             this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton4.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -311,7 +312,7 @@
             // 
             // iconButton1
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton1.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -333,7 +334,7 @@
             // 
             // iconButton3
             // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.iconButton3.FlatAppearance.BorderSize = 0;
             this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton3.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -355,7 +356,7 @@
             // 
             // iconButton5
             // 
-            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.iconButton5.FlatAppearance.BorderSize = 0;
             this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton5.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -377,7 +378,7 @@
             // 
             // iconButton7
             // 
-            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.iconButton7.FlatAppearance.BorderSize = 0;
             this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton7.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -399,7 +400,7 @@
             // 
             // iconButton2
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.iconButton2.FlatAppearance.BorderSize = 0;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -421,7 +422,7 @@
             // 
             // iconButton8
             // 
-            this.iconButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.iconButton8.FlatAppearance.BorderSize = 0;
             this.iconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton8.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -443,7 +444,7 @@
             // 
             // iconButton6
             // 
-            this.iconButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.iconButton6.FlatAppearance.BorderSize = 0;
             this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton6.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -465,7 +466,7 @@
             // 
             // btnChangePassword
             // 
-            this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.btnChangePassword.FlatAppearance.BorderSize = 0;
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -488,7 +489,7 @@
             // 
             // btnGymInfo
             // 
-            this.btnGymInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.btnGymInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.btnGymInfo.FlatAppearance.BorderSize = 0;
             this.btnGymInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGymInfo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -519,7 +520,7 @@
             // 
             // iconButton9
             // 
-            this.iconButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.iconButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.iconButton9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.iconButton9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.iconButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -543,7 +544,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(34)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";

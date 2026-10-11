@@ -28,35 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gbFilter = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.tbFilterValue = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.lblFilter = new System.Windows.Forms.Label();
             this.ucMembershipCard1 = new GymManagementSystem.UI.Memberships.ucMembershipCard();
-            this.gbFilter.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gbFilter
+            // panel1
             // 
-            this.gbFilter.Controls.Add(this.btnSearch);
-            this.gbFilter.Controls.Add(this.tbFilterValue);
-            this.gbFilter.Controls.Add(this.cbFilterBy);
-            this.gbFilter.Controls.Add(this.lblFilter);
-            this.gbFilter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbFilter.ForeColor = System.Drawing.Color.White;
-            this.gbFilter.Location = new System.Drawing.Point(0, 0);
-            this.gbFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbFilter.Name = "gbFilter";
-            this.gbFilter.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbFilter.Size = new System.Drawing.Size(1236, 100);
-            this.gbFilter.TabIndex = 2;
-            this.gbFilter.TabStop = false;
-            this.gbFilter.Text = "Search";
+            this.panel1.Controls.Add(this.btnSearch);
+            this.panel1.Controls.Add(this.tbFilterValue);
+            this.panel1.Controls.Add(this.cbFilterBy);
+            this.panel1.Controls.Add(this.lblFilter);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1236, 71);
+            this.panel1.TabIndex = 36;
             // 
             // btnSearch
             // 
-            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -66,40 +60,38 @@
             this.btnSearch.IconColor = System.Drawing.Color.White;
             this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSearch.IconSize = 30;
-            this.btnSearch.Location = new System.Drawing.Point(633, 43);
+            this.btnSearch.Location = new System.Drawing.Point(593, 19);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(5);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(42, 29);
-            this.btnSearch.TabIndex = 35;
+            this.btnSearch.TabIndex = 39;
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // tbFilterValue
             // 
-            this.tbFilterValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbFilterValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.tbFilterValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbFilterValue.ForeColor = System.Drawing.Color.White;
-            this.tbFilterValue.Location = new System.Drawing.Point(372, 43);
+            this.tbFilterValue.Location = new System.Drawing.Point(331, 19);
             this.tbFilterValue.Name = "tbFilterValue";
             this.tbFilterValue.Size = new System.Drawing.Size(241, 29);
-            this.tbFilterValue.TabIndex = 34;
+            this.tbFilterValue.TabIndex = 38;
             this.tbFilterValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbFilterValue_KeyDown);
             this.tbFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFilterValue_KeyPress);
             // 
             // cbFilterBy
             // 
-            this.cbFilterBy.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbFilterBy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilterBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbFilterBy.ForeColor = System.Drawing.Color.White;
             this.cbFilterBy.FormattingEnabled = true;
-            this.cbFilterBy.Location = new System.Drawing.Point(111, 43);
+            this.cbFilterBy.Location = new System.Drawing.Point(70, 19);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(241, 29);
-            this.cbFilterBy.TabIndex = 33;
+            this.cbFilterBy.TabIndex = 37;
             this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // lblFilter
@@ -107,23 +99,22 @@
             this.lblFilter.AutoSize = true;
             this.lblFilter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblFilter.ForeColor = System.Drawing.Color.White;
-            this.lblFilter.Location = new System.Drawing.Point(43, 46);
+            this.lblFilter.Location = new System.Drawing.Point(3, 19);
             this.lblFilter.Name = "lblFilter";
             this.lblFilter.Size = new System.Drawing.Size(61, 21);
-            this.lblFilter.TabIndex = 27;
+            this.lblFilter.TabIndex = 36;
             this.lblFilter.Text = "Search";
             // 
             // ucMembershipCard1
             // 
-            this.ucMembershipCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(24)))));
+            this.ucMembershipCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
             this.ucMembershipCard1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucMembershipCard1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.ucMembershipCard1.Location = new System.Drawing.Point(0, 100);
+            this.ucMembershipCard1.Location = new System.Drawing.Point(0, 71);
             this.ucMembershipCard1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucMembershipCard1.Name = "ucMembershipCard1";
-            this.ucMembershipCard1.Size = new System.Drawing.Size(1236, 392);
-            this.ucMembershipCard1.TabIndex = 3;
-            this.ucMembershipCard1.Load += new System.EventHandler(this.ucMembershipFinder_Load);
+            this.ucMembershipCard1.Size = new System.Drawing.Size(1236, 373);
+            this.ucMembershipCard1.TabIndex = 37;
             // 
             // ucMembershipFinder
             // 
@@ -131,20 +122,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.Controls.Add(this.ucMembershipCard1);
-            this.Controls.Add(this.gbFilter);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucMembershipFinder";
-            this.Size = new System.Drawing.Size(1236, 492);
-            this.gbFilter.ResumeLayout(false);
-            this.gbFilter.PerformLayout();
+            this.Size = new System.Drawing.Size(1236, 444);
+            this.Load += new System.EventHandler(this.ucMembershipFinder_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbFilter;
+        private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btnSearch;
         private System.Windows.Forms.TextBox tbFilterValue;
         private System.Windows.Forms.ComboBox cbFilterBy;

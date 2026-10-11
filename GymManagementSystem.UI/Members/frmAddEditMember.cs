@@ -1,5 +1,6 @@
 ﻿using GymManagementSystem.BLL;
 using GymManagementSystem.BLL.Entities;
+using GymManagementSystem.UI.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,7 +61,7 @@ namespace GymManagementSystem.UI.Members
         {
             _member.FirstName = tbFirstName.Text.Trim();
             _member.SecondName = tbSecondName.Text.Trim();
-            _member.ThirdName = tbThridName.Text.Trim();
+            _member.ThirdName = tbThirdName.Text.Trim();
             _member.LastName = tbLastName.Text.Trim();
             _member.PhoneNumber = tbPhoneNumber.Text.Trim();
             _member.EmergencyPhone = tbEmergencyPhone.Text.Trim();
@@ -75,7 +76,7 @@ namespace GymManagementSystem.UI.Members
             lblMemberIDValue.Text = "[A/N]";
             tbFirstName.Text = string.Empty;
             tbSecondName.Text = string.Empty;
-            tbThridName .Text = string.Empty;
+            tbThirdName .Text = string.Empty;
             tbLastName.Text = string.Empty;
             tbPhoneNumber.Text = string.Empty;
             tbEmergencyPhone.Text = string.Empty;
@@ -89,7 +90,7 @@ namespace GymManagementSystem.UI.Members
             lblMemberIDValue.Text = _member.MemberID.ToString();
             tbFirstName.Text = _member.FirstName;
             tbSecondName.Text = _member.SecondName;
-            tbThridName.Text = _member.ThirdName;
+            tbThirdName.Text = _member.ThirdName;
             tbLastName.Text = _member.LastName;
             tbPhoneNumber.Text = _member.PhoneNumber;
             tbEmergencyPhone.Text = _member.EmergencyPhone;
@@ -102,65 +103,7 @@ namespace GymManagementSystem.UI.Members
             // TODO: Must Fix Area , Should I Change it in the database 
             
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            if (!_ValidateAllInputs())
-            {
-                MessageBox.Show(
-                    "Please fix the errors before saving.",
-                    "Validation Error", 
-                    MessageBoxButtons.OK, 
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            try
-            {
-                _FillMemberInfo();
-
-                if (_member.Save())
-                {
-                    MessageBox.Show(
-                        "Member saved successfully!", 
-                        "Success",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-
-                    MemberSaved?.Invoke(this, EventArgs.Empty);
-
-                    if(_mode == eMode.Add)
-                        AuditLogger.Log("Create", "Members", _member.MemberID);
-
-                    else 
-                        AuditLogger.Log("Update", "Members", _member.MemberID);
-
-                    this.Close();
-                }
-
-                else
-                {
-                    MessageBox.Show(
-                        "Failed to save member. Please try again.", 
-                        "Save Failed",
-                        MessageBoxButtons.OK, 
-                        MessageBoxIcon.Error);
-                }
-            }
-
-            catch (Exception)
-            {
-                MessageBox.Show(
-                    $"An error occurred while saving.Please try again later.",
-                    "Save Failed", 
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-          
-
-        }     
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnCancel_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -208,7 +151,7 @@ namespace GymManagementSystem.UI.Members
                    phone.StartsWith("015");
         }
 
-        private bool _ValidateTextBox(TextBox textBox, string errorMessage)
+        private bool _ValidateTextBox(CustomTextBox textBox, string errorMessage)
         {
             if (string.IsNullOrWhiteSpace(textBox.Text.Trim()))
             {
@@ -221,7 +164,7 @@ namespace GymManagementSystem.UI.Members
                 return true;
             }
         }
-        private bool _ValidatePhoneTextBox(TextBox textBox)
+        private bool _ValidatePhoneTextBox(CustomTextBox textBox)
         {
             string phone = textBox.Text.Trim();
 
@@ -236,7 +179,7 @@ namespace GymManagementSystem.UI.Members
                 return true;
             }
         }
-        private bool _ValidateEmergencyPhoneTextBox(TextBox textBox)
+        private bool _ValidateEmergencyPhoneTextBox(CustomTextBox textBox)
         {
             string emergencyPhone = textBox.Text.Trim();
             string mainPhone = tbPhoneNumber.Text.Trim(); 
@@ -281,6 +224,9 @@ namespace GymManagementSystem.UI.Members
             }
         }
 
-      
+        private void customIconButton2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

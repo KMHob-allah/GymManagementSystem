@@ -57,14 +57,14 @@ namespace GymManagementSystem.UI.Users
 
             lblUserIDValue.Text = "[A/N]";
 
-            tbUserName.Clear();
+            tbUserName.Text = string.Empty;
 
             cbRole.SelectedIndex = 0;
 
             chkStatus.Checked = true;
 
-            tbPassword.Clear();
-            tbConfirmPassword.Clear();
+            tbPassword.Text = string.Empty;
+            tbConfirmPassword.Text = string.Empty;
 
             lblPassword.Visible = true;
             tbPassword.Visible = true;
@@ -280,7 +280,7 @@ namespace GymManagementSystem.UI.Users
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             if (!_ValidateForm())
                 return;
@@ -330,6 +330,8 @@ namespace GymManagementSystem.UI.Users
                     MessageBoxIcon.Error);
             }
         }
+
+     
     }
 
 }

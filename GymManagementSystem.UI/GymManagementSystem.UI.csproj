@@ -211,6 +211,18 @@
     <Compile Include="Dashboard\ucDashboard.Designer.cs">
       <DependentUpon>ucDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ccTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ccTextBox.Designer.cs">
+      <DependentUpon>ccTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CustomIconButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\CustomIconButton.Designer.cs">
+      <DependentUpon>CustomIconButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -335,6 +347,9 @@
     <EmbeddedResource Include="Dashboard\ucDashboard.resx">
       <DependentUpon>ucDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ccTextBox.resx">
+      <DependentUpon>ccTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucCard.resx">
       <DependentUpon>ucCard.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -391,6 +406,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dumbbell1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GymLogo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

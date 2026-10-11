@@ -412,8 +412,16 @@ namespace GymManagementSystem.UI.Memberships
 
             bool canUpdate = _HasPermission("Memberships.Update");
 
+            bool canPay = _HasPermission("Payments.Create");
+
             showDetailsToolStripMenuItem.Available = canView;
             editToolStripMenuItem.Available = canUpdate;
+            tsRecordPayment.Available = canPay;
+
+            tsRecordPayment.Enabled = BLL.Entities.Membership.HasOutstandingDebt(membershipID.Value);
+
+            editToolStripMenuItem.Enabled = 
+                !Membership.HasPayments(membershipID.Value) && !Membership.HasAttendance(membershipID.Value);
 
             if (!canView && !canUpdate)
             {

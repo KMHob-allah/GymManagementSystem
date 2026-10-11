@@ -27,9 +27,9 @@ namespace GymManagementSystem.UI.Users
 
             ucUserFinder1.FilteringEnabled = false;
 
-            tbOldPassword.Clear();
-            tbNewPassword.Clear();
-            tbConfirmPassword.Clear();
+            tbOldPassword.Text = string.Empty;
+            tbNewPassword.Text = string.Empty;
+            tbConfirmPassword.Text = string.Empty;
 
             errpPassword.Clear();
 
@@ -179,7 +179,7 @@ namespace GymManagementSystem.UI.Users
                     ucUserFinder1.SelectedUser.UserID);
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             _LoadSelectedUser();
 
@@ -223,6 +223,8 @@ namespace GymManagementSystem.UI.Users
                     MessageBoxIcon.Error);
             }
         }
+
+       
     }
 
 

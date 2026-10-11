@@ -93,8 +93,9 @@
             this.panel1.Location = new System.Drawing.Point(0, 71);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(50, 25, 50, 25);
-            this.panel1.Size = new System.Drawing.Size(1266, 751);
+            this.panel1.Size = new System.Drawing.Size(1266, 700);
             this.panel1.TabIndex = 43;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // tcInfo
             // 
@@ -107,7 +108,7 @@
             this.tcInfo.Location = new System.Drawing.Point(50, 25);
             this.tcInfo.Name = "tcInfo";
             this.tcInfo.SelectedIndex = 0;
-            this.tcInfo.Size = new System.Drawing.Size(1166, 629);
+            this.tcInfo.Size = new System.Drawing.Size(1166, 578);
             this.tcInfo.TabIndex = 47;
             this.tcInfo.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tcInfo_Selecting);
             // 
@@ -120,7 +121,7 @@
             this.tpMemberInfo.Location = new System.Drawing.Point(4, 33);
             this.tpMemberInfo.Name = "tpMemberInfo";
             this.tpMemberInfo.Padding = new System.Windows.Forms.Padding(25);
-            this.tpMemberInfo.Size = new System.Drawing.Size(1158, 592);
+            this.tpMemberInfo.Size = new System.Drawing.Size(1158, 541);
             this.tpMemberInfo.TabIndex = 0;
             this.tpMemberInfo.Text = "Member Information";
             // 
@@ -133,7 +134,7 @@
             this.ucMemberFinder1.Location = new System.Drawing.Point(25, 25);
             this.ucMemberFinder1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucMemberFinder1.Name = "ucMemberFinder1";
-            this.ucMemberFinder1.Size = new System.Drawing.Size(1108, 542);
+            this.ucMemberFinder1.Size = new System.Drawing.Size(1108, 491);
             this.ucMemberFinder1.TabIndex = 0;
             // 
             // tpPlanInfo
@@ -143,7 +144,7 @@
             this.tpPlanInfo.Location = new System.Drawing.Point(4, 33);
             this.tpPlanInfo.Name = "tpPlanInfo";
             this.tpPlanInfo.Padding = new System.Windows.Forms.Padding(25);
-            this.tpPlanInfo.Size = new System.Drawing.Size(1247, 623);
+            this.tpPlanInfo.Size = new System.Drawing.Size(1158, 541);
             this.tpPlanInfo.TabIndex = 1;
             this.tpPlanInfo.Text = "Plan Information";
             // 
@@ -157,7 +158,7 @@
             this.ucPlanFinder1.Location = new System.Drawing.Point(25, 25);
             this.ucPlanFinder1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucPlanFinder1.Name = "ucPlanFinder1";
-            this.ucPlanFinder1.Size = new System.Drawing.Size(1197, 573);
+            this.ucPlanFinder1.Size = new System.Drawing.Size(1108, 491);
             this.ucPlanFinder1.TabIndex = 3;
             // 
             // tpMembershipInfo
@@ -167,7 +168,7 @@
             this.tpMembershipInfo.Location = new System.Drawing.Point(4, 33);
             this.tpMembershipInfo.Name = "tpMembershipInfo";
             this.tpMembershipInfo.Padding = new System.Windows.Forms.Padding(25);
-            this.tpMembershipInfo.Size = new System.Drawing.Size(1247, 623);
+            this.tpMembershipInfo.Size = new System.Drawing.Size(1158, 541);
             this.tpMembershipInfo.TabIndex = 2;
             this.tpMembershipInfo.Text = "Membership information";
             // 
@@ -189,7 +190,7 @@
             this.gbMembershipDetails.ForeColor = System.Drawing.Color.White;
             this.gbMembershipDetails.Location = new System.Drawing.Point(25, 25);
             this.gbMembershipDetails.Name = "gbMembershipDetails";
-            this.gbMembershipDetails.Size = new System.Drawing.Size(1197, 573);
+            this.gbMembershipDetails.Size = new System.Drawing.Size(1108, 491);
             this.gbMembershipDetails.TabIndex = 41;
             this.gbMembershipDetails.TabStop = false;
             this.gbMembershipDetails.Text = "Membership Details";
@@ -323,7 +324,7 @@
             this.panel4.Controls.Add(this.btnBack);
             this.panel4.Controls.Add(this.btnNext);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(50, 654);
+            this.panel4.Location = new System.Drawing.Point(50, 603);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1166, 72);
             this.panel4.TabIndex = 46;
@@ -397,7 +398,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(1266, 822);
+            this.ClientSize = new System.Drawing.Size(1266, 771);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);

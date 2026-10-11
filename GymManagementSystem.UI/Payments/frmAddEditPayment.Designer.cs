@@ -38,6 +38,10 @@
             this.ucMembershipFinder1 = new GymManagementSystem.UI.Memberships.ucMembershipFinder();
             this.tpPaymentInfo = new System.Windows.Forms.TabPage();
             this.gbPaymentDetails = new System.Windows.Forms.GroupBox();
+            this.lblPaidAmountValue = new System.Windows.Forms.Label();
+            this.lblPaidAmount = new System.Windows.Forms.Label();
+            this.lblRemainingAmountValue = new System.Windows.Forms.Label();
+            this.lblRemainingAmount = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblCreatedByValue = new System.Windows.Forms.Label();
             this.lblCreatedBy = new System.Windows.Forms.Label();
@@ -50,10 +54,6 @@
             this.lblAmount = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblRemainingAmountValue = new System.Windows.Forms.Label();
-            this.lblRemainingAmount = new System.Windows.Forms.Label();
-            this.lblPaidAmountValue = new System.Windows.Forms.Label();
-            this.lblPaidAmount = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tcInfo.SuspendLayout();
@@ -112,7 +112,7 @@
             this.panel4.Controls.Add(this.btnBack);
             this.panel4.Controls.Add(this.btnNext);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(50, 606);
+            this.panel4.Location = new System.Drawing.Point(50, 558);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1151, 72);
             this.panel4.TabIndex = 46;
@@ -146,7 +146,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 71);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(50, 25, 50, 25);
-            this.panel1.Size = new System.Drawing.Size(1251, 703);
+            this.panel1.Size = new System.Drawing.Size(1251, 655);
             this.panel1.TabIndex = 45;
             // 
             // tcInfo
@@ -159,7 +159,7 @@
             this.tcInfo.Location = new System.Drawing.Point(50, 25);
             this.tcInfo.Name = "tcInfo";
             this.tcInfo.SelectedIndex = 0;
-            this.tcInfo.Size = new System.Drawing.Size(1151, 581);
+            this.tcInfo.Size = new System.Drawing.Size(1151, 533);
             this.tcInfo.TabIndex = 47;
             this.tcInfo.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tcInfo_Selecting);
             // 
@@ -172,7 +172,7 @@
             this.tpMembershipInfo.Location = new System.Drawing.Point(4, 33);
             this.tpMembershipInfo.Name = "tpMembershipInfo";
             this.tpMembershipInfo.Padding = new System.Windows.Forms.Padding(25);
-            this.tpMembershipInfo.Size = new System.Drawing.Size(1143, 544);
+            this.tpMembershipInfo.Size = new System.Drawing.Size(1143, 496);
             this.tpMembershipInfo.TabIndex = 0;
             this.tpMembershipInfo.Text = "Membership Information";
             // 
@@ -185,7 +185,7 @@
             this.ucMembershipFinder1.Location = new System.Drawing.Point(25, 25);
             this.ucMembershipFinder1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucMembershipFinder1.Name = "ucMembershipFinder1";
-            this.ucMembershipFinder1.Size = new System.Drawing.Size(1093, 494);
+            this.ucMembershipFinder1.Size = new System.Drawing.Size(1093, 446);
             this.ucMembershipFinder1.TabIndex = 0;
             this.ucMembershipFinder1.MembershipSelected += new System.EventHandler(this.ucMembershipFinder1_MembershipSelected_1);
             // 
@@ -196,7 +196,7 @@
             this.tpPaymentInfo.Location = new System.Drawing.Point(4, 33);
             this.tpPaymentInfo.Name = "tpPaymentInfo";
             this.tpPaymentInfo.Padding = new System.Windows.Forms.Padding(25);
-            this.tpPaymentInfo.Size = new System.Drawing.Size(1143, 544);
+            this.tpPaymentInfo.Size = new System.Drawing.Size(1143, 496);
             this.tpPaymentInfo.TabIndex = 2;
             this.tpPaymentInfo.Text = "Payment Information";
             // 
@@ -220,10 +220,52 @@
             this.gbPaymentDetails.ForeColor = System.Drawing.Color.White;
             this.gbPaymentDetails.Location = new System.Drawing.Point(25, 25);
             this.gbPaymentDetails.Name = "gbPaymentDetails";
-            this.gbPaymentDetails.Size = new System.Drawing.Size(1093, 494);
+            this.gbPaymentDetails.Size = new System.Drawing.Size(1093, 446);
             this.gbPaymentDetails.TabIndex = 41;
             this.gbPaymentDetails.TabStop = false;
             this.gbPaymentDetails.Text = "Payment Details";
+            // 
+            // lblPaidAmountValue
+            // 
+            this.lblPaidAmountValue.AutoSize = true;
+            this.lblPaidAmountValue.ForeColor = System.Drawing.Color.White;
+            this.lblPaidAmountValue.Location = new System.Drawing.Point(887, 96);
+            this.lblPaidAmountValue.Name = "lblPaidAmountValue";
+            this.lblPaidAmountValue.Size = new System.Drawing.Size(31, 21);
+            this.lblPaidAmountValue.TabIndex = 49;
+            this.lblPaidAmountValue.Text = "???";
+            // 
+            // lblPaidAmount
+            // 
+            this.lblPaidAmount.AutoSize = true;
+            this.lblPaidAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblPaidAmount.ForeColor = System.Drawing.Color.White;
+            this.lblPaidAmount.Location = new System.Drawing.Point(706, 96);
+            this.lblPaidAmount.Name = "lblPaidAmount";
+            this.lblPaidAmount.Size = new System.Drawing.Size(110, 21);
+            this.lblPaidAmount.TabIndex = 48;
+            this.lblPaidAmount.Text = "Paid Amount";
+            // 
+            // lblRemainingAmountValue
+            // 
+            this.lblRemainingAmountValue.AutoSize = true;
+            this.lblRemainingAmountValue.ForeColor = System.Drawing.Color.White;
+            this.lblRemainingAmountValue.Location = new System.Drawing.Point(887, 157);
+            this.lblRemainingAmountValue.Name = "lblRemainingAmountValue";
+            this.lblRemainingAmountValue.Size = new System.Drawing.Size(31, 21);
+            this.lblRemainingAmountValue.TabIndex = 47;
+            this.lblRemainingAmountValue.Text = "???";
+            // 
+            // lblRemainingAmount
+            // 
+            this.lblRemainingAmount.AutoSize = true;
+            this.lblRemainingAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblRemainingAmount.ForeColor = System.Drawing.Color.White;
+            this.lblRemainingAmount.Location = new System.Drawing.Point(706, 157);
+            this.lblRemainingAmount.Name = "lblRemainingAmount";
+            this.lblRemainingAmount.Size = new System.Drawing.Size(159, 21);
+            this.lblRemainingAmount.TabIndex = 46;
+            this.lblRemainingAmount.Text = "Remaining Amount";
             // 
             // textBox1
             // 
@@ -350,54 +392,12 @@
             this.panel2.Size = new System.Drawing.Size(1251, 71);
             this.panel2.TabIndex = 44;
             // 
-            // lblRemainingAmountValue
-            // 
-            this.lblRemainingAmountValue.AutoSize = true;
-            this.lblRemainingAmountValue.ForeColor = System.Drawing.Color.White;
-            this.lblRemainingAmountValue.Location = new System.Drawing.Point(887, 157);
-            this.lblRemainingAmountValue.Name = "lblRemainingAmountValue";
-            this.lblRemainingAmountValue.Size = new System.Drawing.Size(31, 21);
-            this.lblRemainingAmountValue.TabIndex = 47;
-            this.lblRemainingAmountValue.Text = "???";
-            // 
-            // lblRemainingAmount
-            // 
-            this.lblRemainingAmount.AutoSize = true;
-            this.lblRemainingAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblRemainingAmount.ForeColor = System.Drawing.Color.White;
-            this.lblRemainingAmount.Location = new System.Drawing.Point(706, 157);
-            this.lblRemainingAmount.Name = "lblRemainingAmount";
-            this.lblRemainingAmount.Size = new System.Drawing.Size(159, 21);
-            this.lblRemainingAmount.TabIndex = 46;
-            this.lblRemainingAmount.Text = "Remaining Amount";
-            // 
-            // lblPaidAmountValue
-            // 
-            this.lblPaidAmountValue.AutoSize = true;
-            this.lblPaidAmountValue.ForeColor = System.Drawing.Color.White;
-            this.lblPaidAmountValue.Location = new System.Drawing.Point(887, 96);
-            this.lblPaidAmountValue.Name = "lblPaidAmountValue";
-            this.lblPaidAmountValue.Size = new System.Drawing.Size(31, 21);
-            this.lblPaidAmountValue.TabIndex = 49;
-            this.lblPaidAmountValue.Text = "???";
-            // 
-            // lblPaidAmount
-            // 
-            this.lblPaidAmount.AutoSize = true;
-            this.lblPaidAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblPaidAmount.ForeColor = System.Drawing.Color.White;
-            this.lblPaidAmount.Location = new System.Drawing.Point(706, 96);
-            this.lblPaidAmount.Name = "lblPaidAmount";
-            this.lblPaidAmount.Size = new System.Drawing.Size(110, 21);
-            this.lblPaidAmount.TabIndex = 48;
-            this.lblPaidAmount.Text = "Paid Amount";
-            // 
             // frmAddEditPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(1251, 774);
+            this.ClientSize = new System.Drawing.Size(1251, 726);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);

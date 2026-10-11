@@ -29,101 +29,102 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tbOldPassword = new System.Windows.Forms.TextBox();
-            this.tbConfirmPassword = new System.Windows.Forms.TextBox();
-            this.lblOldPassword = new System.Windows.Forms.Label();
-            this.lblConfirmPassword = new System.Windows.Forms.Label();
-            this.tbNewPassword = new System.Windows.Forms.TextBox();
-            this.lblNewPassword = new System.Windows.Forms.Label();
-            this.btnSave = new FontAwesome.Sharp.IconButton();
             this.errpPassword = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnSave = new GymManagementSystem.UI.UserControls.CustomIconButton();
+            this.tbConfirmPassword = new GymManagementSystem.UI.Controls.CustomTextBox();
+            this.tbNewPassword = new GymManagementSystem.UI.Controls.CustomTextBox();
+            this.tbOldPassword = new GymManagementSystem.UI.Controls.CustomTextBox();
             this.ucUserFinder1 = new GymManagementSystem.UI.Users.ucUserFinder();
             ((System.ComponentModel.ISupportInitialize)(this.errpPassword)).BeginInit();
             this.SuspendLayout();
             // 
-            // tbOldPassword
+            // errpPassword
             // 
-            this.tbOldPassword.Location = new System.Drawing.Point(204, 432);
-            this.tbOldPassword.Name = "tbOldPassword";
-            this.tbOldPassword.PasswordChar = '*';
-            this.tbOldPassword.Size = new System.Drawing.Size(239, 29);
-            this.tbOldPassword.TabIndex = 35;
-            // 
-            // tbConfirmPassword
-            // 
-            this.tbConfirmPassword.Location = new System.Drawing.Point(204, 570);
-            this.tbConfirmPassword.Name = "tbConfirmPassword";
-            this.tbConfirmPassword.PasswordChar = '*';
-            this.tbConfirmPassword.Size = new System.Drawing.Size(239, 29);
-            this.tbConfirmPassword.TabIndex = 34;
-            // 
-            // lblOldPassword
-            // 
-            this.lblOldPassword.AutoSize = true;
-            this.lblOldPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblOldPassword.ForeColor = System.Drawing.Color.White;
-            this.lblOldPassword.Location = new System.Drawing.Point(31, 435);
-            this.lblOldPassword.Name = "lblOldPassword";
-            this.lblOldPassword.Size = new System.Drawing.Size(113, 21);
-            this.lblOldPassword.TabIndex = 33;
-            this.lblOldPassword.Text = "Old Password";
-            // 
-            // lblConfirmPassword
-            // 
-            this.lblConfirmPassword.AutoSize = true;
-            this.lblConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblConfirmPassword.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmPassword.Location = new System.Drawing.Point(31, 573);
-            this.lblConfirmPassword.Name = "lblConfirmPassword";
-            this.lblConfirmPassword.Size = new System.Drawing.Size(148, 21);
-            this.lblConfirmPassword.TabIndex = 32;
-            this.lblConfirmPassword.Text = "Confirm Password";
-            // 
-            // tbNewPassword
-            // 
-            this.tbNewPassword.Location = new System.Drawing.Point(204, 501);
-            this.tbNewPassword.Name = "tbNewPassword";
-            this.tbNewPassword.PasswordChar = '*';
-            this.tbNewPassword.Size = new System.Drawing.Size(239, 29);
-            this.tbNewPassword.TabIndex = 37;
-            // 
-            // lblNewPassword
-            // 
-            this.lblNewPassword.AutoSize = true;
-            this.lblNewPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblNewPassword.ForeColor = System.Drawing.Color.White;
-            this.lblNewPassword.Location = new System.Drawing.Point(31, 504);
-            this.lblNewPassword.Name = "lblNewPassword";
-            this.lblNewPassword.Size = new System.Drawing.Size(121, 21);
-            this.lblNewPassword.TabIndex = 36;
-            this.lblNewPassword.Text = "New Password";
+            this.errpPassword.ContainerControl = this;
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.BackColor = System.Drawing.Color.White;
+            this.btnSave.BorderRadius = 10;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
             this.btnSave.IconColor = System.Drawing.Color.Black;
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSave.IconSize = 30;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(893, 560);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSave.Location = new System.Drawing.Point(900, 511);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(118, 40);
-            this.btnSave.TabIndex = 38;
+            this.btnSave.Size = new System.Drawing.Size(111, 32);
+            this.btnSave.TabIndex = 44;
             this.btnSave.Text = "Save";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
-            // errpPassword
+            // tbConfirmPassword
             // 
-            this.errpPassword.ContainerControl = this;
+            this.tbConfirmPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tbConfirmPassword.BorderColor = System.Drawing.Color.LightGray;
+            this.tbConfirmPassword.BorderRadius = 10;
+            this.tbConfirmPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbConfirmPassword.FocusBorderColor = System.Drawing.SystemColors.GrayText;
+            this.tbConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.tbConfirmPassword.ForeColor = System.Drawing.Color.White;
+            this.tbConfirmPassword.Location = new System.Drawing.Point(35, 500);
+            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbConfirmPassword.Multiline = false;
+            this.tbConfirmPassword.Name = "tbConfirmPassword";
+            this.tbConfirmPassword.PasswordChar = '\0';
+            this.tbConfirmPassword.PlaceholderText = "confirm password";
+            this.tbConfirmPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbConfirmPassword.Size = new System.Drawing.Size(342, 43);
+            this.tbConfirmPassword.TabIndex = 43;
+            this.tbConfirmPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbConfirmPassword.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
+            // 
+            // tbNewPassword
+            // 
+            this.tbNewPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tbNewPassword.BorderColor = System.Drawing.Color.LightGray;
+            this.tbNewPassword.BorderRadius = 10;
+            this.tbNewPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbNewPassword.FocusBorderColor = System.Drawing.SystemColors.GrayText;
+            this.tbNewPassword.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.tbNewPassword.ForeColor = System.Drawing.Color.White;
+            this.tbNewPassword.Location = new System.Drawing.Point(35, 434);
+            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNewPassword.Multiline = false;
+            this.tbNewPassword.Name = "tbNewPassword";
+            this.tbNewPassword.PasswordChar = '\0';
+            this.tbNewPassword.PlaceholderText = "new password";
+            this.tbNewPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbNewPassword.Size = new System.Drawing.Size(342, 43);
+            this.tbNewPassword.TabIndex = 42;
+            this.tbNewPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbNewPassword.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
+            // 
+            // tbOldPassword
+            // 
+            this.tbOldPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tbOldPassword.BorderColor = System.Drawing.Color.LightGray;
+            this.tbOldPassword.BorderRadius = 10;
+            this.tbOldPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbOldPassword.FocusBorderColor = System.Drawing.SystemColors.GrayText;
+            this.tbOldPassword.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.tbOldPassword.ForeColor = System.Drawing.Color.White;
+            this.tbOldPassword.Location = new System.Drawing.Point(35, 368);
+            this.tbOldPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbOldPassword.Multiline = false;
+            this.tbOldPassword.Name = "tbOldPassword";
+            this.tbOldPassword.PasswordChar = '\0';
+            this.tbOldPassword.PlaceholderText = "old password";
+            this.tbOldPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbOldPassword.Size = new System.Drawing.Size(342, 43);
+            this.tbOldPassword.TabIndex = 41;
+            this.tbOldPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbOldPassword.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
             // 
             // ucUserFinder1
             // 
@@ -133,7 +134,7 @@
             this.ucUserFinder1.Location = new System.Drawing.Point(35, 30);
             this.ucUserFinder1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucUserFinder1.Name = "ucUserFinder1";
-            this.ucUserFinder1.Size = new System.Drawing.Size(976, 360);
+            this.ucUserFinder1.Size = new System.Drawing.Size(976, 297);
             this.ucUserFinder1.TabIndex = 0;
             // 
             // frmChangePassword
@@ -141,14 +142,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(1053, 638);
+            this.ClientSize = new System.Drawing.Size(1053, 573);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.tbNewPassword);
-            this.Controls.Add(this.lblNewPassword);
-            this.Controls.Add(this.tbOldPassword);
             this.Controls.Add(this.tbConfirmPassword);
-            this.Controls.Add(this.lblOldPassword);
-            this.Controls.Add(this.lblConfirmPassword);
+            this.Controls.Add(this.tbNewPassword);
+            this.Controls.Add(this.tbOldPassword);
             this.Controls.Add(this.ucUserFinder1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -161,20 +159,16 @@
             this.Load += new System.EventHandler(this.frmChangePassword_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errpPassword)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private ucUserFinder ucUserFinder1;
-        private System.Windows.Forms.TextBox tbOldPassword;
-        private System.Windows.Forms.TextBox tbConfirmPassword;
-        private System.Windows.Forms.Label lblOldPassword;
-        private System.Windows.Forms.Label lblConfirmPassword;
-        private System.Windows.Forms.TextBox tbNewPassword;
-        private System.Windows.Forms.Label lblNewPassword;
-        private FontAwesome.Sharp.IconButton btnSave;
         private System.Windows.Forms.ErrorProvider errpPassword;
+        private Controls.CustomTextBox tbConfirmPassword;
+        private Controls.CustomTextBox tbNewPassword;
+        private Controls.CustomTextBox tbOldPassword;
+        private UserControls.CustomIconButton btnSave;
     }
 }

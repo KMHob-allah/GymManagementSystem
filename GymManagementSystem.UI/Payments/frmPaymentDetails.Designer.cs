@@ -33,13 +33,13 @@
             // 
             // ucPaymentCard1
             // 
-            this.ucPaymentCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
+            this.ucPaymentCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
             this.ucPaymentCard1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucPaymentCard1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ucPaymentCard1.Location = new System.Drawing.Point(30, 30);
             this.ucPaymentCard1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucPaymentCard1.Name = "ucPaymentCard1";
-            this.ucPaymentCard1.Size = new System.Drawing.Size(972, 360);
+            this.ucPaymentCard1.Size = new System.Drawing.Size(972, 350);
             this.ucPaymentCard1.TabIndex = 0;
             // 
             // frmPaymentDetails
@@ -47,7 +47,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(1032, 420);
+            this.ClientSize = new System.Drawing.Size(1032, 410);
             this.Controls.Add(this.ucPaymentCard1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

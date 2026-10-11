@@ -76,7 +76,7 @@ namespace GymManagementSystem.UI.Plans
             ckbActive.Checked = _plan.IsActive;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             if (!_ValidateAllInputs())
             {
@@ -127,11 +127,6 @@ namespace GymManagementSystem.UI.Plans
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void frmAddEditPlan_Load(object sender, EventArgs e)
@@ -240,5 +235,6 @@ namespace GymManagementSystem.UI.Plans
 
             e.Handled = true;
         }
+
     }
 }
