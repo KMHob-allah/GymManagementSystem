@@ -51,7 +51,7 @@ namespace GymManagementSystem.UI.Members
 
             lblPhoneNumberValue.Text = member.PhoneNumber;
             lblEmergencyPhoneValue.Text = member.EmergencyPhone;
-            lblAreaValue.Text = member.Area;
+            lblAreaValue.Text = member.Area.AreaName;
 
             lblJoinDateValue.Text = member.JoinDate.ToString("yyyy/MM/dd");
 

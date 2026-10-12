@@ -1,13 +1,19 @@
-﻿using System;
+﻿
+using System;
 using System.Linq;
 
 namespace GymManagementSystem.BLL.Entities
 {
-    public enum Gender {Male , Female}
+    public enum Gender { Male, Female }
 
     public abstract class Person
     {
         protected enum eMode { Add, Update };
+
+        private int _areaID;
+        private Area _area;
+        private bool _areaLoaded;
+
         public int PersonID { get; set; }
 
         public string FirstName { get; set; }
@@ -19,12 +25,47 @@ namespace GymManagementSystem.BLL.Entities
 
         public DateTime BirthDate { get; set; }
 
-        public Gender Gender { get;  set; }
+        public Gender Gender { get; set; }
 
-        public string Area { get; set; }
+        public int AreaID
+        {
+            get => _areaID;
+            set
+            {
+                if (_areaID == value)
+                    return;
 
-        protected Person(int personID,string firstName,string secondName,string thirdName,
-            string lastName,string phoneNumber,DateTime birthDate,Gender gender,string area)
+                _areaID = value;
+
+                _area = null;
+                _areaLoaded = false;
+            }
+        }
+
+        public Area Area
+        {
+            get
+            {
+                if (!_areaLoaded)
+                {
+                    _area = GymManagementSystem.BLL.Entities.Area.GetByID(_areaID);
+                    _areaLoaded = true;
+                }
+
+                return _area;
+            }
+        }
+
+        protected Person(
+            int personID,
+            string firstName,
+            string secondName,
+            string thirdName,
+            string lastName,
+            string phoneNumber,
+            DateTime birthDate,
+            Gender gender,
+            int areaID)
         {
             PersonID = personID;
             FirstName = firstName;
@@ -34,7 +75,7 @@ namespace GymManagementSystem.BLL.Entities
             PhoneNumber = phoneNumber;
             BirthDate = birthDate;
             Gender = gender;
-            Area = area;
+            AreaID = areaID;
         }
 
         public string FullName
@@ -59,13 +100,13 @@ namespace GymManagementSystem.BLL.Entities
             {
                 int age = DateTime.Today.Year - BirthDate.Year;
 
-                if (BirthDate.Date > DateTime.Today.AddYears(-age)) age--;
+                if (BirthDate.Date > DateTime.Today.AddYears(-age))
+                    age--;
 
                 return age;
             }
         }
 
-        public bool IsMale  => Gender == Gender.Male;
+        public bool IsMale => Gender == Gender.Male;
     }
 }
-

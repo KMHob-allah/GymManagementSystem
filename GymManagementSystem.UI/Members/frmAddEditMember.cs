@@ -49,13 +49,12 @@ namespace GymManagementSystem.UI.Members
 
             dtpBirthDate.MinDate = DateTime.Today.AddYears(-100);
         }
-        private void _FillAreasComboBox()
+       private void _FillAreasComboBox()
         {
-            cbAreas.Items.Clear(); 
-
-            cbAreas.Items.AddRange(new object[] {"El Burullus","Baltim","El-Koum El-Ahmar"});
-
-            if (cbAreas.Items.Count > 0) cbAreas.SelectedIndex = 0;            
+            cbAreas.DataSource = Area.GetAll();
+            cbAreas.DisplayMember = "AreaName";
+            cbAreas.ValueMember = "AreaID";
+            cbAreas.SelectedIndex = cbAreas.Items.Count > 0 ? 0 : -1;
         }
         private void _FillMemberInfo()
         {
@@ -66,7 +65,11 @@ namespace GymManagementSystem.UI.Members
             _member.PhoneNumber = tbPhoneNumber.Text.Trim();
             _member.EmergencyPhone = tbEmergencyPhone.Text.Trim();
             _member.Gender = (rbMale.Checked ? Gender.Male : Gender.Female);
-            _member.Area = cbAreas.SelectedItem.ToString();
+
+            if (cbAreas.SelectedValue == null)
+                throw new InvalidOperationException("Please select an area.");
+
+            _member.AreaID = Convert.ToInt32(cbAreas.SelectedValue);
             _member.BirthDate = dtpBirthDate.Value;
             _member.IsActive = ckbActive.Checked;
         }
@@ -100,8 +103,8 @@ namespace GymManagementSystem.UI.Members
 
             ckbActive.Checked = _member.IsActive;
             dtpBirthDate.Value = _member.BirthDate;
-            // TODO: Must Fix Area , Should I Change it in the database 
-            
+
+            cbAreas.SelectedValue = _member.AreaID;
         }
 
         private void frmAddEditMember_Load(object sender, EventArgs e)
@@ -201,12 +204,20 @@ namespace GymManagementSystem.UI.Members
             bool isPhoneValid = _ValidatePhoneTextBox(tbPhoneNumber);
             bool isEmergencyPhoneValid = _ValidateEmergencyPhoneTextBox(tbEmergencyPhone);
 
-            return 
-                isFirstNameValid && 
-                isSecondNameValid && 
-                isLastNameValid && 
-                isPhoneValid && 
-                isEmergencyPhoneValid;        
+            bool isAreaValid = cbAreas.SelectedValue != null;
+
+            if (!isAreaValid)
+                errpAddEditMember.SetError(cbAreas, "Please select an area.");
+            else
+                errpAddEditMember.SetError(cbAreas, string.Empty);
+
+            return
+     isFirstNameValid &&
+     isSecondNameValid &&
+     isLastNameValid &&
+     isPhoneValid &&
+     isEmergencyPhoneValid &&
+     isAreaValid;
         }
 
         private void tbPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)

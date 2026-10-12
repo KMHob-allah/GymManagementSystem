@@ -24,21 +24,42 @@ namespace GymManagementSystem.BLL.Entities
             string.Empty,
             string.Empty,
             string.Empty,
-            string.Empty, 
+            string.Empty,
             DateTime.MinValue,
             Gender.Male,
-            string.Empty)
+            0)
         {
-            this.MemberID = 0;
-            this.EmergencyPhone = string.Empty;
-            this.JoinDate = DateTime.MinValue;
-            this.IsActive = false;
+            MemberID = 0;
+            EmergencyPhone = string.Empty;
+            JoinDate = DateTime.MinValue;
+            IsActive = false;
             _Mode = eMode.Add;
         }
-        protected Member(int memberID,int personID,string firstName,string secondName,string thirdName,
-            string lastName,string phoneNumber,DateTime birthDate,Gender gender,string area,
-            string emergencyPhone,DateTime joinDate,bool isActive)
-            : base(personID,firstName,secondName,thirdName,lastName,phoneNumber,birthDate,gender,area)
+
+        protected Member(
+            int memberID,
+            int personID,
+            string firstName,
+            string secondName,
+            string thirdName,
+            string lastName,
+            string phoneNumber,
+            DateTime birthDate,
+            Gender gender,
+            int areaID,
+            string emergencyPhone,
+            DateTime joinDate,
+            bool isActive)
+            : base(
+                personID,
+                firstName,
+                secondName,
+                thirdName,
+                lastName,
+                phoneNumber,
+                birthDate,
+                gender,
+                areaID)
         {
             MemberID = memberID;
             EmergencyPhone = emergencyPhone;
@@ -53,117 +74,113 @@ namespace GymManagementSystem.BLL.Entities
         {
             DataRow row = MembersData.GetByID(memberID);
 
-            if (row == null) return null;
+            if (row == null)
+                return null;
 
             return new Member(
-                (int)row["MemberID"],
-                (int)row["PersonID"],
-                (string)row["FirstName"],
-                (string)row["SecondName"],
-                row["ThirdName"] == DBNull.Value ? null : (string)row["ThirdName"],
-                (string)row["LastName"],
-                (string)row["PhoneNumber"],
-                (DateTime)row["BirthDate"],
-                (bool)row["Gender"] ? Gender.Female : Gender.Male,
-                (string)row["Area"],
-                (string)row["EmergencyPhone"],
-                (DateTime)row["JoinDate"],
-                (bool)row["IsActive"]
+                Convert.ToInt32(row["MemberID"]),
+                Convert.ToInt32(row["PersonID"]),
+                row["FirstName"].ToString(),
+                row["SecondName"].ToString(),
+                row["ThirdName"] == DBNull.Value ? null: row["ThirdName"].ToString(),
+                row["LastName"].ToString(),
+                row["PhoneNumber"].ToString(),
+                Convert.ToDateTime(row["BirthDate"]),
+                Convert.ToBoolean(row["Gender"]) ? Gender.Female : Gender.Male,
+                Convert.ToInt32(row["AreaID"]),
+                row["EmergencyPhone"].ToString(),
+                Convert.ToDateTime(row["JoinDate"]),
+                Convert.ToBoolean(row["IsActive"])
             );
         }
 
         private bool _Add()
         {
             var result = MembersData.Create(
-                this.FirstName,
-                this.SecondName,
-                this.ThirdName,
-                this.LastName,
-                this.PhoneNumber,
-                this.BirthDate,
-                this.Gender == Gender.Male,
-                this.Area,
-                this.EmergencyPhone,
-                this.IsActive);
+                FirstName,
+                SecondName,
+                ThirdName,
+                LastName,
+                PhoneNumber,
+                BirthDate,
+                Gender == Gender.Male,
+                AreaID,
+                EmergencyPhone,
+                IsActive);
 
-            if (!result.HasValue) return false;
+            if (!result.HasValue)
+                return false;
 
-            this.PersonID = result.Value.PersonID;
-            this.MemberID = result.Value.MemberID;
+            PersonID = result.Value.PersonID;
+            MemberID = result.Value.MemberID;
 
             return true;
         }
+
         private bool _Update()
         {
             return MembersData.Update(
-                this.MemberID,
-                this.FirstName,
-                this.SecondName,
-                this.ThirdName,
-                this.LastName,
-                this.PhoneNumber,
-                this.BirthDate,
-                this.Gender == Gender.Female,
-                this.Area,
-                this.EmergencyPhone,
-                this.IsActive);
+                MemberID,
+                FirstName,
+                SecondName,
+                ThirdName,
+                LastName,
+                PhoneNumber,
+                BirthDate,
+                Gender == Gender.Male,
+                AreaID,
+                EmergencyPhone,
+                IsActive);
         }
 
         public bool Save()
         {
-            bool IsSaved = false;
-
-
-            
-            switch(_Mode)
+            switch (_Mode)
             {
-                 
                 case eMode.Add:
-                {
-                    if (!PermissionManager.HasPermission("Members.Create")) return false;
-
-                    if (_Add())
                     {
+                        if (!PermissionManager.HasPermission("Members.Create"))
+                            return false;
+
+                        if (!_Add())
+                            return false;
+
                         _Mode = eMode.Update;
-                        IsSaved = true;
+                        return true;
                     }
 
-                    else IsSaved = false;
-
-                    break;
-                }
-
                 case eMode.Update:
-                {
-                    if (!PermissionManager.HasPermission("Members.Update")) return false;
+                    {
+                        if (!PermissionManager.HasPermission("Members.Update"))
+                            return false;
 
-                    if (_Update()) IsSaved = true;
+                        return _Update();
+                    }
 
-                    else IsSaved = false;
-
-                    break;
-                }
+                default:
+                    return false;
             }
-
-            return IsSaved;
         }
 
         public bool Activate()
         {
-            if (!PermissionManager.HasPermission("Members.Activate")) return false;            
-            
-            return MembersData.Activate(this.MemberID);
+            if (!PermissionManager.HasPermission("Members.Activate"))
+                return false;
+
+            return MembersData.Activate(MemberID);
         }
+
         public bool Deactivate()
         {
-            if (!PermissionManager.HasPermission("Members.Deactivate")) return false;            
-            
-            return MembersData.Deactivate(this.MemberID);
+            if (!PermissionManager.HasPermission("Members.Deactivate"))
+                return false;
+
+            return MembersData.Deactivate(MemberID);
         }
 
         public bool HasOutstandingDebt()
         {
-            return  MembersData.HasOutstandingDebt(this.MemberID);
+            return MembersData.HasOutstandingDebt(MemberID);
         }
     }
 }

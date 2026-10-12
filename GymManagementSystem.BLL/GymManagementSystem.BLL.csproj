@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuditLogger.cs" />
+    <Compile Include="Business\Area.cs" />
     <Compile Include="Business\Attendance.cs" />
     <Compile Include="Business\AuditLog.cs" />
     <Compile Include="Business\Dashboard.cs" />
