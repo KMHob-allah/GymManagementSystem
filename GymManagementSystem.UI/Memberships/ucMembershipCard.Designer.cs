@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lnklblPlanDetails = new System.Windows.Forms.LinkLabel();
-            this.lnklblPaymentHistory = new System.Windows.Forms.LinkLabel();
-            this.lnklblMemberDetails = new System.Windows.Forms.LinkLabel();
-            this.lnklblAttendanceHistory = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTotalAmountValue = new System.Windows.Forms.Label();
@@ -47,94 +42,13 @@
             this.lblStartDate = new System.Windows.Forms.Label();
             this.lblMembershipIDValue = new System.Windows.Forms.Label();
             this.lblMembershipID = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.lnklblMemberDetails = new System.Windows.Forms.LinkLabel();
+            this.lnklblMembershipHistory = new System.Windows.Forms.LinkLabel();
+            this.lnklblPlanDetails = new System.Windows.Forms.LinkLabel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.lnklblPlanDetails, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lnklblPaymentHistory, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lnklblMemberDetails, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lnklblAttendanceHistory, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 309);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1054, 57);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // lnklblPlanDetails
-            // 
-            this.lnklblPlanDetails.AutoSize = true;
-            this.lnklblPlanDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.lnklblPlanDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lnklblPlanDetails.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lnklblPlanDetails.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.lnklblPlanDetails.Location = new System.Drawing.Point(792, 0);
-            this.lnklblPlanDetails.Name = "lnklblPlanDetails";
-            this.lnklblPlanDetails.Size = new System.Drawing.Size(259, 57);
-            this.lnklblPlanDetails.TabIndex = 27;
-            this.lnklblPlanDetails.TabStop = true;
-            this.lnklblPlanDetails.Text = "Plan Details";
-            this.lnklblPlanDetails.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lnklblPlanDetails.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblPlanDetails_LinkClicked);
-            // 
-            // lnklblPaymentHistory
-            // 
-            this.lnklblPaymentHistory.AutoSize = true;
-            this.lnklblPaymentHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.lnklblPaymentHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lnklblPaymentHistory.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lnklblPaymentHistory.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.lnklblPaymentHistory.Location = new System.Drawing.Point(3, 0);
-            this.lnklblPaymentHistory.Name = "lnklblPaymentHistory";
-            this.lnklblPaymentHistory.Size = new System.Drawing.Size(257, 57);
-            this.lnklblPaymentHistory.TabIndex = 2;
-            this.lnklblPaymentHistory.TabStop = true;
-            this.lnklblPaymentHistory.Text = "Payment History";
-            this.lnklblPaymentHistory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lnklblPaymentHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblPaymentHistory_LinkClicked);
-            // 
-            // lnklblMemberDetails
-            // 
-            this.lnklblMemberDetails.AutoSize = true;
-            this.lnklblMemberDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.lnklblMemberDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lnklblMemberDetails.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lnklblMemberDetails.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.lnklblMemberDetails.Location = new System.Drawing.Point(529, 0);
-            this.lnklblMemberDetails.Name = "lnklblMemberDetails";
-            this.lnklblMemberDetails.Size = new System.Drawing.Size(257, 57);
-            this.lnklblMemberDetails.TabIndex = 26;
-            this.lnklblMemberDetails.TabStop = true;
-            this.lnklblMemberDetails.Text = "Member Details";
-            this.lnklblMemberDetails.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lnklblMemberDetails.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblMemberDetails_LinkClicked);
-            // 
-            // lnklblAttendanceHistory
-            // 
-            this.lnklblAttendanceHistory.AutoSize = true;
-            this.lnklblAttendanceHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.lnklblAttendanceHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lnklblAttendanceHistory.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lnklblAttendanceHistory.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
-            this.lnklblAttendanceHistory.Location = new System.Drawing.Point(266, 0);
-            this.lnklblAttendanceHistory.Name = "lnklblAttendanceHistory";
-            this.lnklblAttendanceHistory.Size = new System.Drawing.Size(257, 57);
-            this.lnklblAttendanceHistory.TabIndex = 3;
-            this.lnklblAttendanceHistory.TabStop = true;
-            this.lnklblAttendanceHistory.Text = "Attendance History";
-            this.lnklblAttendanceHistory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lnklblAttendanceHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblAttendanceHistory_LinkClicked);
             // 
             // panel1
             // 
@@ -293,6 +207,73 @@
             this.lblMembershipID.TabIndex = 26;
             this.lblMembershipID.Text = "Membership ID";
             // 
+            // lnklblMemberDetails
+            // 
+            this.lnklblMemberDetails.AutoSize = true;
+            this.lnklblMemberDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.lnklblMemberDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lnklblMemberDetails.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lnklblMemberDetails.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
+            this.lnklblMemberDetails.Location = new System.Drawing.Point(354, 0);
+            this.lnklblMemberDetails.Name = "lnklblMemberDetails";
+            this.lnklblMemberDetails.Size = new System.Drawing.Size(345, 57);
+            this.lnklblMemberDetails.TabIndex = 26;
+            this.lnklblMemberDetails.TabStop = true;
+            this.lnklblMemberDetails.Text = "Member Details";
+            this.lnklblMemberDetails.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lnklblMemberDetails.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblMemberDetails_LinkClicked);
+            // 
+            // lnklblMembershipHistory
+            // 
+            this.lnklblMembershipHistory.AutoSize = true;
+            this.lnklblMembershipHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.lnklblMembershipHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lnklblMembershipHistory.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lnklblMembershipHistory.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
+            this.lnklblMembershipHistory.Location = new System.Drawing.Point(3, 0);
+            this.lnklblMembershipHistory.Name = "lnklblMembershipHistory";
+            this.lnklblMembershipHistory.Size = new System.Drawing.Size(345, 57);
+            this.lnklblMembershipHistory.TabIndex = 2;
+            this.lnklblMembershipHistory.TabStop = true;
+            this.lnklblMembershipHistory.Text = "Membership History";
+            this.lnklblMembershipHistory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lnklblMembershipHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblMembershipHistory_LinkClicked);
+            // 
+            // lnklblPlanDetails
+            // 
+            this.lnklblPlanDetails.AutoSize = true;
+            this.lnklblPlanDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.lnklblPlanDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lnklblPlanDetails.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lnklblPlanDetails.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(147)))), ((int)(((byte)(142)))));
+            this.lnklblPlanDetails.Location = new System.Drawing.Point(705, 0);
+            this.lnklblPlanDetails.Name = "lnklblPlanDetails";
+            this.lnklblPlanDetails.Size = new System.Drawing.Size(346, 57);
+            this.lnklblPlanDetails.TabIndex = 27;
+            this.lnklblPlanDetails.TabStop = true;
+            this.lnklblPlanDetails.Text = "Plan Details";
+            this.lnklblPlanDetails.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lnklblPlanDetails.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblPlanDetails_LinkClicked);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.lnklblPlanDetails, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lnklblMembershipHistory, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lnklblMemberDetails, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 309);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1054, 57);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
             // ucMembershipCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -305,20 +286,15 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucMembershipCard";
             this.Size = new System.Drawing.Size(1054, 366);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.LinkLabel lnklblPaymentHistory;
-        private System.Windows.Forms.LinkLabel lnklblAttendanceHistory;
-        private System.Windows.Forms.LinkLabel lnklblPlanDetails;
-        private System.Windows.Forms.LinkLabel lnklblMemberDetails;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblTotalAmountValue;
@@ -333,5 +309,9 @@
         private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.Label lblMembershipIDValue;
         private System.Windows.Forms.Label lblMembershipID;
+        private System.Windows.Forms.LinkLabel lnklblMemberDetails;
+        private System.Windows.Forms.LinkLabel lnklblMembershipHistory;
+        private System.Windows.Forms.LinkLabel lnklblPlanDetails;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

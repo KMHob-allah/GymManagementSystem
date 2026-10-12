@@ -78,6 +78,12 @@
     <Compile Include="Authentication\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Memberships\frmMembershipHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Memberships\frmMembershipHistory.Designer.cs">
+      <DependentUpon>frmMembershipHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -294,6 +300,9 @@
     <EmbeddedResource Include="Memberships\frmMembershipDetails.resx">
       <DependentUpon>frmMembershipDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Memberships\frmMembershipHistory.resx">
+      <DependentUpon>frmMembershipHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Memberships\ucMembershipCard.resx">
       <DependentUpon>ucMembershipCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -416,6 +425,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\GymLogo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

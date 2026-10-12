@@ -121,13 +121,13 @@
             this.toolStripSeparator1,
             this.updateAmountToolStripMenuItem});
             this.cmsPayments.Name = "cmsMembers";
-            this.cmsPayments.Size = new System.Drawing.Size(181, 76);
+            this.cmsPayments.Size = new System.Drawing.Size(160, 54);
             this.cmsPayments.Opening += new System.ComponentModel.CancelEventHandler(this.cmsPayments_Opening);
             // 
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.showDetailsToolStripMenuItem.Text = "Show Details";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
@@ -136,12 +136,12 @@
             this.toolStripSeparator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.toolStripSeparator1.ForeColor = System.Drawing.Color.White;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(156, 6);
             // 
             // updateAmountToolStripMenuItem
             // 
             this.updateAmountToolStripMenuItem.Name = "updateAmountToolStripMenuItem";
-            this.updateAmountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateAmountToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.updateAmountToolStripMenuItem.Text = "Update Amount";
             this.updateAmountToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 

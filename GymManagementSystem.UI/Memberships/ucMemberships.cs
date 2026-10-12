@@ -544,5 +544,22 @@ namespace GymManagementSystem.UI.Memberships
         {
             _LoadMemberships();
         }
+
+        private void showHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int? membershipID = _GetSelectedMembershipID();
+
+            if (!membershipID.HasValue) return;
+
+            Membership membership = Membership.GetByID(membershipID.Value);
+
+            if (membership == null) return;
+
+
+            using (frmMembershipHistory frm = new frmMembershipHistory(membership))
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }

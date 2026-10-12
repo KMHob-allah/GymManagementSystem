@@ -2,6 +2,7 @@
 using GymManagementSystem.BLL.Security;
 using System;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace GymManagementSystem.BLL.Entities
 {
@@ -81,6 +82,7 @@ namespace GymManagementSystem.BLL.Entities
 
             return true;
         }
+
         public eSaveResult Save()
         {
             switch (_Mode)
@@ -110,6 +112,11 @@ namespace GymManagementSystem.BLL.Entities
 
             }
         }
-          
+
+        public static DataTable GetByMembershipID(int membershipID)
+        {
+            return AttendanceData.GetByMembershipID(membershipID);
+        }
+
     }
 }

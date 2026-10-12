@@ -73,5 +73,23 @@ namespace GymManagementSystem.DAL
                 return Convert.ToInt32(result);
             }
         }
+
+        public static DataTable GetByMembershipID(int membershipID)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            using (SqlCommand command = new SqlCommand("sp_Attendance_GetByMembershipID", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("@MembershipID", SqlDbType.Int).Value = membershipID;
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
+            }
+        }
     }
 }

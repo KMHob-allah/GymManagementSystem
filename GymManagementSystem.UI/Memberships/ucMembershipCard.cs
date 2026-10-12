@@ -43,7 +43,7 @@ namespace GymManagementSystem.UI.Memberships
             
             lblTotalAmountValue.Text = membership.TotalAmount.ToString();
 
-            _EnableLinks(true, true, true, true);
+            EnableLinks(true, true, true);
         }
 
         private void _SetDefaultValues()
@@ -60,31 +60,24 @@ namespace GymManagementSystem.UI.Memberships
 
             lblTotalAmountValue.Text = "???";
 
-            _EnableLinks(false, false, false, false);
+            EnableLinks(false, false, false);
 
         }
 
-        private void _EnableLinks(
-            bool EnableAttendanceHistory,
-            bool EnablePaymentHistory,
+        public void EnableLinks(
+            bool EnableMembershipHistory,
             bool EnableMemberDetails,
             bool EnablePlanDetails)
         {
-            lnklblAttendanceHistory.Enabled = EnableAttendanceHistory;
-            lnklblPaymentHistory.Enabled = EnablePaymentHistory;
+            lnklblMembershipHistory.Enabled = EnableMembershipHistory;
             lnklblMemberDetails.Enabled = EnableMemberDetails;
             lnklblPlanDetails.Enabled = EnablePlanDetails;
         }
 
-        private void lnklblPaymentHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnklblMembershipHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // TODO: Show Payment History
-        }
-
-        private void lnklblAttendanceHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            
-            // TODO: Show Attendance History
+            using (var frm = new frmMembershipHistory(_membership))
+                frm.ShowDialog();
         }
 
         private void lnklblMemberDetails_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

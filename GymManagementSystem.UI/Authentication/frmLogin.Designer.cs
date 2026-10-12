@@ -34,15 +34,15 @@
             this.chkRememberMe = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlLogin = new System.Windows.Forms.Panel();
-            this.btnLogin = new GymManagementSystem.UI.UserControls.CustomIconButton();
-            this.btnExit = new FontAwesome.Sharp.IconButton();
-            this.btnEye = new FontAwesome.Sharp.IconButton();
             this.tbUserName = new GymManagementSystem.UI.Controls.CustomTextBox();
             this.tbPassword = new GymManagementSystem.UI.Controls.CustomTextBox();
             this.pnlImage = new System.Windows.Forms.Panel();
-            this.pbImage = new System.Windows.Forms.PictureBox();
             this.object_7f7ca507_5440_497c_8c93_5c184a267f00 = new System.Windows.Forms.Panel();
             this.object_0f7d0d06_1fc9_4ee2_8be3_cd5e6a9647e5 = new System.Windows.Forms.Panel();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.btnLogin = new GymManagementSystem.UI.UserControls.CustomIconButton();
+            this.btnExit = new FontAwesome.Sharp.IconButton();
+            this.btnEye = new FontAwesome.Sharp.IconButton();
             this.pnlLogin.SuspendLayout();
             this.pnlImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -124,58 +124,6 @@
             this.pnlLogin.Size = new System.Drawing.Size(659, 705);
             this.pnlLogin.TabIndex = 8;
             // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(225)))), ((int)(((byte)(0)))));
-            this.btnLogin.BorderRadius = 5;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.IconChar = FontAwesome.Sharp.IconChar.SignInAlt;
-            this.btnLogin.IconColor = System.Drawing.Color.Black;
-            this.btnLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLogin.IconSize = 40;
-            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLogin.Location = new System.Drawing.Point(241, 570);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(173, 50);
-            this.btnLogin.TabIndex = 12;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
-            this.btnExit.IconColor = System.Drawing.Color.DarkRed;
-            this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnExit.IconSize = 40;
-            this.btnExit.Location = new System.Drawing.Point(603, 4);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(52, 51);
-            this.btnExit.TabIndex = 9;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnEye
-            // 
-            this.btnEye.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.btnEye.FlatAppearance.BorderSize = 0;
-            this.btnEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEye.ForeColor = System.Drawing.Color.White;
-            this.btnEye.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.btnEye.IconColor = System.Drawing.Color.White;
-            this.btnEye.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEye.IconSize = 30;
-            this.btnEye.Location = new System.Drawing.Point(533, 372);
-            this.btnEye.Name = "btnEye";
-            this.btnEye.Size = new System.Drawing.Size(46, 36);
-            this.btnEye.TabIndex = 8;
-            this.btnEye.UseVisualStyleBackColor = false;
-            this.btnEye.Click += new System.EventHandler(this.btnEye_Click);
-            // 
             // tbUserName
             // 
             this.tbUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
@@ -227,18 +175,6 @@
             this.pnlImage.Size = new System.Drawing.Size(681, 705);
             this.pnlImage.TabIndex = 9;
             // 
-            // pbImage
-            // 
-            this.pbImage.BackColor = System.Drawing.Color.Black;
-            this.pbImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbImage.Image = global::GymManagementSystem.UI.Properties.Resources.GymLogo;
-            this.pbImage.Location = new System.Drawing.Point(0, 0);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(681, 705);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 0;
-            this.pbImage.TabStop = false;
-            // 
             // object_7f7ca507_5440_497c_8c93_5c184a267f00
             // 
             this.object_7f7ca507_5440_497c_8c93_5c184a267f00.Dock = System.Windows.Forms.DockStyle.Right;
@@ -256,6 +192,70 @@
             this.object_0f7d0d06_1fc9_4ee2_8be3_cd5e6a9647e5.Size = new System.Drawing.Size(673, 552);
             this.object_0f7d0d06_1fc9_4ee2_8be3_cd5e6a9647e5.TabIndex = 8;
             this.object_0f7d0d06_1fc9_4ee2_8be3_cd5e6a9647e5.Visible = false;
+            // 
+            // pbImage
+            // 
+            this.pbImage.BackColor = System.Drawing.Color.Black;
+            this.pbImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbImage.Image = global::GymManagementSystem.UI.Properties.Resources.Logo;
+            this.pbImage.Location = new System.Drawing.Point(0, 0);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(681, 705);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 0;
+            this.pbImage.TabStop = false;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(225)))), ((int)(((byte)(0)))));
+            this.btnLogin.BorderRadius = 5;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.btnLogin.ForeColor = System.Drawing.Color.Black;
+            this.btnLogin.IconChar = FontAwesome.Sharp.IconChar.SignInAlt;
+            this.btnLogin.IconColor = System.Drawing.Color.Black;
+            this.btnLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLogin.IconSize = 40;
+            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLogin.Location = new System.Drawing.Point(241, 570);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(173, 50);
+            this.btnLogin.TabIndex = 12;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
+            this.btnExit.IconColor = System.Drawing.Color.DarkRed;
+            this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnExit.IconSize = 40;
+            this.btnExit.Location = new System.Drawing.Point(603, 4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(52, 51);
+            this.btnExit.TabIndex = 9;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnEye
+            // 
+            this.btnEye.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.btnEye.FlatAppearance.BorderSize = 0;
+            this.btnEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEye.ForeColor = System.Drawing.Color.White;
+            this.btnEye.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btnEye.IconColor = System.Drawing.Color.White;
+            this.btnEye.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEye.IconSize = 30;
+            this.btnEye.Location = new System.Drawing.Point(533, 372);
+            this.btnEye.Name = "btnEye";
+            this.btnEye.Size = new System.Drawing.Size(46, 36);
+            this.btnEye.TabIndex = 8;
+            this.btnEye.UseVisualStyleBackColor = false;
+            this.btnEye.Click += new System.EventHandler(this.btnEye_Click);
             // 
             // frmLogin
             // 

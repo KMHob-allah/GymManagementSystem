@@ -31,6 +31,8 @@ namespace GymManagementSystem.UI.Memberships
             }
         }
 
+      
+
         public ucMembershipFinder()
         {
             InitializeComponent();
@@ -168,6 +170,11 @@ namespace GymManagementSystem.UI.Memberships
             ucMembershipCard1.LoadMembership(membership);
 
             MembershipSelected?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void EnableLinks(bool enable)
+        {
+            ucMembershipCard1.EnableLinks(enable, enable, enable);
         }
     }
 }

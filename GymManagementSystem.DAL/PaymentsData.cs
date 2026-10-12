@@ -54,26 +54,23 @@ namespace GymManagementSystem.DAL
 
         public static DataTable GetByMembershipID(int membershipID)
         {
-            DataTable dataTable = new DataTable();
-
-            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            using (SqlConnection connection = new SqlConnection(
+                Settings.ConnectionString))
             using (SqlCommand command = new SqlCommand(
-                "sp_Payments_GetByMembershipID",
-                connection))
+                "sp_Payments_GetByMembershipID", connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.Add("@MembershipID", SqlDbType.Int).Value = membershipID;
+                command.Parameters.Add("@MembershipID", SqlDbType.Int)
+                    .Value = membershipID;
 
-                connection.Open();
-
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                 {
-                    dataTable.Load(reader);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
                 }
             }
-
-            return dataTable;
         }
 
         public static int? Create(int membershipID,decimal amount,int createdByUserID)
