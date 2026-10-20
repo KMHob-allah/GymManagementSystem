@@ -17,8 +17,7 @@ namespace GymManagementSystem.BLL.Entities
         public int PersonID { get; set; }
 
         public string FirstName { get; set; }
-        public string SecondName { get; set; }
-        public string ThirdName { get; set; }
+        public string MiddleName { get; set; }
         public string LastName { get; set; }
 
         public string PhoneNumber { get; set; }
@@ -59,8 +58,7 @@ namespace GymManagementSystem.BLL.Entities
         protected Person(
             int personID,
             string firstName,
-            string secondName,
-            string thirdName,
+            string middleName,
             string lastName,
             string phoneNumber,
             DateTime birthDate,
@@ -69,8 +67,7 @@ namespace GymManagementSystem.BLL.Entities
         {
             PersonID = personID;
             FirstName = firstName;
-            SecondName = secondName;
-            ThirdName = thirdName;
+            MiddleName = middleName;
             LastName = lastName;
             PhoneNumber = phoneNumber;
             BirthDate = birthDate;
@@ -86,8 +83,7 @@ namespace GymManagementSystem.BLL.Entities
                     new[]
                     {
                         FirstName,
-                        SecondName,
-                        ThirdName,
+                        MiddleName,
                         LastName
                     }
                     .Where(name => !string.IsNullOrWhiteSpace(name)));

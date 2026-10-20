@@ -49,8 +49,7 @@ namespace GymManagementSystem.DAL
 
         public static (int PersonID, int MemberID)? Create(
             string firstName,
-            string secondName,
-            string thirdName,
+            string middleName,
             string lastName,
             string phoneNumber,
             DateTime birthDate,
@@ -65,9 +64,8 @@ namespace GymManagementSystem.DAL
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.Add("@FirstName", SqlDbType.NVarChar, 50).Value = firstName;
-                command.Parameters.Add("@SecondName", SqlDbType.NVarChar, 50).Value = secondName;
-                command.Parameters.Add("@ThirdName", SqlDbType.NVarChar, 50).Value =
-                    string.IsNullOrWhiteSpace(thirdName) ? (object)DBNull.Value : thirdName;
+                command.Parameters.Add("@MiddleName", SqlDbType.NVarChar, 50).Value =
+                    string.IsNullOrWhiteSpace(middleName) ? (object)DBNull.Value : middleName;
                 command.Parameters.Add("@LastName", SqlDbType.NVarChar, 50).Value = lastName;
                 command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 11).Value = phoneNumber;
                 command.Parameters.Add("@BirthDate", SqlDbType.Date).Value = birthDate;
@@ -94,8 +92,7 @@ namespace GymManagementSystem.DAL
         public static bool Update(
             int memberID,
             string firstName,
-            string secondName,
-            string thirdName,
+            string middleName,
             string lastName,
             string phoneNumber,
             DateTime birthDate,
@@ -111,9 +108,8 @@ namespace GymManagementSystem.DAL
 
                 command.Parameters.Add("@MemberID", SqlDbType.Int).Value = memberID;
                 command.Parameters.Add("@FirstName", SqlDbType.NVarChar, 50).Value = firstName;
-                command.Parameters.Add("@SecondName", SqlDbType.NVarChar, 50).Value = secondName;
-                command.Parameters.Add("@ThirdName", SqlDbType.NVarChar, 50).Value =
-                    string.IsNullOrWhiteSpace(thirdName) ? (object)DBNull.Value : thirdName;
+                command.Parameters.Add("@MiddleName", SqlDbType.NVarChar, 50).Value =
+                    string.IsNullOrWhiteSpace(middleName) ? (object)DBNull.Value : middleName;
                 command.Parameters.Add("@LastName", SqlDbType.NVarChar, 50).Value = lastName;
                 command.Parameters.Add("@PhoneNumber", SqlDbType.VarChar, 11).Value = phoneNumber;
                 command.Parameters.Add("@BirthDate", SqlDbType.Date).Value = birthDate;

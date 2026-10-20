@@ -24,7 +24,6 @@ namespace GymManagementSystem.BLL.Entities
             string.Empty,
             string.Empty,
             string.Empty,
-            string.Empty,
             DateTime.MinValue,
             Gender.Male,
             0)
@@ -40,8 +39,7 @@ namespace GymManagementSystem.BLL.Entities
             int memberID,
             int personID,
             string firstName,
-            string secondName,
-            string thirdName,
+            string middleName,
             string lastName,
             string phoneNumber,
             DateTime birthDate,
@@ -53,8 +51,7 @@ namespace GymManagementSystem.BLL.Entities
             : base(
                 personID,
                 firstName,
-                secondName,
-                thirdName,
+                middleName,
                 lastName,
                 phoneNumber,
                 birthDate,
@@ -81,8 +78,7 @@ namespace GymManagementSystem.BLL.Entities
                 Convert.ToInt32(row["MemberID"]),
                 Convert.ToInt32(row["PersonID"]),
                 row["FirstName"].ToString(),
-                row["SecondName"].ToString(),
-                row["ThirdName"] == DBNull.Value ? null: row["ThirdName"].ToString(),
+                row["MiddleName"] == DBNull.Value ? null: row["MiddleName"].ToString(),
                 row["LastName"].ToString(),
                 row["PhoneNumber"].ToString(),
                 Convert.ToDateTime(row["BirthDate"]),
@@ -98,8 +94,7 @@ namespace GymManagementSystem.BLL.Entities
         {
             var result = MembersData.Create(
                 FirstName,
-                SecondName,
-                ThirdName,
+                MiddleName,
                 LastName,
                 PhoneNumber,
                 BirthDate,
@@ -122,12 +117,11 @@ namespace GymManagementSystem.BLL.Entities
             return MembersData.Update(
                 MemberID,
                 FirstName,
-                SecondName,
-                ThirdName,
+                MiddleName,
                 LastName,
                 PhoneNumber,
                 BirthDate,
-                Gender == Gender.Male,
+                Gender == Gender.Female,
                 AreaID,
                 EmergencyPhone,
                 IsActive);

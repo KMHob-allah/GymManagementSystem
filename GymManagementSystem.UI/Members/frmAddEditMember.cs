@@ -59,8 +59,7 @@ namespace GymManagementSystem.UI.Members
         private void _FillMemberInfo()
         {
             _member.FirstName = tbFirstName.Text.Trim();
-            _member.SecondName = tbSecondName.Text.Trim();
-            _member.ThirdName = tbThirdName.Text.Trim();
+            _member.MiddleName = tbMiddleName.Text.Trim();
             _member.LastName = tbLastName.Text.Trim();
             _member.PhoneNumber = tbPhoneNumber.Text.Trim();
             _member.EmergencyPhone = tbEmergencyPhone.Text.Trim();
@@ -78,8 +77,7 @@ namespace GymManagementSystem.UI.Members
         {
             lblMemberIDValue.Text = "[A/N]";
             tbFirstName.Text = string.Empty;
-            tbSecondName.Text = string.Empty;
-            tbThirdName .Text = string.Empty;
+            tbMiddleName.Text = string.Empty;
             tbLastName.Text = string.Empty;
             tbPhoneNumber.Text = string.Empty;
             tbEmergencyPhone.Text = string.Empty;
@@ -92,8 +90,7 @@ namespace GymManagementSystem.UI.Members
         {
             lblMemberIDValue.Text = _member.MemberID.ToString();
             tbFirstName.Text = _member.FirstName;
-            tbSecondName.Text = _member.SecondName;
-            tbThirdName.Text = _member.ThirdName;
+            tbMiddleName.Text = _member.MiddleName;
             tbLastName.Text = _member.LastName;
             tbPhoneNumber.Text = _member.PhoneNumber;
             tbEmergencyPhone.Text = _member.EmergencyPhone;
@@ -118,11 +115,7 @@ namespace GymManagementSystem.UI.Members
         private void txtFirstName_Validating(object sender, CancelEventArgs e)
         {
             _ValidateTextBox(tbFirstName, "First name cannot be blank.");
-        }
-        private void txtSecondName_Validating(object sender, CancelEventArgs e)
-        {
-            _ValidateTextBox(tbSecondName, "Second name cannot be blank.");
-        }
+        }     
         private void txtLastName_Validating(object sender, CancelEventArgs e)
         {
             _ValidateTextBox(tbLastName, "Last name cannot be blank.");
@@ -180,26 +173,32 @@ namespace GymManagementSystem.UI.Members
             string emergencyPhone = textBox.Text.Trim();
             string mainPhone = tbPhoneNumber.Text.Trim(); 
 
-            if (string.IsNullOrWhiteSpace(emergencyPhone) || !_IsValidEgyptianPhone(emergencyPhone))
-            {
-                errpAddEditMember.SetError(textBox, "Emergency phone must be 11 digits");
-                return false;
-            }
-            else if (emergencyPhone == mainPhone)
-            {
-                errpAddEditMember.SetError(textBox, "Emergency phone cannot be the same as the main phone.");
-                return false;
-            }
-            else
+            if(string.IsNullOrEmpty(emergencyPhone))
             {
                 errpAddEditMember.SetError(textBox, string.Empty);
                 return true;
             }
+
+            else
+            {
+                if (!_IsValidEgyptianPhone(emergencyPhone))
+                {
+                    errpAddEditMember.SetError(textBox, "Emergency phone must be 11 digits");
+                    return false;
+                }
+
+                if (emergencyPhone == mainPhone)
+                {
+                    errpAddEditMember.SetError(textBox, "Emergency phone cannot be the same as the main phone.");
+                    return false;
+                }        
+            }
+
+            return true;
         }
         private bool _ValidateAllInputs()
         {
             bool isFirstNameValid = _ValidateTextBox(tbFirstName, "First name cannot be blank.");
-            bool isSecondNameValid = _ValidateTextBox(tbSecondName, "Second name cannot be blank.");
             bool isLastNameValid = _ValidateTextBox(tbLastName, "Last name cannot be blank.");
             bool isPhoneValid = _ValidatePhoneTextBox(tbPhoneNumber);
             bool isEmergencyPhoneValid = _ValidateEmergencyPhoneTextBox(tbEmergencyPhone);
@@ -213,7 +212,6 @@ namespace GymManagementSystem.UI.Members
 
             return
      isFirstNameValid &&
-     isSecondNameValid &&
      isLastNameValid &&
      isPhoneValid &&
      isEmergencyPhoneValid &&

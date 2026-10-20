@@ -50,7 +50,8 @@ namespace GymManagementSystem.UI.Members
             lblGenderValue.Text = member.IsMale ? "Male" : "Female";
 
             lblPhoneNumberValue.Text = member.PhoneNumber;
-            lblEmergencyPhoneValue.Text = member.EmergencyPhone;
+            lblEmergencyPhoneValue.Text = 
+                string.IsNullOrEmpty(member.EmergencyPhone) ? "Doesn't have" : member.EmergencyPhone.ToString();
             lblAreaValue.Text = member.Area.AreaName;
 
             lblJoinDateValue.Text = member.JoinDate.ToString("yyyy/MM/dd");

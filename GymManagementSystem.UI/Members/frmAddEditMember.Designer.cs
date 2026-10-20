@@ -41,12 +41,11 @@
             this.tbEmergencyPhone = new GymManagementSystem.UI.Controls.CustomTextBox();
             this.ckbActive = new System.Windows.Forms.CheckBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
-            this.tbSecondName = new GymManagementSystem.UI.Controls.CustomTextBox();
+            this.tbMiddleName = new GymManagementSystem.UI.Controls.CustomTextBox();
             this.cbAreas = new System.Windows.Forms.ComboBox();
             this.tbLastName = new GymManagementSystem.UI.Controls.CustomTextBox();
             this.lblMemberID = new System.Windows.Forms.Label();
             this.lblBirthDate = new System.Windows.Forms.Label();
-            this.tbThirdName = new GymManagementSystem.UI.Controls.CustomTextBox();
             this.lblArea = new System.Windows.Forms.Label();
             this.btnSave = new GymManagementSystem.UI.UserControls.CustomIconButton();
             ((System.ComponentModel.ISupportInitialize)(this.errpAddEditMember)).BeginInit();
@@ -70,18 +69,17 @@
             this.panel1.Controls.Add(this.tbEmergencyPhone);
             this.panel1.Controls.Add(this.ckbActive);
             this.panel1.Controls.Add(this.rbFemale);
-            this.panel1.Controls.Add(this.tbSecondName);
+            this.panel1.Controls.Add(this.tbMiddleName);
             this.panel1.Controls.Add(this.cbAreas);
             this.panel1.Controls.Add(this.tbLastName);
             this.panel1.Controls.Add(this.lblMemberID);
             this.panel1.Controls.Add(this.lblBirthDate);
-            this.panel1.Controls.Add(this.tbThirdName);
             this.panel1.Controls.Add(this.lblArea);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.panel1.Location = new System.Drawing.Point(50, 55);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1056, 609);
+            this.panel1.Size = new System.Drawing.Size(1056, 523);
             this.panel1.TabIndex = 54;
             // 
             // tbFirstName
@@ -149,7 +147,7 @@
             this.tbPhoneNumber.FocusBorderColor = System.Drawing.SystemColors.GrayText;
             this.tbPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.tbPhoneNumber.ForeColor = System.Drawing.Color.White;
-            this.tbPhoneNumber.Location = new System.Drawing.Point(24, 436);
+            this.tbPhoneNumber.Location = new System.Drawing.Point(24, 348);
             this.tbPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
             this.tbPhoneNumber.MaxLength = 11;
             this.tbPhoneNumber.Multiline = false;
@@ -195,7 +193,7 @@
             this.tbEmergencyPhone.FocusBorderColor = System.Drawing.SystemColors.GrayText;
             this.tbEmergencyPhone.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.tbEmergencyPhone.ForeColor = System.Drawing.Color.White;
-            this.tbEmergencyPhone.Location = new System.Drawing.Point(24, 522);
+            this.tbEmergencyPhone.Location = new System.Drawing.Point(24, 434);
             this.tbEmergencyPhone.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmergencyPhone.MaxLength = 11;
             this.tbEmergencyPhone.Multiline = false;
@@ -232,27 +230,26 @@
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
             // 
-            // tbSecondName
+            // tbMiddleName
             // 
-            this.tbSecondName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.tbSecondName.BorderColor = System.Drawing.Color.LightGray;
-            this.tbSecondName.BorderRadius = 5;
-            this.tbSecondName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.tbSecondName.FocusBorderColor = System.Drawing.SystemColors.GrayText;
-            this.tbSecondName.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.tbSecondName.ForeColor = System.Drawing.Color.White;
-            this.tbSecondName.Location = new System.Drawing.Point(24, 176);
-            this.tbSecondName.Margin = new System.Windows.Forms.Padding(4);
-            this.tbSecondName.Multiline = false;
-            this.tbSecondName.Name = "tbSecondName";
-            this.tbSecondName.PasswordChar = '\0';
-            this.tbSecondName.PlaceholderText = "second name";
-            this.tbSecondName.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tbSecondName.Size = new System.Drawing.Size(440, 51);
-            this.tbSecondName.TabIndex = 46;
-            this.tbSecondName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.tbSecondName.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
-            this.tbSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.txtSecondName_Validating);
+            this.tbMiddleName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tbMiddleName.BorderColor = System.Drawing.Color.LightGray;
+            this.tbMiddleName.BorderRadius = 5;
+            this.tbMiddleName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbMiddleName.FocusBorderColor = System.Drawing.SystemColors.GrayText;
+            this.tbMiddleName.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.tbMiddleName.ForeColor = System.Drawing.Color.White;
+            this.tbMiddleName.Location = new System.Drawing.Point(24, 176);
+            this.tbMiddleName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMiddleName.Multiline = false;
+            this.tbMiddleName.Name = "tbMiddleName";
+            this.tbMiddleName.PasswordChar = '\0';
+            this.tbMiddleName.PlaceholderText = "middle name (optional)";
+            this.tbMiddleName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbMiddleName.Size = new System.Drawing.Size(440, 51);
+            this.tbMiddleName.TabIndex = 46;
+            this.tbMiddleName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbMiddleName.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
             // 
             // cbAreas
             // 
@@ -276,7 +273,7 @@
             this.tbLastName.FocusBorderColor = System.Drawing.SystemColors.GrayText;
             this.tbLastName.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.tbLastName.ForeColor = System.Drawing.Color.White;
-            this.tbLastName.Location = new System.Drawing.Point(24, 349);
+            this.tbLastName.Location = new System.Drawing.Point(24, 262);
             this.tbLastName.Margin = new System.Windows.Forms.Padding(4);
             this.tbLastName.Multiline = false;
             this.tbLastName.Name = "tbLastName";
@@ -311,27 +308,6 @@
             this.lblBirthDate.TabIndex = 13;
             this.lblBirthDate.Text = "Birth Date";
             // 
-            // tbThirdName
-            // 
-            this.tbThirdName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.tbThirdName.BorderColor = System.Drawing.Color.LightGray;
-            this.tbThirdName.BorderRadius = 5;
-            this.tbThirdName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.tbThirdName.FocusBorderColor = System.Drawing.SystemColors.GrayText;
-            this.tbThirdName.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.tbThirdName.ForeColor = System.Drawing.Color.White;
-            this.tbThirdName.Location = new System.Drawing.Point(24, 263);
-            this.tbThirdName.Margin = new System.Windows.Forms.Padding(4);
-            this.tbThirdName.Multiline = false;
-            this.tbThirdName.Name = "tbThirdName";
-            this.tbThirdName.PasswordChar = '\0';
-            this.tbThirdName.PlaceholderText = "third name";
-            this.tbThirdName.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tbThirdName.Size = new System.Drawing.Size(440, 51);
-            this.tbThirdName.TabIndex = 44;
-            this.tbThirdName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.tbThirdName.TextPadding = new System.Windows.Forms.Padding(10, 2, 10, 2);
-            // 
             // lblArea
             // 
             this.lblArea.AutoSize = true;
@@ -355,7 +331,7 @@
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSave.IconSize = 30;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(985, 686);
+            this.btnSave.Location = new System.Drawing.Point(985, 599);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(121, 36);
             this.btnSave.TabIndex = 46;
@@ -369,7 +345,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(1156, 741);
+            this.ClientSize = new System.Drawing.Size(1156, 655);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSave);
             this.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -404,12 +380,11 @@
         private Controls.CustomTextBox tbEmergencyPhone;
         private System.Windows.Forms.CheckBox ckbActive;
         private System.Windows.Forms.RadioButton rbFemale;
-        private Controls.CustomTextBox tbSecondName;
+        private Controls.CustomTextBox tbMiddleName;
         private System.Windows.Forms.ComboBox cbAreas;
         private Controls.CustomTextBox tbLastName;
         private System.Windows.Forms.Label lblMemberID;
         private System.Windows.Forms.Label lblBirthDate;
-        private Controls.CustomTextBox tbThirdName;
         private System.Windows.Forms.Label lblArea;
     }
 }
